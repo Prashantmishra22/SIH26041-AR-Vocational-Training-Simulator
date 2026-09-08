@@ -1,0 +1,152 @@
+[
+  {
+    "id": "gq-01",
+    "questionNumber": 1,
+    "text": "What is the lower explosive limit (LEL) of Methane (CH4) gas in normal mine atmospheric air?",
+    "textHindi": "सामान्य खदान वायु में मीथेन (CH4) गैस की निचली विस्फोटक सीमा (LEL) क्या है?",
+    "textSantali": "ᱠᱷᱟᱫᱟᱱ ᱨᱮ ᱢᱤᱛᱷᱮᱱ ᱜᱮᱥ (CH4) ᱨᱮᱱᱟᱜ ᱵᱷᱩᱲᱠᱟᱹᱜ ᱥᱤᱢᱟᱹ (LEL) ᱫᱚ ᱛᱤᱱᱟᱹᱜ ᱠᱟᱱᱟ?",
+    "options": [
+      "0.25%",
+      "1.25%",
+      "5.0% (Explosive range: 5% to 15%)",
+      "25.0%"
+    ],
+    "correctIndex": 2,
+    "explanation": "Methane is flammable and explosive between 5.0% and 15.0% in atmospheric air with sufficient oxygen."
+  },
+  {
+    "id": "gq-02",
+    "questionNumber": 2,
+    "text": "Why does Methane (CH4) typically accumulate in upper roof cavities rather than floor sumps?",
+    "textHindi": "मीथेन गैस फर्श के बजाय खदान की छत के ऊपरी हिस्सों में क्यों जमा होती है?",
+    "textSantali": "ᱢᱤᱛᱷᱮᱱ ᱜᱮᱥ ᱞᱟᱛᱟᱨ ᱵᱟᱝ ᱡᱟᱨᱣᱟ ᱠᱟᱛᱮ ᱪᱮᱛᱟᱱ ᱪᱷᱟᱛ ᱨᱮ ᱪᱮᱫᱟᱜ ᱡᱟᱨᱣᱟᱜᱼᱟ?",
+    "options": [
+      "It is attracted by roof support iron bolts",
+      "It is lighter than air (Specific Gravity ~0.55 relative to air)",
+      "It dissolves in roof dripping water",
+      "Ventilation fans pull it upward"
+    ],
+    "correctIndex": 1,
+    "explanation": "Because methane has a specific gravity of ~0.55 (much lighter than air), it forms explosive layers along roof voids."
+  },
+  {
+    "id": "gq-03",
+    "questionNumber": 3,
+    "text": "What is the minimum permissible oxygen concentration for safe worker occupancy underground?",
+    "textHindi": "श्रमिकों के काम करने के लिए न्यूनतम सुरक्षित ऑक्सीजन स्तर क्या है?",
+    "textSantali": "ᱠᱟᱹᱢᱤᱭᱟᱹ ᱠᱚ ᱞᱟᱹᱜᱤᱫ ᱠᱚᱢ ᱠᱷᱚᱱ ᱠᱚᱢ ᱛᱤᱱᱟᱹᱜ ᱚᱠᱥᱤᱡᱮᱱ ᱛᱟᱦᱮᱸᱱ ᱞᱟᱹᱠᱛᱤᱭᱟ?",
+    "options": [
+      "10.0%",
+      "15.0%",
+      "19.5% by volume",
+      "25.0%"
+    ],
+    "correctIndex": 2,
+    "explanation": "DGMS safety rules specify an atmosphere containing less than 19.5% O2 is oxygen-deficient and hazardous."
+  },
+  {
+    "id": "gq-04",
+    "questionNumber": 4,
+    "text": "At what percentage of Methane in return air must all electrical power be cut off automatically?",
+    "textHindi": "रिटर्न वायु में मीथेन का स्तर कितने प्रतिशत पहुंचने पर बिजली की आपूर्ति तुरंत बंद कर दी जानी चाहिए?",
+    "textSantali": "ᱨᱩᱣᱟᱹᱲ ᱦᱚᱭ ᱨᱮ ᱢᱤᱛᱷᱮᱱ ᱛᱤᱱᱟᱹᱜ % ᱥᱮᱴᱮᱨ ᱞᱮᱱᱠᱷᱟᱱ ᱵᱤᱡᱽᱞᱤ ᱚᱴᱳᱢᱮᱴᱤᱠ ᱵᱚᱸᱫᱽ ᱦᱩᱭᱩᱜᱼᱟ?",
+    "options": [
+      "0.50%",
+      "0.75%",
+      "1.25% (DGMS Reg 169)",
+      "5.00%"
+    ],
+    "correctIndex": 2,
+    "explanation": "Under Coal Mines Regulations 2017, if CH4 exceeds 1.25% in the general body of return air, electrical power must be immediately isolated."
+  },
+  {
+    "id": "gq-05",
+    "questionNumber": 5,
+    "text": "Before entering a blind unventilated heading, what is the first safety action required?",
+    "textHindi": "अहवादित (Unventilated) क्षेत्र में प्रवेश करने से पहले पहला कदम क्या होना चाहिए?",
+    "textSantali": "ᱦᱚᱭ ᱵᱟᱝ ᱪᱟᱞᱟᱜ ᱠᱟᱱ ᱡᱟᱭᱜᱟ ᱨᱮ ᱵᱚᱞᱚᱱ ᱢᱟᱬᱟᱝ ᱨᱮ ᱪᱮᱫ ᱠᱟᱹᱢᱤ ᱞᱟᱹᱠᱛᱤᱭᱟ?",
+    "options": [
+      "Enter quickly to inspect the rock face",
+      "Test multi-gas atmospheric concentrations at roof, mid-height, and floor from outside the danger zone",
+      "Switch on electric drilling machines",
+      "Spray water onto the floor"
+    ],
+    "correctIndex": 1,
+    "explanation": "Never enter without prior multi-level gas sampling for CH4, CO, H2S, and O2 levels."
+  },
+  {
+    "id": "gq-06",
+    "questionNumber": 6,
+    "text": "What is the purpose of an intrinsically safe (IS) certification on electronic mine equipment?",
+    "textHindi": "इलेक्ट्रॉनिक खनन उपकरणों पर 'इंट्रिन्सिकली सेफ' (IS) प्रमाणन का क्या उद्देश्य है?",
+    "textSantali": "ᱠᱷᱟᱫᱟᱱ ᱥᱟᱢᱟᱱ ᱨᱮ 'Intrinsically Safe' (IS) ᱨᱮᱱᱟᱜ ᱢᱮᱱᱮᱛ ᱫᱚ ᱪᱮᱫ ᱠᱟᱱᱟ?",
+    "options": [
+      "Ensures equipment is waterproof up to 100 meters",
+      "Guarantees that electrical energy and sparks generated are incapable of igniting flammable methane-air mixtures",
+      "Prevents dust from entering the camera lens",
+      "Allows the device to transmit cellular 5G signals underground"
+    ],
+    "correctIndex": 1,
+    "explanation": "IS design limits thermal and electrical energy so no spark can exceed the minimum ignition energy of methane."
+  },
+  {
+    "id": "gq-07",
+    "questionNumber": 7,
+    "text": "Which gas is known as 'Stinkdamp' due to its characteristic rotten-egg odor?",
+    "textHindi": "सड़े अंडे जैसी गंध के कारण किस गैस को 'स्टिंकडैम्प' (Stinkdamp) कहा जाता है?",
+    "textSantali": "ᱥᱮᱭᱟ ᱵᱤᱞᱤ ᱞᱮᱠᱟ ᱥᱚᱜ ᱠᱷᱟᱹᱛᱤᱨ ᱚᱠᱟ ᱜᱮᱥ 'Stinkdamp' ᱠᱚ ᱢᱮᱛᱟᱜᱼᱟ?",
+    "options": [
+      "Hydrogen Sulfide (H2S)",
+      "Carbon Dioxide (CO2)",
+      "Nitrogen Dioxide (NO2)",
+      "Methane (CH4)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Hydrogen Sulfide (H2S) has a strong rotten egg odor at low levels, but rapidly deadens olfactory senses at dangerous concentrations (>50 PPM)."
+  },
+  {
+    "id": "gq-08",
+    "questionNumber": 8,
+    "text": "What should a worker do immediately if a personal 4-gas monitor sounds a continuous high-pitch alarm?",
+    "textHindi": "यदि व्यक्तिगत गैस मॉनिटर लगातार उच्च अलार्म बजाने लगे तो तुरंत क्या करना चाहिए?",
+    "textSantali": "ᱡᱩᱫᱤ ᱜᱮᱥ ᱰᱤᱴᱮᱠᱴᱚᱨ ᱜᱷᱟᱹᱱᱴᱤ ᱡᱚᱨ ᱛᱮ ᱥᱟᱰᱮᱜᱼᱟ, ᱛᱚᱵᱮ ᱞᱚᱜᱚᱱ ᱪᱮᱫ ᱠᱟᱹᱢᱤ ᱞᱟᱹᱠᱛᱤᱭᱟ?",
+    "options": [
+      "Mute the buzzer and continue loading coal",
+      "Immediately shout warning to coworkers, don breathing apparatus/SCSR, and retreat along the intake fresh airway",
+      "Remove the battery to reset calibration",
+      "Wait 10 minutes to verify if the reading drops"
+    ],
+    "correctIndex": 1,
+    "explanation": "Treat every high gas alarm as an active lethal emergency; alert coworkers and evacuate immediately."
+  },
+  {
+    "id": "gq-09",
+    "questionNumber": 9,
+    "text": "What is the primary danger of Carbon Monoxide (CO) gas in underground atmospheres?",
+    "textHindi": "भूमिगत वातावरण में कार्बन मोनोऑक्साइड (CO) गैस का मुख्य खतरा क्या है?",
+    "textSantali": "ᱠᱟᱨᱵᱚᱱ ᱢᱳᱱᱳᱠᱥᱟᱭᱤᱰ (CO) ᱜᱮᱥ ᱪᱮᱫᱟᱜ ᱟᱹᱰᱤ ᱵᱚᱛᱚᱨᱟᱱ ᱜᱮᱭᱟ?",
+    "options": [
+      "It is visible as bright blue vapor",
+      "It is colorless, odorless, and binds to blood hemoglobin 200x faster than oxygen, causing rapid asphyxiation",
+      "It corrodes rubber conveyor belts",
+      "It extinguishes miners' cap lamp LED bulbs"
+    ],
+    "correctIndex": 1,
+    "explanation": "CO forms carboxyhemoglobin, depriving vital organs and the brain of oxygen without olfactory warning."
+  },
+  {
+    "id": "gq-10",
+    "questionNumber": 10,
+    "text": "How often must portable multi-gas detectors be bump-tested and span-calibrated in mine safety lamps rooms?",
+    "textHindi": "पोर्टेबल मल्टी-गैस डिटेक्टरों की बम्प-टेस्टिंग और कैलिब्रेशन कितने समय में की जानी चाहिए?",
+    "textSantali": "ᱜᱮᱥ ᱰᱤᱴᱮᱠᱴᱚᱨ ᱴᱷᱤᱠ ᱢᱮᱱᱟᱜᱼᱟ ᱥᱮ ᱵᱟᱝ ᱛᱤᱱᱟᱹᱜ ᱫᱤᱱ ᱨᱮ ᱴᱮᱥᱴ ᱦᱩᱭᱩᱜᱼᱟ?",
+    "options": [
+      "Daily bump test before every underground shift & monthly span calibration",
+      "Once a year during annual audit",
+      "Only after an underground fire incident",
+      "Every 5 years"
+    ],
+    "correctIndex": 0,
+    "explanation": "DGMS rules mandate a daily bump test prior to issuing lamps/detectors to workers and monthly full calibration."
+  }
+]

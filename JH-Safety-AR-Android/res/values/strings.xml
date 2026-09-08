@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JH Safety AR</string>
+    <string name="app_subtitle">Industrial Safety Training &amp; Certification</string>
+    <string name="govt_tagline">Government of Jharkhand • Directorate of Mines &amp; Industrial Safety</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_training">Training</string>
+    <string name="nav_videos">Demo Videos</string>
+    <string name="nav_certificates">Certificates</string>
+    <string name="nav_profile">Profile</string>
+    
+    <!-- Languages -->
+    <string name="lang_hindi">हिंदी (Hindi)</string>
+    <string name="lang_santali">ᱥᱟᱱᱛᱟᱲᱤ (Santali)</string>
+    <string name="lang_english">English</string>
+    
+    <!-- Auth -->
+    <string name="worker_id_hint">Enter Worker ID (e.g. DEMO-001)</string>
+    <string name="btn_login">Worker Login</string>
+    <string name="btn_demo_login">Demo Mode (Rahul Kumar - Mining)</string>
+    
+    <!-- AR HUD -->
+    <string name="ar_tracking_searching">Scanning surrounding surface for AR anchor...</string>
+    <string name="ar_tracking_ready">Surface Locked • Tap to Interact</string>
+    <string name="ar_hazard_detected">WARNING: HAZARD DETECTED</string>
+    <string name="ar_safe_zone">SAFETY ZONE CONFIRMED</string>
+    
+    <!-- Common Actions -->
+    <string name="btn_continue">Continue</string>
+    <string name="btn_start_ar">Start AR Practical Training</string>
+    <string name="btn_start_quiz">Take Certification Assessment</string>
+    <string name="btn_verify_qr">Verify QR Credential</string>
+    <string name="btn_download_cert">Save Certificate</string>
+    <string name="btn_sync_now">Sync to State Registry</string>
+</resources>

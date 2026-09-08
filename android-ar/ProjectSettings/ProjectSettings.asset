@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!129 &1
+PlayerSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 26
+  productName: JH-Safety AR
+  companyName: GovtOfJharkhand-DGMS
+  defaultCursor: {fileID: 0}
+  cursorHotspot: {x: 0, y: 0}
+  defaultScreenWidth: 1080
+  defaultScreenHeight: 2400
+  defaultScreenWidthWeb: 960
+  defaultScreenHeightWeb: 600
+  m_RenderingPath: 1
+  m_MobileRenderingPath: 1
+  applicationIdentifier:
+    Android: in.gov.jharkhand.safetyar
+  bundleVersion: 1.0.0
+  AndroidBundleVersionCode: 1
+  AndroidMinSdkVersion: 29
+  AndroidTargetSdkVersion: 34
+  AndroidPreferredInstallLocation: 0
+  cameraUsageDescription: "Camera access is required for Augmented Reality surface detection and industrial safety training simulations."
+  microphoneUsageDescription: "Microphone access is required for worker speech recognition and acoustic hazard simulation."
+  useMacAppStoreValidation: 0
+  macAppStoreCategory: public.app-category.education

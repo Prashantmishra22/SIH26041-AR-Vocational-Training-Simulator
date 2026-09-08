@@ -1,0 +1,73 @@
+{
+  "id": "gas_leak_02",
+  "title": "Toxic Methane (CH4) & CO Gas Detection & Confined Space Safety",
+  "titleHindi": "मीथेन (CH4) एवं कार्बन मोनोऑक्साइड गैस रिसाव एवं सीमित स्थान सुरक्षा",
+  "titleSantali": "ᱵᱤᱥ ᱜᱮᱥ (CH4 & CO) ᱧᱟᱢ ᱟᱨ ᱥᱤᱢᱤᱛ ᱡᱟᱭᱜᱟ ᱨᱩᱠᱷᱤᱭᱟᱹ",
+  "sector": "MINING",
+  "difficulty": "ADVANCED",
+  "estimatedMinutes": 25,
+  "passThreshold": 70,
+  "complianceStandard": "DGMS Safety Circular No. 4/1998 (Methane Monitoring)",
+  "steps": [
+    {
+      "stepNumber": 1,
+      "title": "Multi-Gas Detector Zero Calibration",
+      "hazardType": "Sensor Drift Calibration Error",
+      "instruction": "Power on intrinsically safe 4-gas monitor in fresh intake air and hold the calibration key to zero sensors.",
+      "instructionHindi": "ताजी हवा में 4-गैस डिटेक्टर चालू करें और सेंसर को शून्य (Zero) पर कैलिब्रेट करने के लिए बटन दबाए रखें।",
+      "instructionSantali": "ᱥᱟᱯᱷᱟ ᱦᱚᱭ ᱨᱮ ᱔-ᱜᱮᱥ ᱰᱤᱴᱮᱠᱴᱚᱨ ᱪᱟᱹᱞᱩᱭ ᱢᱮ ᱟᱨ ᱥᱩᱱ (0) ᱞᱟᱹᱜᱤᱫ ᱵᱚᱴᱚᱱ ᱓ ᱴᱤᱯᱤᱡ ᱚᱛᱟ ᱫᱚᱦᱚᱭ ᱢᱮ᱾",
+      "targetObjectName": "MultiGasDetector",
+      "requiredGesture": "HOLD_CALIBRATE",
+      "timeLimitSeconds": 20,
+      "maxPoints": 20
+    },
+    {
+      "stepNumber": 2,
+      "title": "Roof Cavity Methane Layering Test",
+      "hazardType": "Firedamp Methane Layering (>1.25% Explosive)",
+      "instruction": "Extend telescopic sampling wand to upper 10cm of unventilated roof cavity to detect lighter-than-air CH4 gas.",
+      "instructionHindi": "खदान की छत के ऊपरी 10 सेमी हिस्से में टेलीस्कोपिक रॉड उठाकर मीथेन (CH4) गैस की जांच करें।",
+      "instructionSantali": "ᱠᱷᱟᱫᱟᱱ ᱪᱷᱟᱛ ᱨᱮ ᱡᱤᱞᱤᱧ ᱨᱚᱰ ᱛᱩᱞ ᱠᱟᱛᱮ ᱪᱮᱛᱟᱱ ᱨᱮ ᱢᱮᱱᱟᱜ ᱢᱤᱛᱷᱮᱱ ᱜᱮᱥ ᱯᱚᱨᱠᱷᱟᱣ ᱢᱮ᱾",
+      "targetObjectName": "TelescopicSamplingProbe",
+      "requiredGesture": "ALIGN_ROOF_APEX",
+      "timeLimitSeconds": 30,
+      "maxPoints": 20
+    },
+    {
+      "stepNumber": 3,
+      "title": "Oxygen Depletion Sump Assessment",
+      "hazardType": "Oxygen Deficiency Hypoxia Risk (<19.5% O2)",
+      "instruction": "Lower sampling tube into the blind sump dipping floor and verify oxygen level exceeds 19.5% by volume.",
+      "instructionHindi": "निचले गड्ढे में जांच नली डालें और सुनिश्चित करें कि ऑक्सीजन का स्तर 19.5% से अधिक है।",
+      "instructionSantali": "ᱞᱟᱛᱟᱨ ᱜᱟᱰᱷᱟ ᱨᱮ ᱯᱟᱭᱤᱯ ᱟᱬᱜᱚ ᱠᱟᱛᱮ ᱚᱠᱥᱤᱡᱮᱱ ᱑᱙.᱕% ᱠᱷᱚᱱ ᱵᱟᱹᱲᱛᱤ ᱢᱮᱱᱟᱜᱼᱟ ᱥᱮ ᱵᱟᱝ ᱧᱮᱞ ᱢᱮ᱾",
+      "targetObjectName": "SumpSamplingTube",
+      "requiredGesture": "LOWER_AND_HOLD",
+      "timeLimitSeconds": 30,
+      "maxPoints": 20
+    },
+    {
+      "stepNumber": 4,
+      "title": "Auxiliary Fan Venturi Jet Activation",
+      "hazardType": "Stagnant Explosive Air Pocket",
+      "instruction": "Open the compressed air line valve to trigger the pneumatic venturi air mover to flush explosive gases.",
+      "instructionHindi": "संपीड़ित वायु वाल्व खोलें ताकि न्यूमेटिक वेंटुरी पंखा चल सके और गैस बाहर निकल सके।",
+      "instructionSantali": "ᱠᱚᱢᱯᱨᱮᱥᱰ ᱦᱚᱭ ᱵᱷᱟᱞᱵᱷ ᱡᱷᱤᱡᱽ ᱢᱮ ᱡᱟᱛᱮ ᱵᱷᱮᱱᱴᱩᱨᱤ ᱯᱷᱮᱱ ᱪᱟᱹᱞᱩ ᱠᱟᱛᱮ ᱵᱤᱥ ᱜᱮᱥ ᱵᱟᱦᱨᱮ ᱚᱰᱚᱠᱚᱜᱼᱟ᱾",
+      "targetObjectName": "VenturiAirValve",
+      "requiredGesture": "ROTATE_VALVE",
+      "timeLimitSeconds": 25,
+      "maxPoints": 20
+    },
+    {
+      "stepNumber": 5,
+      "title": "Tag-out & Danger Barrier Erection",
+      "hazardType": "Unauthorized Entry into Gassy Void",
+      "instruction": "Erect reflective red Danger Barricade across heading and attach Warning Lockout Tag.",
+      "instructionHindi": "गैस प्रभावित क्षेत्र के प्रवेश द्वार पर लाल खतरे की पट्टी लगाएं और चेतावनी टैग लगाएं।",
+      "instructionSantali": "ᱵᱚᱛᱚᱨᱟᱱ ᱡᱟᱭᱜᱟ ᱨᱮ ᱟᱨᱟᱜ ᱵᱤᱯᱚᱫ ᱵᱮᱨᱤᱠᱮᱰ ᱞᱟᱜᱟᱣ ᱢᱮ ᱟᱨ ᱪᱮᱛᱟᱣᱱᱤ ᱴᱮᱜᱽ ᱛᱚᱞ ᱢᱮ᱾",
+      "targetObjectName": "DangerBarricadeHasp",
+      "requiredGesture": "ATTACH_BARRICADE",
+      "timeLimitSeconds": 25,
+      "maxPoints": 20
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+[
+  {
+    "id": 1,
+    "question": "What are the three essential components of the Fire Triangle?",
+    "questionHindi": "फायर ट्रायंगल (अग्नि त्रिकोण) के तीन आवश्यक घटक क्या हैं?",
+    "questionSantali": "ᱥᱮᱸᱜᱮᱞ ᱯᱮ-ᱠᱳᱬ ᱨᱮᱱᱟᱜ ᱯᱮᱭᱟ ᱢᱩᱬᱩᱛ ᱡᱤᱱᱤᱥ ᱪᱮᱫ ᱠᱟᱱᱟ?",
+    "options": [
+      "Fuel, Heat, and Oxygen",
+      "Coal, Water, and Nitrogen",
+      "Electricity, Smoke, and Carbon",
+      "Methane, Stone Dust, and Air"
+    ],
+    "optionsHindi": [
+      "ईंधन, ताप, और ऑक्सीजन",
+      "कोयला, पानी, और नाइट्रोजन",
+      "बिजली, धुआं, और कार्बन",
+      "मीथेन, स्टोन डस्ट, और हवा"
+    ],
+    "optionsSantali": [
+      "ᱤᱸᱫᱷᱚᱱ, ᱞᱚᱞᱚ, ᱟᱨ ᱚᱠᱥᱤᱡᱮᱱ",
+      "ᱠᱩᱭᱞᱟᱹ, ᱫᱟᱜ, ᱟᱨ ᱱᱟᱭᱴᱨᱳᱡᱮᱱ",
+      "ᱵᱤᱡᱽᱞᱤ, ᱫᱷᱩᱶᱟᱹ, ᱟᱨ ᱠᱟᱨᱵᱚᱱ",
+      "ᱢᱤᱛᱷᱮᱱ, ᱫᱷᱩᱲᱤ, ᱟᱨ ᱦᱚᱭ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Fire is a chemical reaction requiring fuel, heat, and oxygen. Removing any one stops combustion."
+  },
+  {
+    "id": 2,
+    "question": "Which fire extinguisher must be used for an electrical transformer fire in an underground mine?",
+    "questionHindi": "भूमिगत खदान में विद्युत ट्रांसफार्मर की आग के लिए किस अग्निशामक का उपयोग किया जाना चाहिए?",
+    "questionSantali": "ᱵᱤᱡᱽᱞᱤ ᱴᱨᱟᱱᱥᱯᱷᱟᱨᱢᱟᱨ ᱥᱮᱸᱜᱮᱞ ᱞᱟᱹᱜᱤᱫ ᱚᱠᱟ ᱤᱬᱤᱡ ᱵᱮᱵᱷᱟᱨ ᱞᱟᱹᱠᱛᱤ?",
+    "options": [
+      "Pressurized Water Extinguisher",
+      "Dry Chemical Powder (DCP) or CO2 Extinguisher",
+      "Wet Chemical Foam Extinguisher",
+      "Ordinary Sand Bucket only"
+    ],
+    "optionsHindi": [
+      "प्रेशराइज्ड पानी अग्निशामक",
+      "ड्राई केमिकल पाउडर (DCP) या CO2 अग्निशामक",
+      "वेट केमिकल फोम अग्निशामक",
+      "केवल साधारण रेत की बाल्टी"
+    ],
+    "optionsSantali": [
+      "ᱫᱟᱜ ᱤᱬᱤᱡ ᱥᱟᱯᱟᱵ",
+      "DCP ᱥᱮ CO2 ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ",
+      "ᱯᱷᱳᱢ ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ",
+      "ᱮᱠᱮᱱ ᱵᱟᱹᱞᱤ ᱵᱟᱹᱞᱴᱤ"
+    ],
+    "correctIndex": 1,
+    "explanation": "Water conducts electricity and can electrocute the firefighter. DCP or CO2 is non-conductive."
+  },
+  {
+    "id": 3,
+    "question": "What does the 'PASS' acronym stand for when operating a fire extinguisher?",
+    "questionHindi": "अग्निशामक चलाते समय 'PASS' संक्षिप्त नाम का क्या अर्थ है?",
+    "questionSantali": "ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ ᱪᱟᱞᱟᱣ ᱨᱮ 'PASS' ᱨᱮᱱᱟᱜ ᱢᱮᱱᱮᱛ ᱪᱮᱫ ᱠᱟᱱᱟ?",
+    "options": [
+      "Pull pin, Aim at base, Squeeze lever, Sweep side-to-side",
+      "Press button, Activate foam, Stand back, Stop fire",
+      "Protect face, Apply powder, Secure area, Sound alarm",
+      "Push handle, Alert team, Spray water, Save equipment"
+    ],
+    "optionsHindi": [
+      "पुल (पिन खींचें), ऐम (आधार पर निशाना), स्क्वीज (लीवर दबाएं), स्वीप (दाएं-बाएं चलाएं)",
+      "प्रेस (बटन दबाएं), एक्टिवेट (झाग शुरू करें), स्टैंड (पीछे हटें), स्टॉप (आग रोकें)",
+      "प्रोटेक्ट (चेहरा बचाएं), अप्लाई (पाउडर डालें), सिक्योर (क्षेत्र सुरक्षित), साउंड (अलार्म)",
+      "पुश (हैंडल दबाएं), अलर्ट (टीम को बताएं), स्प्रे (पानी छिड़कें), सेव (उपकरण बचाएं)"
+    ],
+    "optionsSantali": [
+      "Pull (ᱯᱤᱱ ᱚᱨ), Aim (ᱯᱷᱮᱰ ᱨᱮ ᱴᱟᱨᱜᱮᱴ), Squeeze (ᱫᱟᱵᱟᱣ), Sweep (ᱫᱷᱟᱨᱮ-ᱫᱷᱟᱨᱮ ᱤᱬᱤᱡ)",
+      "ᱯᱨᱮᱥ ᱵᱚᱴᱚᱱ, ᱯᱷᱳᱢ ᱮᱦᱚᱵ, ᱛᱟᱭᱚᱢᱚᱜ, ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ",
+      "ᱢᱮᱫ-ᱟᱦᱟ ᱵᱟᱧᱪᱟᱣ, ᱯᱟᱣᱰᱟᱨ ᱫᱩᱞ, ᱡᱟᱭᱜᱟ ᱨᱩᱠᱷᱤᱭᱟᱹ",
+      "ᱦᱮᱱᱰᱮᱞ ᱫᱟᱵᱟᱣ, ᱴᱤᱢ ᱞᱟᱹᱭ, ᱫᱟᱜ ᱪᱷᱤᱴᱠᱟᱹᱣ"
+    ],
+    "correctIndex": 0,
+    "explanation": "PASS is the universal firefighting mnemonic: Pull the pin, Aim at the base of the fire, Squeeze handle, Sweep horizontally."
+  },
+  {
+    "id": 4,
+    "question": "During an underground mine fire, which airway route should workers use for evacuation?",
+    "questionHindi": "भूमिगत खदान में आग लगने पर श्रमिकों को निकासी के लिए किस वायुमार्ग मार्ग का उपयोग करना चाहिए?",
+    "questionSantali": "ᱠᱷᱟᱫᱟᱱ ᱨᱮ ᱥᱮᱸᱜᱮᱞ ᱡᱩᱞ ᱚᱠᱛᱚ ᱚᱠᱟ ᱦᱚᱭ ᱰᱟᱦᱟᱨ ᱛᱮ ᱫᱟᱹᱲ ᱩᱰᱩᱠ ᱞᱟᱹᱠᱛᱤ?",
+    "options": [
+      "Intake Airway (Fresh Air Stream)",
+      "Return Airway (Smoke & Foul Air Stream)",
+      "Blind Goaf Area",
+      "Coal Slurry Sump Chamber"
+    ],
+    "optionsHindi": [
+      "इनटेक एयरवे (ताजी हवा का प्रवाह मार्ग)",
+      "रिटर्न एयरवे (धुआं और दूषित हवा मार्ग)",
+      "ब्लाइंड गोफ क्षेत्र",
+      "कोयला स्लरी नाबदान कक्ष"
+    ],
+    "optionsSantali": [
+      "ᱥᱟᱯᱷᱟ ᱦᱚᱭ ᱦᱤᱡᱩᱜ ᱰᱟᱦᱟᱨ (Intake Airway)",
+      "ᱫᱷᱩᱶᱟᱹ ᱟᱨ ᱵᱟᱹᱲᱤᱡ ᱦᱚᱭ ᱰᱟᱦᱟᱨ (Return Airway)",
+      "ᱵᱚᱸᱫᱽ ᱜᱳᱯᱷ ᱡᱟᱭᱜᱟ",
+      "ᱠᱩᱭᱞᱟᱹ ᱫᱟᱜ ᱜᱟᱰᱷᱟ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Evacuating along the intake airway ensures fresh air supply and prevents inhalation of carbon monoxide."
+  },
+  {
+    "id": 5,
+    "question": "What is the primary toxic gas produced by incomplete combustion in coal mine fires that causes rapid poisoning?",
+    "questionHindi": "कोयला खदान की आग में अपूर्ण दहन से उत्पन्न होने वाली प्रमुख विषैली गैस कौन सी है जो तेजी से जहर फैलाती है?",
+    "questionSantali": "ᱠᱩᱭᱞᱟᱹ ᱡᱩᱞᱩᱜ ᱚᱠᱛᱚ ᱚᱠᱟ ᱵᱤᱥ ᱜᱮᱥ ᱚᱰᱚᱠᱚᱜ-ᱟ ᱡᱟᱦᱟᱸ ᱛᱮ ᱦᱚᱲ ᱠᱚ ᱜᱚᱡᱚᱜ-ᱟ?",
+    "options": [
+      "Carbon Monoxide (CO)",
+      "Nitrogen Gas (N2)",
+      "Helium (He)",
+      "Oxygen (O2)"
+    ],
+    "optionsHindi": [
+      "कार्बन मोनोऑक्साइड (CO)",
+      "नाइट्रोजन गैस (N2)",
+      "हीलियम (He)",
+      "ऑक्सीजन (O2)"
+    ],
+    "optionsSantali": [
+      "ᱠᱟᱨᱵᱚᱱ ᱢᱳᱱᱳᱠᱥᱟᱭᱤᱰ (CO)",
+      "ᱱᱟᱭᱴᱨᱳᱡᱮᱱ (N2)",
+      "ᱦᱤᱞᱤᱭᱚᱢ (He)",
+      "ᱚᱠᱥᱤᱡᱮᱱ (O2)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Carbon Monoxide (CO) binds to blood hemoglobin 200 times faster than oxygen, causing rapid asphyxiation."
+  },
+  {
+    "id": 6,
+    "question": "When navigating low-visibility smoke corridors, what is the correct body posture and escape technique?",
+    "questionHindi": "कम दृश्यता वाले धुएं के गलियारों में आगे बढ़ते समय शरीर की सही मुद्रा और निकास तकनीक क्या है?",
+    "questionSantali": "ᱫᱷᱩᱶᱟᱹ ᱡᱟᱭᱜᱟ ᱨᱮ ᱪᱟᱞᱟᱜ ᱚᱠᱛᱚ ᱦᱚᱲᱢᱳ ᱪᱮᱫ ᱞᱮᱠᱟ ᱫᱚᱦᱚ ᱞᱟᱹᱠᱛᱤ?",
+    "options": [
+      "Stay low / crawl below the thermal smoke layer and follow the tactile lifeline",
+      "Run upright with head held as high as possible",
+      "Remove cap lamp and close eyes tightly",
+      "Stop in place and remove safety respirator"
+    ],
+    "optionsHindi": [
+      "नीचे झुकें / धुएं की परत के नीचे रेंगें और लाइफलाइन रस्सी को पकड़कर आगे बढ़ें",
+      "सिर को जितना हो सके ऊपर उठाकर सीधे दौड़ें",
+      "कैप लैंप हटा दें और आंखें कसकर बंद कर लें",
+      "एक ही जगह रुकें और सुरक्षा रेस्पिरेटर हटा दें"
+    ],
+    "optionsSantali": [
+      "ᱞᱟᱛᱟᱨ ᱛᱮ ᱛᱟᱲᱟᱢ ᱢᱮ ᱟᱨ ᱞᱟᱭᱤᱯᱷᱞᱟᱭᱤᱱ ᱫᱩᱨᱤ ᱥᱟᱵ ᱠᱟᱛᱮ ᱪᱟᱞᱟᱜ ᱢᱮ",
+      "ᱪᱮᱛᱟᱱ ᱠᱚᱭᱚᱜ ᱠᱟᱛᱮ ᱫᱟᱹᱲ ᱢᱮ",
+      "ᱞᱮᱢᱯ ᱚᱪᱚᱜ ᱠᱟᱛᱮ ᱢᱮᱫ ᱵᱚᱸᱫᱽ ᱢᱮ",
+      "ᱢᱟᱥᱠ ᱚᱪᱚᱜ ᱠᱟᱛᱮ ᱛᱤᱸᱜᱩ ᱛᱟᱦᱮᱸᱱ ᱢᱮ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Hot toxic smoke rises to the roof. Cooler, breathable air remains within 1 meter of the floor."
+  },
+  {
+    "id": 7,
+    "question": "What is the emergency cap-lamp visual distress signal used underground in Jharkhand mines?",
+    "questionHindi": "झारखण्ड की खदानों में भूमिगत उपयोग किया जाने वाला आपातकालीन कैप-लैंप संकट संकेत क्या है?",
+    "questionSantali": "ᱠᱷᱟᱫᱟᱱ ᱨᱮ ᱟᱪᱠᱟ ᱵᱤᱯᱚᱫᱽ ᱚᱠᱛᱚ ᱞᱮᱢᱯ ᱛᱮ ᱪᱮᱫ ᱤᱥᱟᱨᱟ ᱮᱢᱚᱜ-ᱟ?",
+    "options": [
+      "Continuous flashing in a rapid 3-burst cycle (Flash-Flash-Flash)",
+      "Turning the lamp off completely for 10 minutes",
+      "Pointing the lamp straight at the floor without moving",
+      "Slowly swinging the lamp in large circles"
+    ],
+    "optionsHindi": [
+      "लगातार 3-बार तीव्र चमक (फ्लैश-फ्लैश-फ्लैश)",
+      "लैंप को 10 मिनट के लिए पूरी तरह से बंद करना",
+      "लैंप को बिना हिलाए सीधे फर्श पर रखना",
+      "लैंप को धीरे-धीरे बड़े घेरे में घुमाना"
+    ],
+    "optionsSantali": [
+      "ᱞᱟᱜᱟᱛᱟᱨ ᱓ ᱫᱷᱟᱣ ᱞᱮᱢᱯ ᱡᱩᱞ-ᱤᱬᱤᱡ (Flash-Flash-Flash)",
+      "᱑᱐ ᱢᱤᱱᱤᱴ ᱞᱟᱹᱜᱤᱫ ᱞᱮᱢᱯ ᱵᱚᱸᱫᱽ ᱫᱚᱦᱚ",
+      "ᱮᱠᱮᱱ ᱚᱛ ᱨᱮ ᱞᱮᱢᱯ ᱫᱚᱦᱚ",
+      "ᱞᱮᱢᱯ ᱜᱳᱞ-ᱜᱳᱞ ᱟᱹᱪᱩᱨ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Three rapid light flashes is the standard mine distress call under DGMS safety protocols."
+  },
+  {
+    "id": 8,
+    "question": "True or False: Water can be safely used to extinguish burning oil or diesel haulage fires.",
+    "questionHindi": "सही या गलत: जलते हुए तेल या डीजल की आग को बुझाने के लिए पानी का सुरक्षित उपयोग किया जा सकता है।",
+    "questionSantali": "ᱥᱟᱹᱨᱤ ᱥᱮ ᱵᱷᱩᱞ: ᱡᱩᱞᱩᱜ ᱰᱤᱡᱮᱞ ᱥᱮ ᱥᱩᱱᱩᱢ ᱥᱮᱸᱜᱮᱞ ᱨᱮ ᱫᱟᱜ ᱫᱩᱞ ᱜᱟᱱᱚᱜ-ᱟ᱾",
+    "options": [
+      "False (Water causes burning oil to splatter and spread rapidly)",
+      "True (Water cools all liquid fires immediately)",
+      "True only if water is boiling hot",
+      "True only in opencast mines"
+    ],
+    "optionsHindi": [
+      "गलत (पानी से जलता हुआ तेल छलककर तेजी से फैलता है)",
+      "सही (पानी सभी तरल आग को तुरंत ठंडा करता है)",
+      "केवल तभी सही जब पानी उबलता हुआ गर्म हो",
+      "केवल खुली खदानों में सही"
+    ],
+    "optionsSantali": [
+      "ᱵᱷᱩᱞ (ᱫᱟᱜ ᱫᱩᱞ ᱞᱮᱠᱷᱟᱱ ᱥᱩᱱᱩᱢ ᱯᱟᱥᱱᱟᱣ-ᱟ ᱟᱨ ᱥᱮᱸᱜᱮᱞ ᱵᱟᱹᱲᱛᱤᱜ-ᱟ)",
+      "ᱥᱟᱹᱨᱤ (ᱫᱟᱜ ᱡᱚᱛᱚ ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ-ᱟ)",
+      "ᱮᱠᱮᱱ ᱞᱚᱞᱚ ᱫᱟᱜ ᱛᱮ",
+      "ᱮᱠᱮᱱ ᱪᱮᱛᱟᱱ ᱠᱷᱟᱫᱟᱱ ᱨᱮ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Oil is less dense than water and floats on top. Pouring water causes severe splatter and spreads the fire."
+  },
+  {
+    "id": 9,
+    "question": "Upon reaching the surface assembly point after mine evacuation, what is the mandatory immediate action?",
+    "questionHindi": "खदान निकासी के बाद सतह असेंबली पॉइंट पर पहुंचने पर अनिवार्य तत्काल कार्रवाई क्या है?",
+    "questionSantali": "ᱪᱮᱛᱟᱱ ᱡᱟᱣᱨᱟ ᱡᱟᱭᱜᱟ ᱨᱮ ᱥᱮᱴᱮᱨ ᱠᱟᱛᱮ ᱡᱚᱛᱚ ᱠᱷᱚᱱ ᱯᱩᱭᱞᱩ ᱪᱮᱫ ᱠᱟᱹᱢᱤ ᱞᱟᱹᱠᱛᱤ?",
+    "options": [
+      "Report to Safety Marshal and log off personal biometric / brass token",
+      "Immediately return underground to collect tools",
+      "Leave the colliery premises without notifying anyone",
+      "Turn off the surface ventilation fan"
+    ],
+    "optionsHindi": [
+      "सुरक्षा अधिकारी को रिपोर्ट करें और बायोमेट्रिक / पीतल का टोकन दर्ज कराएं",
+      "औजार लेने के लिए तुरंत वापस भूमिगत जाएं",
+      "किसी को बताए बिना खदान परिसर छोड़ दें",
+      "सतह वेंटिलेशन पंखा बंद कर दें"
+    ],
+    "optionsSantali": [
+      "ᱥᱮᱯᱷᱴᱤ ᱚᱯᱷᱤᱥᱚᱨ ᱴᱷᱮᱱ ᱨᱤᱯᱳᱨᱴ ᱢᱮ ᱟᱨ ᱴᱳᱠᱚᱱ ᱡᱚᱢᱟ ᱢᱮ",
+      "ᱥᱟᱯᱟᱵ ᱤᱫᱤ ᱞᱟᱹᱜᱤᱫ ᱟᱨᱦᱚᱸ ᱞᱟᱛᱟᱨ ᱵᱚᱞᱚᱱ ᱢᱮ",
+      "ᱵᱤᱱᱟᱹ ᱞᱟᱹᱭ ᱛᱮ ᱳᱲᱟᱜ ᱪᱟᱞᱟᱜ ᱢᱮ",
+      "ᱪᱮᱛᱟᱱ ᱯᱷᱮᱱ ᱵᱚᱸᱫᱽ ᱢᱮ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Muster accountability ensures rescue teams know who is safely evacuated versus trapped underground."
+  },
+  {
+    "id": 10,
+    "question": "What is the minimum passing score required to qualify for the Government of Jharkhand Industrial Safety Certificate?",
+    "questionHindi": "झारखण्ड सरकार औद्योगिक सुरक्षा प्रमाण पत्र प्राप्त करने के लिए न्यूनतम उत्तीर्ण अंक क्या है?",
+    "questionSantali": "ᱡᱷᱟᱨᱠᱷᱚᱸᱰ ᱥᱚᱨᱠᱟᱨ ᱥᱟᱹᱠᱷᱤ ᱥᱟᱠᱟᱢ ᱧᱟᱢ ᱞᱟᱹᱜᱤᱫ ᱠᱚᱢ ᱠᱷᱚᱱ ᱠᱚᱢ ᱛᱤᱱᱟᱹᱜ ᱱᱚᱢᱵᱚᱨ ᱞᱟᱹᱠᱛᱤ?",
+    "options": [
+      "70% Composite Score (Practical AR + Theory)",
+      "40% Theory only",
+      "50% Attendance only",
+      "90% Video watch time only"
+    ],
+    "optionsHindi": [
+      "70% समग्र स्कोर (व्यावहारिक एआर + सिद्धांत)",
+      "केवल 40% सिद्धांत",
+      "केवल 50% उपस्थिति",
+      "केवल 90% वीडियो देखने का समय"
+    ],
+    "optionsSantali": [
+      "᱗᱐% ᱡᱚᱛᱚ ᱢᱮᱥᱟ ᱱᱚᱢᱵᱚᱨ (AR ᱠᱟᱹᱢᱤ + ᱯᱟᱲᱦᱟᱣ)",
+      "ᱮᱠᱮᱱ ᱔᱐% ᱯᱟᱲᱦᱟᱣ",
+      "ᱮᱠᱮᱱ ᱕᱐% ᱦᱮᱡ-ᱥᱮᱱ",
+      "ᱮᱠᱮᱱ ᱙᱐% ᱵᱷᱤᱰᱤᱭᱳ ᱧᱮᱞ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Candidates must achieve at least 70% composite score combining practical AR execution and assessment questions."
+  }
+]

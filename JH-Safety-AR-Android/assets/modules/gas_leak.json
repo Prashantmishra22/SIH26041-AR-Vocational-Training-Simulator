@@ -1,0 +1,231 @@
+{
+  "id": "module_gas",
+  "title": "Module 2: Toxic Gas Leak & Confined Space",
+  "titleHindi": "मॉड्यूल 2: जहरीली गैस रिसाव एवं सीमित स्थान सुरक्षा",
+  "titleSantali": "ᱦᱟᱹᱴᱤᱧ ᱒: ᱵᱤᱥ ᱜᱮᱥ ᱟᱨ ᱥᱟᱸᱜᱤᱧ ᱡᱟᱭᱜᱟ ᱨᱩᱠᱷᱤᱭᱟᱹ",
+  "sector": "Mining & Chemical Plants",
+  "difficulty": "Advanced",
+  "estimatedMinutes": 30,
+  "passThreshold": 70,
+  "complianceStandard": "DGMS Coal Mines Regulations 2017 (Reg 169) & Mines Act 1952 Sec 22A",
+  "cartoonLessons": [
+    {
+      "step": 1,
+      "title": "What is Hazardous Gas Underground?",
+      "titleHindi": "भूमिगत खतरनाक गैसें क्या हैं?",
+      "titleSantali": "ᱠᱷᱟᱫᱟᱱ ᱨᱮ ᱵᱤᱥ ᱜᱮᱥ ᱪᱮᱫ ᱠᱟᱱᱟ?",
+      "description": "Firedamp (Methane CH4) is lighter than air and explosive; Blackdamp (CO2/N2) suffocates; Afterdamp (CO) is lethal.",
+      "descriptionHindi": "फायरडैम्प (मीथेन CH4) हवा से हल्की और विस्फोटक है; ब्लैकडैम्प दम घोंटती है; आफ्टरडैम्प (CO) घातक है।",
+      "descriptionSantali": "ᱯᱷᱟᱭᱟᱨᱰᱮᱢᱯ (CH4 ᱢᱤᱛᱷᱮᱱ) ᱦᱚᱭ ᱠᱷᱚᱱ ᱨᱟᱣᱟᱞ ᱟᱨ ᱯᱷᱩᱴᱟᱹᱣᱟᱜ ᱠᱟᱱᱟ; CO ᱜᱮᱥ ᱫᱚ ᱟᱹᱰᱤ ᱵᱤᱥ ᱜᱮᱭᱟ᱾",
+      "dialogue": "Namaste sathiyo! Gas leaks in underground mines and confined tanks are silent killers because you cannot see or smell methane or carbon monoxide without a calibrated gas detector!",
+      "dialogueHindi": "नमस्ते साथियों! भूमिगत खदानों और बंद टैंकों में गैस रिसाव अदृश्य हत्यारे हैं क्योंकि आप बिना गैस डिटेक्टर के मीथेन या CO को देख या सूंघ नहीं सकते!",
+      "dialogueSantali": "ᱡᱚᱦᱟᱨ ᱜᱟᱛᱮ ᱠᱚ! ᱵᱤᱥ ᱜᱮᱥ ᱫᱚ ᱵᱟᱝ ᱧᱮᱞᱚᱜ-ᱟ ᱟᱨ ᱵᱟᱝ ᱥᱚ ᱧᱟᱢᱚᱜ-ᱟ, ᱵᱤᱱᱟᱹ ᱜᱮᱥ ᱢᱤᱴᱟᱨ ᱛᱮ ᱵᱟᱝ ᱵᱟᱰᱟᱭᱚᱜ-ᱟ!"
+    },
+    {
+      "step": 2,
+      "title": "Explosive and Toxic Limits",
+      "titleHindi": "विस्फोटक और विषैली सीमाएं",
+      "titleSantali": "ᱯᱷᱩᱴᱟᱹᱣ ᱟᱨ ᱵᱤᱥ ᱥᱤᱢᱟᱹ",
+      "description": "Methane explodes between 5% and 15% concentration. Safe DGMS limit is below 0.75% in general ventilation.",
+      "descriptionHindi": "मीथेन 5% से 15% सांद्रता के बीच फटती है। सामान्य वेंटिलेशन में सुरक्षित DGMS सीमा 0.75% से कम है।",
+      "descriptionSantali": "ᱢᱤᱛᱷᱮᱱ ᱕% ᱠᱷᱚᱱ ᱑᱕% ᱨᱮ ᱯᱷᱩᱴᱟᱹᱣ-ᱟ᱾ DGMS ᱨᱩᱞ ᱞᱮᱠᱟᱛᱮ ᱐.᱗᱕% ᱠᱷᱚᱱ ᱠᱚᱢ ᱛᱟᱦᱮᱸᱱ ᱞᱟᱹᱠᱛᱤ᱾",
+      "dialogue": "Under DGMS regulations, if methane exceeds 1.25%, all electric power must be disconnected and workers withdrawn instantly!",
+      "dialogueHindi": "DGMS नियमों के तहत, यदि मीथेन 1.25% से अधिक हो जाती है, तो तुरंत बिजली काट दी जानी चाहिए और श्रमिकों को बाहर निकाला जाना चाहिए!",
+      "dialogueSantali": "ᱡᱩᱫᱤ ᱢᱤᱛᱷᱮᱱ ᱑.᱒᱕% ᱠᱷᱚᱱ ᱵᱟᱹᱲᱛᱤᱜ-ᱟ, ᱠᱷᱟᱱ ᱜᱮ ᱵᱤᱡᱽᱞᱤ ᱵᱚᱸᱫᱽ ᱠᱟᱛᱮ ᱩᱰᱩᱠᱚᱜ ᱦᱩᱭᱩᱜ-ᱟ!"
+    },
+    {
+      "step": 3,
+      "title": "Oxygen Deficiency Awareness",
+      "titleHindi": "ऑक्सीजन की कमी के प्रति जागरूकता",
+      "titleSantali": "ᱚᱠᱥᱤᱡᱮᱱ ᱠᱚᱢᱚᱜ ᱨᱮᱱᱟᱜ ᱵᱤᱯᱚᱫᱽ",
+      "description": "Normal air is 20.9% O2. Below 19.5% is hazardous; below 16% causes rapid loss of consciousness.",
+      "descriptionHindi": "सामान्य हवा में 20.9% O2 होती है। 19.5% से नीचे खतरनाक है; 16% से नीचे तेजी से बेहोशी आती है।",
+      "descriptionSantali": "ᱥᱟᱫᱷᱟᱨᱚᱱ ᱦᱚᱭ ᱨᱮ ᱒᱐.᱙% O2 ᱛᱟᱦᱮᱸᱱᱟ᱾ ᱑᱖% ᱠᱷᱚᱱ ᱠᱚᱢ ᱞᱮᱱᱠᱷᱟᱱ ᱦᱚᱲ ᱮ ᱜᱚᱡᱚᱜ-ᱟ᱾",
+      "dialogue": "Never enter a confined space or sealed mine district without confirming at least 19.5% oxygen!",
+      "dialogueHindi": "कम से कम 19.5% ऑक्सीजन की पुष्टि किए बिना कभी भी सीमित स्थान या सील किए गए खदान क्षेत्र में प्रवेश न करें!",
+      "dialogueSantali": "᱑᱙.᱕% ᱚᱠᱥᱤᱡᱮᱱ ᱵᱟᱝ ᱧᱟᱢ ᱫᱷᱟᱹᱵᱤᱡ ᱛᱤᱥ ᱦᱚᱸ ᱵᱚᱞᱚᱱ ᱵᱟᱝ ᱜᱟᱱᱚᱜ-ᱟ!"
+    },
+    {
+      "step": 4,
+      "title": "Multi-Gas Detector Operation",
+      "titleHindi": "मल्टी-गैस डिटेक्टर का संचालन",
+      "titleSantali": "ᱢᱟᱞᱴᱤ-ᱜᱮᱥ ᱰᱤᱴᱮᱠᱴᱚᱨ ᱪᱟᱞᱟᱣ",
+      "description": "Test 4 gases: Oxygen (O2), Methane (CH4), Carbon Monoxide (CO), Hydrogen Sulfide (H2S).",
+      "descriptionHindi": "4 गैसों का परीक्षण करें: ऑक्सीजन (O2), मीथेन (CH4), कार्बन मोनोऑक्साइड (CO), हाइड्रोजन सल्फाइड (H2S)।",
+      "descriptionSantali": "᱔ ᱜᱚᱴᱟᱝ ᱜᱮᱥ ᱯᱚᱨᱠᱷᱟᱣ ᱢᱮ: O2, CH4, CO, ᱟᱨ H2S ᱜᱮᱥ᱾",
+      "dialogue": "Always bump-test and calibrate your 4-gas monitor on the surface before descending down the shaft.",
+      "dialogueHindi": "खदान में उतरने से पहले हमेशा सतह पर अपने 4-गैस मॉनिटर का बम्प-टेस्ट और कैलिब्रेशन करें।",
+      "dialogueSantali": "ᱞᱟᱛᱟᱨ ᱵᱚᱞᱚᱱ ᱢᱟᱲᱟᱝ ᱨᱮ ᱜᱮᱥ ᱢᱤᱴᱟᱨ ᱯᱚᱨᱠᱷᱟᱣ ᱠᱟᱛᱮ ᱥᱟᱯᱲᱟᱣ ᱢᱮ᱾"
+    },
+    {
+      "step": 5,
+      "title": "Personal Protective Equipment (PPE)",
+      "titleHindi": "व्यक्तिगत सुरक्षा उपकरण (पीपीई)",
+      "titleSantali": "ᱟᱯᱱᱟᱨᱟᱜ ᱨᱩᱠᱷᱤᱭᱟᱹ ᱥᱟᱯᱟᱵ (PPE)",
+      "description": "Self-Contained Breathing Apparatus (SCBA), full-body harness, anti-static clothing.",
+      "descriptionHindi": "सेल्फ-कंटेन्ड ब्रीदिंग उपकरण (SCBA), फुल-बॉडी हार्नेस, एंटी-स्टैटिक कपड़े।",
+      "descriptionSantali": "SCBA ᱥᱟᱦᱮᱫ ᱢᱟᱥᱠ, ᱦᱚᱲᱢᱳ ᱵᱮᱞᱴ (Harness), ᱟᱨ ᱨᱩᱠᱷᱤᱭᱟᱹ ᱞᱩᱜᱽᱲᱤ᱾",
+      "dialogue": "For toxic atmosphere entry, an ordinary dust mask is useless! You MUST wear a positive-pressure SCBA respirator!",
+      "dialogueHindi": "जहरीले वातावरण के लिए साधारण धूल मास्क बेकार है! आपको पॉजिटिव-प्रेशर SCBA रेस्पिरेटर पहनना होगा!",
+      "dialogueSantali": "ᱵᱤᱥ ᱜᱮᱥ ᱞᱟᱹᱜᱤᱫ ᱥᱟᱫᱷᱟᱨᱚᱱ ᱢᱟᱥᱠ ᱵᱟᱝ ᱠᱟᱹᱢᱤᱭᱟ! SCBA ᱥᱟᱦᱮᱫ ᱥᱟᱯᱟᱵ ᱦᱚᱨᱚᱜ ᱢᱮ!"
+    },
+    {
+      "step": 6,
+      "title": "Confined Space Hazards",
+      "titleHindi": "सीमित स्थान के खतरे",
+      "titleSantali": "ᱥᱟᱸᱜᱤᱧ ᱟᱨ ᱥᱟᱸᱠᱲᱟ ᱡᱟᱭᱜᱟ ᱨᱮᱱᱟᱜ ᱵᱤᱯᱚᱫᱽ",
+      "description": "Restricted entry/exit, poor natural ventilation, engulfment, and flammable vapor pockets.",
+      "descriptionHindi": "सीमित प्रवेश/निकास, खराब प्राकृतिक वेंटिलेशन, मलबे में दबना और ज्वलनशील वाष्प।",
+      "descriptionSantali": "ᱦᱩᱰᱤᱧ ᱫᱩᱣᱟᱹᱨ, ᱦᱚᱭ ᱵᱟᱝ ᱪᱟᱞᱟᱜ, ᱚᱛ ᱫᱷᱟᱥᱟᱣ ᱟᱨ ᱜᱮᱥ ᱡᱟᱣᱨᱟᱜ ᱵᱤᱯᱚᱫᱽ᱾",
+      "dialogue": "Silos, coal bunkers, sump pits, and blind underground headings are confined spaces requiring strict permits to work!",
+      "dialogueHindi": "साइलो, कोयला बंकर, नाबदान गड्ढे और अंधी भूमिगत सुरंगें सीमित स्थान हैं जिनके लिए परमिट जरूरी है!",
+      "dialogueSantali": "ᱠᱩᱭᱞᱟᱹ ᱵᱟᱝᱠᱟᱨ, ᱠᱷᱟᱫᱟᱱ ᱥᱩᱨᱚᱝ ᱨᱮ ᱵᱚᱞᱚᱱ ᱞᱟᱹᱜᱤᱫ ᱯᱟᱨᱢᱤᱴ ᱞᱟᱹᱠᱛᱤᱭᱟ!"
+    },
+    {
+      "step": 7,
+      "title": "The Buddy and Standby Attendant System",
+      "titleHindi": "बडी और स्टैंडबाय अटेंडेंट प्रणाली",
+      "titleSantali": "ᱜᱟᱛᱮ ᱟᱨ ᱵᱟᱦᱨᱮ ᱨᱩᱠᱷᱤᱭᱟᱹ (Buddy System)",
+      "description": "A trained standby attendant must remain outside the portal maintaining continuous lifeline contact.",
+      "descriptionHindi": "एक प्रशिक्षित स्टैंडबाय अटेंडेंट को लगातार लाइफलाइन संपर्क बनाए रखते हुए बाहर रहना चाहिए।",
+      "descriptionSantali": "ᱢᱤᱫ ᱜᱟᱛᱮ ᱫᱚ ᱵᱟᱦᱨᱮ ᱨᱮ ᱛᱟᱦᱮᱸ ᱠᱟᱛᱮ ᱫᱩᱨᱤ ᱥᱟᱵ ᱠᱟᱛᱮ ᱠᱟᱛᱷᱟ ᱨᱚᱲ ᱛᱟᱦᱮᱸᱱ ᱞᱟᱹᱠᱛᱤ᱾",
+      "dialogue": "Rule number one: NEVER enter alone! The standby attendant holds your lifeline and monitors atmospheric readings every 2 minutes.",
+      "dialogueHindi": "नंबर एक नियम: कभी अकेले प्रवेश न करें! स्टैंडबाय अटेंडेंट आपकी लाइफलाइन थामेगा और हर 2 मिनट में रीडिंग लेगा।",
+      "dialogueSantali": "ᱯᱩᱭᱞᱩ ᱨᱩᱞ: ᱮᱠᱞᱟ ᱛᱤᱥ ᱦᱚᱸ ᱟᱞᱚᱢ ᱵᱚᱞᱚᱱᱟ! ᱜᱟᱛᱮ ᱵᱟᱦᱨᱮ ᱨᱮ ᱫᱩᱨᱤ ᱥᱟᱵ ᱠᱟᱛᱮ ᱛᱟᱦᱮᱸᱱᱟᱭ᱾"
+    },
+    {
+      "step": 8,
+      "title": "Pre-Entry Atmospheric Gas Testing",
+      "titleHindi": "प्रवेश-पूर्व वायुमंडलीय गैस परीक्षण",
+      "titleSantali": "ᱵᱚᱞᱚᱱ ᱢᱟᱲᱟᱝ ᱜᱮᱥ ᱯᱚᱨᱠᱷᱟᱣ",
+      "description": "Sample stratified layers: Top (CH4), Middle (CO), and Bottom (H2S/CO2).",
+      "descriptionHindi": "स्तरीकृत परतों का नमूना लें: ऊपर (मीथेन), मध्य (CO), और नीचे (H2S/CO2)।",
+      "descriptionSantali": "ᱯᱮ ᱴᱷᱟᱶ ᱯᱚᱨᱠᱷᱟᱣ ᱢᱮ: ᱪᱮᱛᱟᱱ (CH4), ᱛᱟᱞᱟ (CO), ᱟᱨ ᱞᱟᱛᱟᱨ (H2S/CO2)᱾",
+      "dialogue": "Gases stratify by density. Always test the ceiling for light methane, the middle for breathing air, and the floor for heavy toxic H2S!",
+      "dialogueHindi": "गैसें घनत्व के अनुसार अलग-अलग परतों में बंटती हैं। हमेशा छत पर मीथेन, बीच में सांस लेने योग्य हवा और फर्श पर H2S की जांच करें!",
+      "dialogueSantali": "ᱜᱮᱥ ᱨᱟᱣᱟᱞ-ᱦᱟᱢᱟᱞ ᱞᱮᱠᱟᱛᱮ ᱛᱟᱦᱮᱸᱱᱟ᱾ ᱪᱮᱛᱟᱱ ᱨᱮ ᱢᱤᱛᱷᱮᱱ ᱟᱨ ᱞᱟᱛᱟᱨ ᱨᱮ H2S ᱯᱚᱨᱠᱷᱟᱣ ᱢᱮ!"
+    },
+    {
+      "step": 9,
+      "title": "Forced Mechanical Ventilation",
+      "titleHindi": "जबरन यांत्रिक वेंटिलेशन (पंखे)",
+      "titleSantali": "ᱢᱤᱥᱤᱱ ᱛᱮ ᱦᱚᱭ ᱪᱟᱞᱟᱣ (Ventilation)",
+      "description": "Operate compressed air Venturi blower or auxiliary fan for at least 15 minutes before entry.",
+      "descriptionHindi": "प्रवेश से पहले कम से कम 15 मिनट तक कंप्रेस्ड एयर वेंचुरी ब्लोअर या सहायक पंखा चलाएं।",
+      "descriptionSantali": "ᱵᱚᱞᱚᱱ ᱢᱟᱲᱟᱝ ᱑᱕ ᱢᱤᱱᱤᱴ ᱯᱷᱮᱱ ᱪᱟᱞᱟᱣ ᱠᱟᱛᱮ ᱵᱤᱥ ᱜᱮᱥ ᱩᱰᱩᱠ ᱢᱮ᱾",
+      "dialogue": "Continuous forced ventilation purges hazardous pockets. Keep the blower running the entire duration of the work shift!",
+      "dialogueHindi": "लगातार वेंटिलेशन खतरनाक गैसों को बाहर निकालता है। पूरी शिफ्ट के दौरान पंखा चालू रखें!",
+      "dialogueSantali": "ᱠᱟᱹᱢᱤ ᱪᱟᱞᱟᱜ ᱫᱷᱟᱹᱵᱤᱡ ᱯᱷᱮᱱ ᱫᱚ ᱪᱟᱹᱞᱩ ᱜᱮ ᱫᱚᱦᱚᱭ ᱢᱮ!"
+    },
+    {
+      "step": 10,
+      "title": "Safe Entry and Lockout / Tagout",
+      "titleHindi": "सुरक्षित प्रवेश एवं तालाबंदी (LOTO)",
+      "titleSantali": "ᱨᱩᱠᱷᱤᱭᱟᱹ ᱵᱚᱞᱚᱱ ᱟᱨ ᱞᱚᱠ-ᱴᱮᱜᱽ",
+      "description": "Lockout agitator motors, isolate incoming gas valves, and attach entry permit tag.",
+      "descriptionHindi": "मोटर को लॉक करें, आने वाले गैस वाल्व को बंद करें और प्रवेश परमिट टैग लगाएं।",
+      "descriptionSantali": "ᱢᱤᱥᱤᱱ ᱵᱚᱸᱫᱽ ᱠᱟᱛᱮ ᱛᱟᱞᱟ ᱢᱟᱨᱟᱣ ᱢᱮ ᱟᱨ ᱜᱮᱥ ᱵᱷᱟᱞᱵᱽ ᱵᱚᱸᱫᱽ ᱢᱮ᱾",
+      "dialogue": "Ensure all mechanical valves feeding into the pit are padlocked and tagged out before placing a single foot inside.",
+      "dialogueHindi": "अंदर पैर रखने से पहले सुनिश्चित करें कि गड्ढे में आने वाले सभी वाल्व पैडलॉक और टैग किए गए हैं।",
+      "dialogueSantali": "ᱵᱚᱞᱚᱱ ᱢᱟᱲᱟᱝ ᱡᱚᱛᱚ ᱵᱷᱟᱞᱵᱽ ᱨᱮ ᱛᱟᱞᱟ ᱞᱟᱜᱟᱣ ᱟᱠᱟᱱᱟ ᱥᱮ ᱵᱟᱝ ᱧᱮᱞ ᱢᱮ᱾"
+    },
+    {
+      "step": 11,
+      "title": "Emergency Rescue and Non-Entry Extraction",
+      "titleHindi": "आपातकालीन बचाव एवं निष्कर्षण",
+      "titleSantali": "ᱟᱪᱠᱟ ᱵᱟᱧᱪᱟᱣ ᱟᱨ ᱩᱰᱩᱠ ᱦᱚᱨᱟ",
+      "description": "Use mechanical tripod winch to hoist incapacitated worker without putting rescuer at risk.",
+      "descriptionHindi": "बचावकर्मियों को खतरे में डाले बिना बेहोश श्रमिक को बाहर निकालने के लिए ट्राइपॉड चरखी का प्रयोग करें।",
+      "descriptionSantali": "ᱴᱨᱟᱭᱯᱳᱰ ᱢᱤᱥᱤᱱ ᱛᱮ ᱠᱟᱹᱢᱤᱭᱟᱹ ᱵᱟᱦᱨᱮ ᱚᱨ ᱩᱰᱩᱠ ᱮ ᱢᱮ᱾",
+      "dialogue": "Over 60% of confined space fatalities are would-be rescuers entering without breathing gear. ALWAYS use the mechanical winch from outside!",
+      "dialogueHindi": "सीमित स्थान में 60% से अधिक मौतें बिना उपकरण के अंदर जाने वाले मददगारों की होती हैं। हमेशा बाहर से विंच का उपयोग करें!",
+      "dialogueSantali": "ᱵᱟᱦᱨᱮ ᱠᱷᱚᱱ ᱜᱮ ᱢᱤᱥᱤᱱ ᱛᱮ ᱚᱨ ᱩᱰᱩᱠ ᱮ ᱢᱮ, ᱵᱤᱱᱟᱹ ᱥᱟᱯᱟᱵ ᱛᱮ ᱟᱞᱚᱢ ᱵᱚᱞᱚᱱᱟ!"
+    },
+    {
+      "step": 12,
+      "title": "Safety Golden Rules Summary",
+      "titleHindi": "सुरक्षा के स्वर्णिम नियम",
+      "titleSantali": "ᱨᱩᱠᱷᱤᱭᱟᱹ ᱥᱚᱱᱟ ᱨᱩᱞ ᱠᱚ",
+      "description": "Test before entry, ventilate continuously, wear SCBA, maintain standby buddy, and hold valid permit.",
+      "descriptionHindi": "प्रवेश से पहले परीक्षण करें, लगातार हवा दें, SCBA पहनें, साथी बनाए रखें और वैध परमिट रखें।",
+      "descriptionSantali": "ᱯᱚᱨᱠᱷᱟᱣ ᱢᱮ, ᱦᱚᱭ ᱪᱟᱞᱟᱣ ᱢᱮ, SCBA ᱦᱚᱨᱚᱜ ᱢᱮ, ᱜᱟᱛᱮ ᱫᱚᱦᱚᱭ ᱢᱮ ᱟᱨ ᱯᱟᱨᱢᱤᱴ ᱦᱟᱛᱟᱣ ᱢᱮ᱾",
+      "dialogue": "Outstanding work! You are now prepared to carry out the gas testing and safe confined space entry simulation in AR!",
+      "dialogueHindi": "बहुत बढ़िया! अब आप एआर में गैस परीक्षण और सुरक्षित सीमित स्थान प्रवेश का अभ्यास करने के लिए पूरी तरह तैयार हैं!",
+      "dialogueSantali": "ᱟᱹᱰᱤ ᱱᱟᱯᱟᱭ! ᱱᱤᱛ AR ᱨᱮ ᱜᱮᱥ ᱯᱚᱨᱠᱷᱟᱣ ᱟᱨ ᱵᱚᱞᱚᱱ ᱥᱮᱪᱮᱫ ᱮᱦᱚᱵ ᱢᱮ!"
+    }
+  ],
+  "arTasks": [
+    {
+      "step": 1,
+      "title": "Identify Toxic Gas Leak Plume",
+      "instruction": "Scan the underground chamber and pinpoint the glowing methane/CO gas leak zone.",
+      "instructionHindi": "भूमिगत कक्ष को स्कैन करें और चमकते मीथेन/CO गैस रिसाव क्षेत्र को पहचानें।",
+      "instructionSantali": "ᱠᱷᱟᱫᱟᱱ ᱥᱠᱮᱱ ᱠᱟᱛᱮ ᱡᱩᱞᱩᱜ ᱜᱮᱥ ᱡᱚᱨᱚ ᱡᱟᱭᱜᱟ ᱴᱤᱯᱟᱹᱣ ᱢᱮ᱾",
+      "targetObject": "gas_hazard_plume",
+      "points": 15
+    },
+    {
+      "step": 2,
+      "title": "Establish Hazardous Zone Barrier",
+      "instruction": "Place red danger barricade tape around the 10-meter perimeter of the gas leak.",
+      "instructionHindi": "गैस रिसाव के 10 मीटर के दायरे में लाल खतरे का बैरिकेड टेप लगाएं।",
+      "instructionSantali": "ᱜᱮᱥ ᱡᱟᱭᱜᱟ ᱨᱮ ᱑᱐ ᱢᱤᱴᱟᱨ ᱟᱨᱟᱜ ᱪᱮᱛᱟᱣᱱᱤ ᱛᱮᱭᱟᱨ ᱢᱮ᱾",
+      "targetObject": "safety_barrier_perimeter",
+      "points": 10
+    },
+    {
+      "step": 3,
+      "title": "Equip SCBA Respirator & Harness",
+      "instruction": "Select the high-pressure SCBA breathing apparatus and full-body retrieval harness.",
+      "instructionHindi": "हाई-प्रेशर SCBA श्वास उपकरण और फुल-बॉडी हार्नेस चुनें।",
+      "instructionSantali": "SCBA ᱥᱟᱦᱮᱫ ᱢᱟᱥᱠ ᱟᱨ ᱦᱚᱲᱢᱳ ᱵᱮᱞᱴ ᱵᱟᱪᱷᱟᱣ ᱢᱮ᱾",
+      "targetObject": "scba_respirator_gear",
+      "points": 15
+    },
+    {
+      "step": 4,
+      "title": "Deploy Multi-Gas Detector Probe",
+      "instruction": "Sample the stratified air column at ceiling, breathing zone, and floor levels.",
+      "instructionHindi": "छत, सांस लेने वाले क्षेत्र और फर्श के स्तर पर हवा के नमूने की जांच करें।",
+      "instructionSantali": "ᱪᱮᱛᱟᱱ, ᱛᱟᱞᱟ ᱟᱨ ᱞᱟᱛᱟᱨ ᱨᱮ ᱜᱮᱥ ᱢᱤᱴᱟᱨ ᱫᱮᱠᱷᱟᱣ ᱢᱮ᱾",
+      "targetObject": "multi_gas_sensor_probe",
+      "points": 15
+    },
+    {
+      "step": 5,
+      "title": "Activate Venturi Forced Ventilation",
+      "instruction": "Engage the pneumatic blower duct to flush toxic gases out of the confined chamber.",
+      "instructionHindi": "सीमित कक्ष से जहरीली गैसों को बाहर निकालने के लिए ब्लोअर चालू करें।",
+      "instructionSantali": "ᱵᱤᱥ ᱜᱮᱥ ᱩᱰᱩᱠ ᱞᱟᱹᱜᱤᱫ ᱯᱷᱮᱱ ᱪᱟᱹᱞᱩ ᱢᱮ᱾",
+      "targetObject": "venturi_ventilation_blower",
+      "points": 15
+    },
+    {
+      "step": 6,
+      "title": "Station Standby Attendant with Lifeline",
+      "instruction": "Verify that your safety buddy is positioned at the portal holding the retrieval lifeline winch.",
+      "instructionHindi": "सत्यापित करें कि आपका सुरक्षा साथी पोर्टल पर विंच थामे खड़ा है।",
+      "instructionSantali": "ᱜᱟᱛᱮ ᱵᱟᱦᱨᱮ ᱨᱮ ᱫᱩᱨᱤ ᱥᱟᱵ ᱠᱟᱛᱮ ᱛᱤᱸᱜᱩ ᱟᱠᱟᱱᱟᱭ ᱥᱮ ᱵᱟᱝ ᱧᱮᱞ ᱢᱮ᱾",
+      "targetObject": "standby_buddy_attendant",
+      "points": 15
+    },
+    {
+      "step": 7,
+      "title": "Execute Safe Confined Space Entry",
+      "instruction": "Step into the workspace along the secured lifeline route with continuous gas monitoring.",
+      "instructionHindi": "लगातार गैस निगरानी के साथ सुरक्षित लाइफलाइन मार्ग से कार्यक्षेत्र में प्रवेश करें।",
+      "instructionSantali": "ᱜᱮᱥ ᱢᱤᱴᱟᱨ ᱪᱟᱹᱞᱩ ᱫᱚᱦᱚ ᱠᱟᱛᱮ ᱨᱩᱠᱷᱤᱭᱟᱹ ᱵᱚᱞᱚᱱ ᱢᱮ᱾",
+      "targetObject": "confined_space_portal",
+      "points": 10
+    },
+    {
+      "step": 8,
+      "title": "Complete Work & Evacuate Safely",
+      "instruction": "Sign off the gas atmospheric log sheet and return safely past the airlock barrier.",
+      "instructionHindi": "गैस लॉग शीट पर हस्ताक्षर करें और एयरलॉक बैरियर के बाहर सुरक्षित लौटें।",
+      "instructionSantali": "ᱠᱟᱹᱢᱤ ᱯᱩᱨᱟᱹᱣ ᱠᱟᱛᱮ ᱥᱟᱹᱠᱷᱤ ᱠᱟᱜᱚᱡᱽ ᱨᱮ ᱥᱩᱦᱤ ᱢᱮ ᱟᱨ ᱨᱩᱣᱟᱹᱲ ᱢᱮ᱾",
+      "targetObject": "gas_log_signoff_marker",
+      "points": 5
+    }
+  ]
+}

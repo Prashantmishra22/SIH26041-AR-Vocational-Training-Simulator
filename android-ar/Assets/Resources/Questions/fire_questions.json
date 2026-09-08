@@ -1,0 +1,152 @@
+[
+  {
+    "id": "fq-01",
+    "questionNumber": 1,
+    "text": "What is the primary indicator of subterranean spontaneous heating in a coal seam?",
+    "textHindi": "कोयला सीम में स्वतः दहन या आंतरिक ताप का मुख्य प्रारंभिक लक्षण क्या है?",
+    "textSantali": "ᱠᱩᱭᱞᱟᱹ ᱠᱷᱟᱫᱟᱱ ᱨᱮ ᱟᱡ ᱛᱮ ᱥᱮᱸᱜᱮᱞ ᱞᱟᱜᱟᱣᱜ ᱨᱮᱱᱟᱜ ᱢᱩᱬᱩᱛ ᱪᱤᱱᱦᱟᱹ ᱫᱚ ᱪᱮᱫ ᱠᱟᱱᱟ?",
+    "options": [
+      "Rapid accumulation of water in sumps",
+      "Gob stink / sweetish petrolic odor and temperature rise above 60°C",
+      "Sudden increase in barometric air pressure",
+      "Decrease in ventilation fan RPM"
+    ],
+    "correctIndex": 1,
+    "explanation": "Gob stink (a paraffinic petrolic odor) caused by low-temperature oxidation combined with local temperature rise is the definitive first indicator."
+  },
+  {
+    "id": "fq-02",
+    "questionNumber": 2,
+    "text": "What does the 'P' stand for in the fire extinguisher PASS protocol?",
+    "textHindi": "अग्निशामक के 'PASS' प्रोटोकॉल में 'P' का क्या अर्थ है?",
+    "textSantali": "ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ PASS ᱨᱤᱛ ᱨᱮ 'P' ᱨᱮᱱᱟᱜ ᱢᱮᱱᱮᱛ ᱫᱚ ᱪᱮᱫ ᱠᱟᱱᱟ?",
+    "options": [
+      "Press the emergency klaxon",
+      "Pull the safety pin from the handle",
+      "Push towards the exit",
+      "Position device vertically"
+    ],
+    "correctIndex": 1,
+    "explanation": "PASS stands for: Pull pin, Aim at base of fire, Squeeze handle, Sweep side-to-side."
+  },
+  {
+    "id": "fq-03",
+    "questionNumber": 3,
+    "text": "How many seconds do you have to don an emergency Self-Contained Self-Rescuer (SCSR)?",
+    "textHindi": "भूमिगत आपातकालीन एससीएसआर (SCSR) श्वसन उपकरण पहनने के लिए मानक समय क्या है?",
+    "textSantali": "ᱚᱛ ᱞᱟᱛᱟᱨ ᱨᱮ ᱡᱤᱣᱤ ᱵᱟᱧᱪᱟᱣ SCSR ᱦᱚᱨᱚᱜ ᱞᱟᱹᱜᱤᱫ ᱛᱤᱱᱟᱹᱜ ᱚᱠᱛᱚ ᱧᱟᱢᱚᱜᱼᱟ?",
+    "options": [
+      "Within 20 seconds",
+      "Within 2 minutes",
+      "Within 5 minutes",
+      "Only after smoke is visible"
+    ],
+    "correctIndex": 0,
+    "explanation": "DGMS safety standards mandate donning and initiating oxygen generation within 20 seconds to prevent toxic CO inhalation."
+  },
+  {
+    "id": "fq-04",
+    "questionNumber": 4,
+    "text": "What is the primary function of stone dust barriers installed along mine roadways?",
+    "textHindi": "खदान की गैलरी में स्टोन डस्ट बैरियर (चूना पत्थर धूल अवरोधक) का मुख्य कार्य क्या है?",
+    "textSantali": "ᱠᱷᱟᱫᱟᱱ ᱨᱮ ᱫᱷᱩᱲᱤ ᱟᱴᱠᱟᱣ ᱥᱮᱞᱯᱷ (Stone Dust Barrier) ᱨᱮᱱᱟᱜ ᱠᱟᱹᱢᱤ ᱫᱚ ᱪᱮᱫ ᱠᱟᱱᱟ?",
+    "options": [
+      "To illuminate dark roadway corridors",
+      "To suppress and extinguish secondary coal dust explosion propagation flame waves",
+      "To absorb excess subterranean humidity",
+      "To filter underground diesel locomotive exhaust"
+    ],
+    "correctIndex": 1,
+    "explanation": "Stone dust barriers disperse incombustible limestone dust upon shockwave impact, quenching flame fronts."
+  },
+  {
+    "id": "fq-05",
+    "questionNumber": 5,
+    "text": "When evacuating a smoke-filled underground gallery, which airway should you follow?",
+    "textHindi": "धुएं से भरी भूमिगत गैलरी से बाहर निकलते समय किस वायुमार्ग का अनुसरण करना चाहिए?",
+    "textSantali": "ᱠᱩᱦᱲᱟᱹ ᱯᱮᱨᱮᱡ ᱠᱷᱟᱫᱟᱱ ᱠᱷᱚᱱ ᱚᱰᱚᱠᱚᱜ ᱞᱟᱹᱜᱤᱫ ᱚᱠᱟ ᱦᱚᱭ ᱰᱟᱦᱟᱨ ᱯᱟᱸᱡᱟ ᱞᱟᱹᱠᱛᱤ ᱠᱟᱱᱟ?",
+    "options": [
+      "Return airway (contaminated air)",
+      "Intake airway (fresh air supply towards shaft)",
+      "Conveyor belt haulage road",
+      "Unventilated blind sumps"
+    ],
+    "correctIndex": 1,
+    "explanation": "Always evacuate along the intake fresh airway against the fresh airflow direction leading to the surface intake shaft."
+  },
+  {
+    "id": "fq-06",
+    "questionNumber": 6,
+    "text": "Which class of fire extinguisher is specifically rated for electrical conveyor drive fires?",
+    "textHindi": "विद्युत कन्वेयर ड्राइव की आग बुझाने के लिए कौन सा अग्निशामक उपयुक्त है?",
+    "textSantali": "ᱵᱤᱡᱽᱞᱤ ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ ᱞᱟᱹᱜᱤᱫ ᱚᱠᱟ Extinguisher ᱴᱷᱤᱠᱟᱹ?",
+    "options": [
+      "Water jet bucket (Class A only)",
+      "Dry Chemical Powder (DCP) / CO2 (Class B & C / Electrical)",
+      "Wet Chemical Foam",
+      "Sand bucket only"
+    ],
+    "correctIndex": 1,
+    "explanation": "DCP and CO2 extinguishers are non-conductive and safely suppress electrical and flammable liquid fires."
+  },
+  {
+    "id": "fq-07",
+    "questionNumber": 7,
+    "text": "What is the maximum permissible Carbon Monoxide (CO) concentration before mandatory evacuation?",
+    "textHindi": "खदान से तुरंत बाहर निकलने के लिए कार्बन मोनोऑक्साइड (CO) का अधिकतम स्तर क्या है?",
+    "textSantali": "ᱠᱟᱨᱵᱚᱱ ᱢᱳᱱᱳᱠᱥᱟᱭᱤᱰ (CO) ᱛᱤᱱᱟᱹᱜ ᱥᱮᱴᱮᱨ ᱞᱮᱱᱠᱷᱟᱱ ᱠᱷᱟᱫᱟᱱ ᱠᱷᱚᱱ ᱚᱰᱚᱠᱚᱜ ᱦᱩᱭᱩᱜᱼᱟ?",
+    "options": [
+      "50 PPM (0.005%)",
+      "500 PPM",
+      "1,000 PPM",
+      "CO does not require evacuation"
+    ],
+    "correctIndex": 0,
+    "explanation": "Under DGMS regulations, CO concentration exceeding 50 PPM requires immediate alarm and SCSR evacuation."
+  },
+  {
+    "id": "fq-08",
+    "questionNumber": 8,
+    "text": "Why must coal dust accumulations along conveyor belts be regularly cleaned and stone-dusted?",
+    "textHindi": "कन्वेयर बेल्ट के पास कोयले की धूल की सफाई और स्टोन डस्टिंग क्यों आवश्यक है?",
+    "textSantali": "ᱠᱩᱭᱞᱟᱹ ᱫᱷᱩᱲᱤ ᱪᱮᱫᱟᱜ ᱥᱟᱯᱷᱟ ᱟᱨ ᱪᱩᱱ ᱫᱷᱩᱲᱤ ᱪᱷᱤᱴᱠᱟᱹᱣ ᱦᱩᱭᱩᱜᱼᱟ?",
+    "options": [
+      "To prevent conveyor belt mechanical slippage",
+      "To prevent fine airborne coal dust from fueling a catastrophic secondary explosion",
+      "To keep the floor dry for haulage trucks",
+      "For visual aesthetic inspections"
+    ],
+    "correctIndex": 1,
+    "explanation": "Dry coal dust with volatile matter >12% is explosive when suspended in air; incombustible dust inerting neutralizes this risk."
+  },
+  {
+    "id": "fq-09",
+    "questionNumber": 9,
+    "text": "During underground evacuation, why should you keep one hand on the lifeline cord continuously?",
+    "textHindi": "निकासी के दौरान लाइफलाइन रस्सी पर लगातार एक हाथ क्यों रखना चाहिए?",
+    "textSantali": "ᱚᱰᱚᱠᱚᱜ ᱚᱠᱛᱚ ᱨᱮ ᱞᱟᱭᱤᱯᱷᱞᱟᱭᱤᱱ ᱫᱟᱹᱲᱤ ᱪᱮᱫᱟᱜ ᱥᱟᱵ ᱫᱚᱦᱚ ᱞᱟᱹᱠᱛᱤᱭᱟ?",
+    "options": [
+      "To ring the electrical bell",
+      "To prevent disorientation and guide your team safely in zero-visibility smoke to fresh air",
+      "To ground electrical static charges",
+      "To pull the conveyor cable"
+    ],
+    "correctIndex": 1,
+    "explanation": "Tactile cones on lifelines indicate the correct exit direction towards safety when smoke blinds vision."
+  },
+  {
+    "id": "fq-10",
+    "questionNumber": 10,
+    "text": "What is the official passing score required for DGMS industrial safety certification?",
+    "textHindi": "डीजीएमएस सुरक्षा प्रमाणन परीक्षा के लिए न्यूनतम उत्तीर्ण अंक क्या है?",
+    "textSantali": "DGMS ᱨᱩᱠᱷᱤᱭᱟᱹ ᱥᱟᱠᱟᱢ ᱧᱟᱢ ᱞᱟᱹᱜᱤᱫ ᱛᱤᱱᱟᱹᱜ ᱥᱠᱳᱨ (Pass Mark) ᱞᱟᱹᱠᱛᱤᱭᱟ?",
+    "options": [
+      "50%",
+      "60%",
+      "70% Combined Practical & Theory Score",
+      "95%"
+    ],
+    "correctIndex": 2,
+    "explanation": "A minimum composite score of 70% is strictly enforced across Jharkhand industrial competency frameworks."
+  }
+]

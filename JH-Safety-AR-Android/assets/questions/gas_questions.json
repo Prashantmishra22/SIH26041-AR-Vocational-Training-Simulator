@@ -1,0 +1,262 @@
+[
+  {
+    "id": 1,
+    "question": "What is the explosive concentration range of Methane (CH4) gas in air?",
+    "questionHindi": "हवा में मीथेन (CH4) गैस की विस्फोटक सांद्रता सीमा क्या है?",
+    "questionSantali": "ᱦᱚᱭ ᱨᱮ ᱢᱤᱛᱷᱮᱱ (CH4) ᱜᱮᱥ ᱛᱤᱱᱟᱹᱜ % ᱨᱮ ᱯᱷᱩᱴᱟᱹᱣ-ᱟ?",
+    "options": [
+      "5% to 15%",
+      "0.1% to 1%",
+      "25% to 40%",
+      "50% to 75%"
+    ],
+    "optionsHindi": [
+      "5% से 15%",
+      "0.1% से 1%",
+      "25% से 40%",
+      "50% से 75%"
+    ],
+    "optionsSantali": [
+      "᱕% ᱠᱷᱚᱱ ᱑᱕%",
+      "᱐.᱑% ᱠᱷᱚᱱ ᱑%",
+      "᱒᱕% ᱠᱷᱚᱱ ᱔᱐%",
+      "᱕᱐% ᱠᱷᱚᱱ ᱗᱕%"
+    ],
+    "correctIndex": 0,
+    "explanation": "Methane is flammable between its Lower Explosive Limit (5%) and Upper Explosive Limit (15%)."
+  },
+  {
+    "id": 2,
+    "question": "According to DGMS Coal Mines Regulations, at what methane percentage must electric power be cut off immediately?",
+    "questionHindi": "DGMS कोयला खान विनियमों के अनुसार, किस मीथेन प्रतिशत पर विद्युत आपूर्ति तुरंत काट दी जानी चाहिए?",
+    "questionSantali": "DGMS ᱨᱩᱞ ᱞᱮᱠᱟᱛᱮ ᱛᱤᱱᱟᱹᱜ % ᱢᱤᱛᱷᱮᱱ ᱨᱮ ᱵᱤᱡᱽᱞᱤ ᱵᱚᱸᱫᱽ ᱞᱟᱹᱠᱛᱤ?",
+    "options": [
+      "1.25%",
+      "0.25%",
+      "5.00%",
+      "10.00%"
+    ],
+    "optionsHindi": [
+      "1.25%",
+      "0.25%",
+      "5.00%",
+      "10.00%"
+    ],
+    "optionsSantali": [
+      "᱑.᱒᱕%",
+      "᱐.᱒᱕%",
+      "᱕.᱐᱐%",
+      "᱑᱐.᱐᱐%"
+    ],
+    "correctIndex": 0,
+    "explanation": "CMR 2017 mandates cutting all electric power to the district when inflammable gas reaches 1.25%."
+  },
+  {
+    "id": 3,
+    "question": "What is the minimum safe oxygen concentration required before entering a confined space without airline breathing gear?",
+    "questionHindi": "एयरलाइन ब्रीदिंग गियर के बिना सीमित स्थान में प्रवेश करने से पहले आवश्यक न्यूनतम सुरक्षित ऑक्सीजन सांद्रता क्या है?",
+    "questionSantali": "ᱵᱤᱱᱟᱹ ᱢᱟᱥᱠ ᱛᱮ ᱥᱟᱸᱜᱤᱧ ᱡᱟᱭᱜᱟ ᱵᱚᱞᱚᱱ ᱞᱟᱹᱜᱤᱫ ᱠᱚᱢ ᱠᱷᱚᱱ ᱠᱚᱢ ᱛᱤᱱᱟᱹᱜ ᱚᱠᱥᱤᱡᱮᱱ ᱞᱟᱹᱠᱛᱤ?",
+    "options": [
+      "19.5% Oxygen",
+      "12.0% Oxygen",
+      "8.5% Oxygen",
+      "25.0% Oxygen"
+    ],
+    "optionsHindi": [
+      "19.5% ऑक्सीजन",
+      "12.0% ऑक्सीजन",
+      "8.5% ऑक्सीजन",
+      "25.0% ऑक्सीजन"
+    ],
+    "optionsSantali": [
+      "᱑᱙.᱕% ᱚᱠᱥᱤᱡᱮᱱ",
+      "᱑᱒.᱐% ᱚᱠᱥᱤᱡᱮᱱ",
+      "᱘.᱕% ᱚᱠᱥᱤᱡᱮᱱ",
+      "᱒᱕.᱐% ᱚᱠᱥᱤᱡᱮᱱ"
+    ],
+    "correctIndex": 0,
+    "explanation": "OSHA and DGMS standard for safe breathable atmosphere requires at least 19.5% and maximum 23.5% oxygen."
+  },
+  {
+    "id": 4,
+    "question": "Which respiratory protection is mandatory when entering an unventilated toxic methane or H2S atmosphere?",
+    "questionHindi": "अहवादार विषैले मीथेन या H2S वातावरण में प्रवेश करते समय कौन सा श्वास सुरक्षात्मक उपकरण अनिवार्य है?",
+    "questionSantali": "ᱵᱤᱥ ᱜᱮᱥ ᱛᱟᱦᱮᱸᱱ ᱡᱟᱭᱜᱟ ᱵᱚᱞᱚᱱ ᱞᱟᱹᱜᱤᱫ ᱚᱠᱟ ᱥᱟᱦᱮᱫ ᱢᱟᱥᱠ ᱦᱚᱨᱚᱜ ᱞᱟᱹᱠᱛᱤ?",
+    "options": [
+      "Self-Contained Breathing Apparatus (SCBA) or Supplied-Air Respirator",
+      "Disposable N95 Cotton Dust Mask",
+      "Half-face surgical mask",
+      "Wet handkerchief over the nose"
+    ],
+    "optionsHindi": [
+      "सेल्फ-कंटेन्ड ब्रीदिंग उपकरण (SCBA) या सप्लाइड-एयर रेस्पिरेटर",
+      "डिस्पोजेबल N95 कॉटन डस्ट मास्क",
+      "हाफ-फेस सर्जिकल मास्क",
+      "नाक पर गीला रुमाल"
+    ],
+    "optionsSantali": [
+      "SCBA ᱥᱟᱦᱮᱫ ᱢᱟᱥᱠ (Self-Contained Breathing Apparatus)",
+      "N95 ᱫᱷᱩᱲᱤ ᱢᱟᱥᱠ",
+      "ᱥᱟᱨᱡᱤᱠᱟᱞ ᱢᱟᱥᱠ",
+      "ᱦᱤᱡ ᱨᱩᱢᱟᱞ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dust masks filter particulates only, not toxic gas or oxygen-deficient air. SCBA supplies independent breathing air."
+  },
+  {
+    "id": 5,
+    "question": "What is the primary role of the Standby Buddy Attendant stationed outside a confined space entrance?",
+    "questionHindi": "सीमित स्थान के प्रवेश द्वार के बाहर तैनात स्टैंडबाय बडी अटेंडेंट की प्राथमिक भूमिका क्या है?",
+    "questionSantali": "ᱥᱟᱸᱜᱤᱧ ᱡᱟᱭᱜᱟ ᱵᱟᱦᱨᱮ ᱛᱤᱸᱜᱩ ᱟᱠᱟᱱ ᱜᱟᱛᱮ (Buddy) ᱭᱟᱜ ᱢᱩᱬᱩᱛ ᱠᱟᱹᱢᱤ ᱪᱮᱫ ᱠᱟᱱᱟ?",
+    "options": [
+      "Maintain continuous lifeline contact, monitor gas readings, and activate external winch in an emergency",
+      "Enter the pit immediately without equipment if something happens",
+      "Leave the entrance to run errands around the plant",
+      "Operate heavy machinery inside the pit"
+    ],
+    "optionsHindi": [
+      "लगातार लाइफलाइन संपर्क बनाए रखना, गैस रीडिंग की निगरानी करना और आपात स्थिति में बाहरी विंच चलाना",
+      "कुछ होने पर बिना उपकरण के तुरंत गड्ढे में प्रवेश करना",
+      "संयंत्र के आसपास अन्य काम करने के लिए प्रवेश द्वार छोड़ना",
+      "गड्ढे के अंदर भारी मशीनरी चलाना"
+    ],
+    "optionsSantali": [
+      "ᱫᱩᱨᱤ ᱥᱟᱵ ᱠᱟᱛᱮ ᱠᱟᱛᱷᱟ ᱨᱚᱲ, ᱜᱮᱥ ᱧᱮᱞ ᱟᱨ ᱟᱪᱠᱟ ᱵᱤᱯᱚᱫᱽ ᱨᱮ ᱢᱤᱥᱤᱱ ᱛᱮ ᱚᱨ ᱩᱰᱩᱠ",
+      "ᱵᱤᱱᱟᱹ ᱥᱟᱯᱟᱵ ᱛᱮ ᱞᱟᱛᱟᱨ ᱵᱚᱞᱚᱱ",
+      "ᱵᱟᱦᱨᱮ ᱠᱟᱹᱢᱤ ᱪᱟᱞᱟᱜ",
+      "ᱵᱷᱤᱛᱨᱤ ᱨᱮ ᱢᱤᱥᱤᱱ ᱪᱟᱞᱟᱣ"
+    ],
+    "correctIndex": 0,
+    "explanation": "The standby attendant is the dedicated safety lifeline. They must never leave their post or enter without backup."
+  },
+  {
+    "id": 6,
+    "question": "At what height in a confined space does light Methane gas accumulate compared to heavy Hydrogen Sulfide (H2S)?",
+    "questionHindi": "भारी हाइड्रोजन सल्फाइड (H2S) की तुलना में हल्की मीथेन गैस सीमित स्थान में किस ऊंचाई पर जमा होती है?",
+    "questionSantali": "ᱢᱤᱛᱷᱮᱱ ᱜᱮᱥ ᱪᱮᱛᱟᱱ ᱨᱮ ᱡᱟᱣᱨᱟᱜ-ᱟ ᱥᱮ ᱞᱟᱛᱟᱨ ᱨᱮ?",
+    "options": [
+      "Methane accumulates near the ceiling / roof; H2S settles at the floor / sump bottom",
+      "Methane settles at the floor; H2S floats near the ceiling",
+      "Both gases remain completely uniform in the center",
+      "Gases only exist outside the entrance"
+    ],
+    "optionsHindi": [
+      "मीथेन छत / ऊपरी भाग के पास जमा होती है; H2S फर्श / नाबदान के तल पर बैठती है",
+      "मीथेन फर्श पर बैठती है; H2S छत के पास तैरती है",
+      "दोनों गैसें केंद्र में पूरी तरह से एक समान रहती हैं",
+      "गैसें केवल प्रवेश द्वार के बाहर मौजूद होती हैं"
+    ],
+    "optionsSantali": [
+      "ᱢᱤᱛᱷᱮᱱ ᱫᱚ ᱪᱮᱛᱟᱱ (roof) ᱨᱮ ᱛᱟᱦᱮᱸᱱᱟ; H2S ᱫᱚ ᱞᱟᱛᱟᱨ (floor) ᱨᱮ ᱛᱟᱦᱮᱸᱱᱟ",
+      "ᱢᱤᱛᱷᱮᱱ ᱞᱟᱛᱟᱨ ᱟᱨ H2S ᱪᱮᱛᱟᱱ",
+      "ᱵᱟᱱᱟᱨ ᱜᱮ ᱛᱟᱞᱟ ᱨᱮ",
+      "ᱜᱮᱥ ᱮᱠᱮᱱ ᱵᱟᱦᱨᱮ ᱨᱮ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Methane has a specific gravity of 0.55 (lighter than air). H2S is 1.19 (heavier than air) and settles in low pockets."
+  },
+  {
+    "id": 7,
+    "question": "How long should mechanical forced ventilation be operated prior to initial entry into an enclosed underground pit?",
+    "questionHindi": "संलग्न भूमिगत गड्ढे में प्रारंभिक प्रवेश से पहले यांत्रिक वेंटिलेशन कितने समय तक चलाया जाना चाहिए?",
+    "questionSantali": "ᱠᱷᱟᱫᱟᱱ ᱜᱟᱰᱷᱟ ᱵᱚᱞᱚᱱ ᱢᱟᱲᱟᱝ ᱛᱤᱱᱟᱹᱜ ᱜᱷᱟᱹᱲᱤᱠ ᱯᱷᱮᱱ ᱪᱟᱞᱟᱣ ᱞᱟᱹᱠᱛᱤ?",
+    "options": [
+      "At least 15 to 30 minutes, followed by multi-level retesting",
+      "10 seconds only",
+      "No ventilation is needed if workers move quickly",
+      "Only after work is completed"
+    ],
+    "optionsHindi": [
+      "कम से कम 15 से 30 मिनट, जिसके बाद बहु-स्तरीय पुन: परीक्षण किया जाए",
+      "केवल 10 सेकंड",
+      "यदि श्रमिक तेजी से आगे बढ़ें तो किसी वेंटिलेशन की आवश्यकता नहीं है",
+      "काम पूरा होने के बाद ही"
+    ],
+    "optionsSantali": [
+      "ᱠᱚᱢ ᱠᱷᱚᱱ ᱠᱚᱢ ᱑᱕ ᱠᱷᱚᱱ ᱓᱐ ᱢᱤᱱᱤᱴ ᱟᱨ ᱛᱟᱭᱚᱢ ᱛᱮ ᱯᱚᱨᱠᱷᱟᱣ",
+      "ᱮᱠᱮᱱ ᱑᱐ ᱥᱮᱠᱮᱱᱰ",
+      "ᱯᱷᱮᱱ ᱵᱟᱝ ᱞᱟᱹᱠᱛᱤ",
+      "ᱠᱟᱹᱢᱤ ᱯᱩᱨᱟᱹᱣ ᱠᱟᱛᱮ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Continuous mechanical ventilation displaces toxic pockets. Atmosphere must be retested before entry permit approval."
+  },
+  {
+    "id": 8,
+    "question": "What is the primary danger of Hydrogen Sulfide (H2S) gas at concentrations exceeding 100 ppm?",
+    "questionHindi": "100 ppm से अधिक सांद्रता पर हाइड्रोजन सल्फाइड (H2S) गैस का प्राथमिक खतरा क्या है?",
+    "questionSantali": "H2S ᱜᱮᱥ ᱵᱟᱹᱲᱛᱤ ᱞᱮᱱᱠᱷᱟᱱ ᱪᱮᱫ ᱵᱤᱯᱚᱫᱽ ᱦᱩᱭᱩᱜ-ᱟ?",
+    "options": [
+      "Olfactory fatigue (loss of sense of smell) followed by instant respiratory paralysis",
+      "It causes mild coughing only with no serious danger",
+      "It smells like fresh mint leaves",
+      "It turns drinking water sweet"
+    ],
+    "optionsHindi": [
+      "सूंघने की क्षमता का समाप्त होना और उसके बाद तत्काल श्वसन पक्षाघात (लकवा)",
+      "यह बिना किसी गंभीर खतरे के केवल हल्की खांसी का कारण बनता है",
+      "इसकी गंध ताजे पुदीने के पत्तों जैसी होती है",
+      "यह पीने के पानी को मीठा बना देती है"
+    ],
+    "optionsSantali": [
+      "ᱥᱚ ᱵᱟᱰᱟᱭ ᱪᱟᱵᱟᱜ-ᱟ ᱟᱨ ᱥᱟᱦᱮᱫ ᱵᱚᱸᱫᱽ ᱠᱟᱛᱮ ᱦᱚᱲ ᱮ ᱜᱚᱡᱚᱜ-ᱟ",
+      "ᱮᱠᱮᱱ ᱠᱷᱩᱜ ᱦᱩᱭᱩᱜ-ᱟ",
+      "ᱯᱩᱫᱤᱱᱟ ᱞᱮᱠᱟ ᱥᱚ-ᱟ",
+      "ᱫᱟᱜ ᱦᱮᱲᱮᱢ ᱦᱩᱭᱩᱜ-ᱟ"
+    ],
+    "correctIndex": 0,
+    "explanation": "H2S paralyzes the olfactory nerve quickly. Workers can no longer smell the rotten egg odor and collapse suddenly."
+  },
+  {
+    "id": 9,
+    "question": "What device is used to safely hoist an unconscious worker out of a confined pit without risking the rescuer's life?",
+    "questionHindi": "बचावकर्मियों की जान जोखिम में डाले बिना किसी बेहोश श्रमिक को सीमित गड्ढे से बाहर निकालने के लिए किस उपकरण का उपयोग किया जाता है?",
+    "questionSantali": "ᱵᱮᱦᱳᱥ ᱠᱟᱹᱢᱤᱭᱟᱹ ᱵᱟᱦᱨᱮ ᱚᱨ ᱩᱰᱩᱠ ᱞᱟᱹᱜᱤᱫ ᱚᱠᱟ ᱢᱤᱥᱤᱱ ᱵᱮᱵᱷᱟᱨᱚᱜ-ᱟ?",
+    "options": [
+      "Tripod Retrieval Winch System with Body Harness",
+      "Nylon rope tied around the wrist",
+      "Ordinary wooden ladder with hand carry",
+      "Forklift bucket"
+    ],
+    "optionsHindi": [
+      "बॉडी हार्नेस के साथ ट्राइपॉड रिट्रीवल विंच सिस्टम",
+      "कलाई के चारों ओर बंधी नायलॉन की रस्सी",
+      "हाथ से ले जाने वाली साधारण लकड़ी की सीढ़ी",
+      "फोर्कलिफ्ट बाल्टी"
+    ],
+    "optionsSantali": [
+      "ᱴᱨᱟᱭᱯᱳᱰ ᱢᱤᱥᱤᱱ ᱟᱨ ᱦᱚᱲᱢᱳ ᱵᱮᱞᱴ (Tripod Retrieval Winch)",
+      "ᱛᱤ ᱨᱮ ᱫᱩᱨᱤ ᱛᱚᱞ",
+      "ᱠᱟᱴ ᱥᱤᱲᱦᱤ",
+      "ᱜᱟᱹᱰᱤ ᱵᱟᱹᱞᱴᱤ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Non-entry rescue tripod hoist systems allow the top-side attendant to extract an incapacitated worker mechanically."
+  },
+  {
+    "id": 10,
+    "question": "True or False: A confined space entry permit is only a recommendation and can be skipped during night shifts.",
+    "questionHindi": "सही या गलत: सीमित स्थान प्रवेश परमिट केवल एक सिफारिश है और नाइट शिफ्ट में इसे छोड़ा जा सकता है।",
+    "questionSantali": "ᱥᱟᱹᱨᱤ ᱥᱮ ᱵᱷᱩᱞ: ᱧᱤᱫᱟᱹ ᱥᱤᱯᱷᱴ ᱨᱮ ᱯᱟᱨᱢᱤᱴ ᱵᱤᱱᱟᱹ ᱛᱮ ᱠᱟᱹᱢᱤ ᱜᱟᱱᱚᱜ-ᱟ᱾",
+    "options": [
+      "False (Permit to Work is a mandatory legal requirement for every entry)",
+      "True (Night shifts are exempt from safety permits)",
+      "True if the supervisor gives verbal permission",
+      "True if work takes less than 5 minutes"
+    ],
+    "optionsHindi": [
+      "गलत (वर्क परमिट हर प्रवेश के लिए एक अनिवार्य कानूनी आवश्यकता है)",
+      "सही (नाइट शिफ्ट को सुरक्षा परमिट से छूट दी गई है)",
+      "सही यदि पर्यवेक्षक मौखिक अनुमति देता है",
+      "सही यदि काम में 5 मिनट से कम समय लगता है"
+    ],
+    "optionsSantali": [
+      "ᱵᱷᱩᱞ (ᱯᱟᱨᱢᱤᱴ ᱫᱚ ᱠᱟᱹᱱᱩᱱ ᱞᱮᱠᱟᱛᱮ ᱡᱚᱛᱚ ᱚᱠᱛᱚ ᱞᱟᱹᱠᱛᱤ ᱜᱮᱭᱟ)",
+      "ᱥᱟᱹᱨᱤ (ᱧᱤᱫᱟᱹ ᱵᱟᱝ ᱞᱟᱹᱠᱛᱤ)",
+      "ᱥᱟᱹᱨᱤ ᱡᱩᱫᱤ ᱵᱟᱹᱵᱩ ᱮ ᱞᱟᱹᱭᱟ",
+      "ᱥᱟᱹᱨᱤ ᱡᱩᱫᱤ ᱕ ᱢᱤᱱᱤᱴ ᱠᱟᱹᱢᱤ ᱠᱟᱱᱟ"
+    ],
+    "correctIndex": 0,
+    "explanation": "Permit-to-Work (PTW) is a statutory requirement under the Mines Act and Factories Act across all shifts."
+  }
+]

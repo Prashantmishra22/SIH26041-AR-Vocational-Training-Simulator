@@ -1,0 +1,86 @@
+{
+  "id": "fire_safety_01",
+  "title": "Underground Mine Fire & Explosion Protocol",
+  "titleHindi": "भूमिगत खदान आग एवं विस्फोट सुरक्षा प्रोटोकॉल",
+  "titleSantali": "ᱚᱛ ᱞᱟᱛᱟᱨ ᱠᱷᱟᱫᱟᱱ ᱥᱮᱸᱜᱮᱞ ᱟᱨ ᱵᱷᱩᱲᱠᱟᱹᱜ ᱨᱩᱠᱷᱤᱭᱟᱹ",
+  "sector": "MINING",
+  "difficulty": "INTERMEDIATE",
+  "estimatedMinutes": 20,
+  "passThreshold": 70,
+  "complianceStandard": "DGMS Coal Mines Regulations 2017 (Reg 133/134)",
+  "steps": [
+    {
+      "stepNumber": 1,
+      "title": "Thermal Hazard Identification",
+      "hazardType": "Spontaneous Combustion Hotspot",
+      "instruction": "Scan the coal face with the infrared thermometer to detect subterranean spontaneous combustion hotspots (>65°C).",
+      "instructionHindi": "कोयला दीवार पर इन्फ्रारेड थर्मामीटर से 65°C से अधिक तापमान वाले स्वतः दहन हॉटस्पॉट की पहचान करें।",
+      "instructionSantali": "ᱠᱩᱭᱞᱟᱹ ᱠᱷᱟᱫᱟᱱ ᱨᱮ ᱖᱕°C ᱠᱷᱚᱱ ᱵᱟᱹᱲᱛᱤ ᱞᱚᱞᱚ ᱡᱟᱭᱜᱟ IR ᱛᱷᱟᱨᱢᱳᱢᱤᱴᱟᱨ ᱛᱮ ᱧᱟᱢ ᱢᱮ᱾",
+      "targetObjectName": "CoalFaceHotspot",
+      "requiredGesture": "TAP_SCAN",
+      "timeLimitSeconds": 30,
+      "maxPoints": 15
+    },
+    {
+      "stepNumber": 2,
+      "title": "Ventilation Airflow & Klaxon Alarm",
+      "hazardType": "Ventilation Reversal Smoke Inversion",
+      "instruction": "Check air velocity with the anemometer and pull the emergency klaxon alarm lever on the mine gallery wall.",
+      "instructionHindi": "एनीमोमीटर से वायु प्रवाह जांचें और खदान की दीवार पर लगे आपातकालीन अलार्म लीवर को खींचें।",
+      "instructionSantali": "ᱦᱚᱭ ᱪᱟᱞᱟᱜ ᱠᱟᱱ ᱵᱮᱜᱽ ᱧᱮᱞ ᱢᱮ ᱟᱨ ᱜᱮᱞᱟᱨᱤ ᱨᱮ ᱢᱮᱱᱟᱜ ᱵᱤᱯᱚᱫ ᱜᱷᱟᱹᱱᱴᱤ ᱞᱤᱵᱷᱟᱨ ᱚᱨ ᱢᱮ᱾",
+      "targetObjectName": "EmergencyKlaxonLever",
+      "requiredGesture": "PULL_LEVER",
+      "timeLimitSeconds": 25,
+      "maxPoints": 15
+    },
+    {
+      "stepNumber": 3,
+      "title": "Self-Contained Self-Rescuer (SCSR) Donning",
+      "hazardType": "Carbon Monoxide Toxic Atmosphere (>50 PPM)",
+      "instruction": "Locate emergency SCSR cache, break seal, insert mouthpiece, nose clip, and fasten harness within 20 seconds.",
+      "instructionHindi": "एससीएसआर बॉक्स का सील तोड़ें, माउथपीस और नोज़ क्लिप लगाएं और 20 सेकंड के भीतर हार्नेस बांधें।",
+      "instructionSantali": "SCSR ᱵᱟᱠᱥᱟ ᱨᱟᱹᱯᱩᱫ ᱢᱮ, ᱢᱚᱪᱟ ᱟᱨ ᱢᱩᱸ ᱨᱮ ᱠᱞᱤᱯ ᱞᱟᱜᱟᱣ ᱠᱟᱛᱮ ᱒᱐ ᱴᱤᱯᱤᱡ ᱨᱮ ᱵᱮᱱᱰ ᱛᱚᱞ ᱢᱮ᱾",
+      "targetObjectName": "SCSR_Pack",
+      "requiredGesture": "FOUR_POINT_TOUCH",
+      "timeLimitSeconds": 20,
+      "maxPoints": 20
+    },
+    {
+      "stepNumber": 4,
+      "title": "Fire Extinguisher PASS Protocol",
+      "hazardType": "Belt Conveyor Class B/C Fire",
+      "instruction": "Deploy Dry Chemical Powder (DCP) extinguisher: Pull pin, Aim nozzle at base, Squeeze lever, Sweep side-to-side.",
+      "instructionHindi": "डीसीपी अग्निशामक का उपयोग करें: पिन खींचें, आग की जड़ पर निशाना लगाएं, लीवर दबाएं और दायें-बायें घुमाएं।",
+      "instructionSantali": "DCP ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ ᱥᱟᱢᱟᱱ ᱵᱮᱵᱷᱟᱨ ᱢᱮ: ᱯᱤᱱ ᱚᱨ ᱢᱮ, ᱞᱟᱛᱟᱨ ᱥᱮᱫ ᱢᱩᱦᱰᱟᱹᱣ ᱢᱮ ᱟᱨ ᱦᱟᱱᱛᱮ ᱱᱷᱟᱛᱮ ᱡᱷᱟᱲᱟᱣ ᱢᱮ᱾",
+      "targetObjectName": "DCP_Extinguisher",
+      "requiredGesture": "PASS_SEQUENCE",
+      "timeLimitSeconds": 35,
+      "maxPoints": 20
+    },
+    {
+      "stepNumber": 5,
+      "title": "Stone Dust Barrier Inspection",
+      "hazardType": "Secondary Coal Dust Explosion Wave",
+      "instruction": "Inspect explosion suppression shelf loaded with limestone dust to verify trigger release pin is unobstructed.",
+      "hazardType": "Explosion Propagation",
+      "instructionHindi": "चूना पत्थर धूल युक्त विस्फोट अवरोधक शेल्फ का निरीक्षण करें और रिलीज पिन की पुष्टि करें।",
+      "instructionSantali": "ᱫᱷᱩᱲᱤ ᱵᱷᱩᱲᱠᱟᱹᱜ ᱟᱴᱠᱟᱣ ᱥᱮᱞᱯᱷ ᱧᱮᱞ ᱢᱮ ᱟᱨ ᱯᱤᱱ ᱴᱷᱤᱠ ᱢᱮᱱᱟᱜᱼᱟ ᱥᱮ ᱵᱟᱝ ᱯᱚᱨᱠᱷᱟᱣ ᱢᱮ᱾",
+      "targetObjectName": "StoneDustBarrier",
+      "requiredGesture": "INSPECT_PIN",
+      "timeLimitSeconds": 25,
+      "maxPoints": 15
+    },
+    {
+      "stepNumber": 6,
+      "title": "Evacuation via Intake Airway",
+      "hazardType": "Smoke Disorientation in Gallery",
+      "instruction": "Follow the reflective tactile lifeline cord through zero-visibility smoke toward the fresh air intake shaft portal.",
+      "instructionHindi": "शून्य दृश्यता में चमकती लाइफलाइन रस्सी को पकड़कर ताजी हवा वाले निकास द्वार की ओर बढ़ें।",
+      "instructionSantali": "ᱠᱩᱦᱲᱟᱹ ᱨᱮ ᱡᱤᱞᱤᱧ ᱫᱟᱹᱲᱤ ᱥᱟᱵ ᱠᱟᱛᱮ ᱥᱟᱯᱷᱟ ᱦᱚᱭ ᱚᱰᱚᱠᱚᱜ ᱫᱩᱣᱟᱹᱨ ᱥᱮᱫ ᱛᱟᱲᱟᱢ ᱢᱮ᱾",
+      "targetObjectName": "IntakeAirwayDoor",
+      "requiredGesture": "FOLLOW_LIFELINE",
+      "timeLimitSeconds": 40,
+      "maxPoints": 15
+    }
+  ]
+}

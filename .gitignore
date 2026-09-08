@@ -1,0 +1,75 @@
+# ===== Unity =====
+/android-ar/[Ll]ibrary/
+/android-ar/[Tt]emp/
+/android-ar/[Oo]bj/
+/android-ar/[Bb]uild/
+/android-ar/[Bb]uilds/
+/android-ar/[Ll]ogs/
+/android-ar/[Uu]ser[Ss]ettings/
+/android-ar/[Mm]emoryCaptures/
+/android-ar/[Rr]ecordings/
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+sysinfo.txt
+*.apk
+*.aab
+*.idsig
+*.unitypackage
+*.app
+
+# ===== Android Native =====
+/JH-Safety-AR-Android/bin/
+/JH-Safety-AR-Android/build/
+*.class
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.pytest_cache/
+htmlcov/
+.coverage
+
+# ===== Node =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+
+# ===== Environment =====
+.env
+.env.local
+.env.*.local
+*.env
+!.env.example
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ===== Database =====
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal

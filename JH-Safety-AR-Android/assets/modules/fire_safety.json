@@ -1,0 +1,222 @@
+{
+  "id": "module_fire",
+  "title": "Module 1: Mine Fire & Explosion Response",
+  "titleHindi": "मॉड्यूल 1: खदान आग एवं विस्फोट प्रतिक्रिया",
+  "titleSantali": "ᱦᱟᱹᱴᱤᱧ ᱑: ᱠᱷᱟᱫᱟᱱ ᱥᱮᱸᱜᱮᱞ ᱟᱨ ᱯᱷᱩᱴᱟᱹᱣ ᱨᱩᱠᱷᱤᱭᱟᱹ",
+  "sector": "Mining & Metal Manufacturing",
+  "difficulty": "Intermediate",
+  "estimatedMinutes": 25,
+  "passThreshold": 70,
+  "complianceStandard": "DGMS Coal Mines Regulations 2017 (Reg 133/134) & Factories Act 1948",
+  "cartoonLessons": [
+    {
+      "step": 1,
+      "title": "What is Fire in Mines?",
+      "titleHindi": "खदान में आग क्या है?",
+      "titleSantali": "ᱠᱷᱟᱫᱟᱱ ᱨᱮ ᱥᱮᱸᱜᱮᱞ ᱪᱮᱫ ᱠᱟᱱᱟ?",
+      "description": "Rapid oxidation producing intense heat, smoke, and hazardous carbon monoxide underground.",
+      "descriptionHindi": "तीव्र ऑक्सीकरण जिससे भूमिगत अत्यधिक गर्मी, धुआं और जहरीली कार्बन मोनोऑक्साइड उत्पन्न होती है।",
+      "descriptionSantali": "ᱞᱚᱜᱚᱱ ᱡᱩᱞᱩᱜ ᱡᱟᱦᱟᱸ ᱠᱷᱚᱱ ᱞᱚᱞᱚ, ᱫᱷᱩᱶᱟᱹ ᱟᱨ ᱵᱤᱥ CO ᱜᱮᱥ ᱚᱰᱚᱠᱚᱜ-ᱟ᱾",
+      "dialogue": "Namaste sathiyo! I am Raju, your Safety Trainee. An underground fire is a miner's worst enemy because it quickly consumes oxygen and spreads deadly CO gas through intake airways!",
+      "dialogueHindi": "नमस्ते साथियों! मैं हूँ राजू, आपका सुरक्षा प्रशिक्षक। भूमिगत खदान में आग सबसे बड़ा खतरा है क्योंकि यह तेजी से ऑक्सीजन खत्म कर जहरीली CO गैस फैलाती है!",
+      "dialogueSantali": "ᱡᱚᱦᱟᱨ ᱜᱟᱛᱮ ᱠᱚ! ᱤᱧ ᱫᱚ ᱨᱟᱡᱩ, ᱨᱩᱠᱷᱤᱭᱟᱹ ᱢᱟᱪᱮᱛ᱾ ᱠᱷᱟᱫᱟᱱ ᱨᱮ ᱥᱮᱸᱜᱮᱞ ᱡᱩᱞ ᱞᱮᱱᱠᱷᱟᱱ ᱚᱠᱥᱤᱡᱮᱱ ᱪᱟᱵᱟᱜ-ᱟ ᱟᱨ ᱵᱤᱥ ᱜᱮᱥ ᱯᱟᱥᱱᱟᱣ-ᱟ!"
+    },
+    {
+      "step": 2,
+      "title": "The Fire Triangle",
+      "titleHindi": "फायर ट्रायंगल (अग्नि त्रिकोण)",
+      "titleSantali": "ᱥᱮᱸᱜᱮᱞ ᱯᱮ-ᱠᱳᱬ (Fire Triangle)",
+      "description": "Fire requires 3 elements: Fuel (coal/oil), Heat (friction/spark), and Oxygen.",
+      "descriptionHindi": "आग के लिए 3 तत्व जरूरी हैं: ईंधन (कोयला/तेल), ताप (घर्षण/चिंगारी), और ऑक्सीजन।",
+      "descriptionSantali": "ᱥᱮᱸᱜᱮᱞ ᱞᱟᱹᱜᱤᱫ ᱓ ᱡᱤᱱᱤᱥ ᱞᱟᱹᱠᱛᱤ: ᱤᱸᱫᱷᱚᱱ (ᱠᱩᱭᱞᱟᱹ), ᱞᱚᱞᱚ (ᱴᱟᱠᱨᱟᱣ), ᱟᱨ ᱚᱠᱥᱤᱡᱮᱱ᱾",
+      "dialogue": "Remember the Fire Triangle: Fuel, Heat, and Oxygen. Remove just ONE, and the fire dies immediately!",
+      "dialogueHindi": "फायर ट्रायंगल याद रखें: ईंधन, ताप और ऑक्सीजन। यदि आप इनमें से केवल एक को भी हटा दें, तो आग तुरंत बुझ जाएगी!",
+      "dialogueSantali": "ᱥᱮᱸᱜᱮᱞ ᱯᱮ-ᱠᱳᱬ ᱫᱤᱥᱟᱹ ᱫᱚᱦᱚᱭ ᱢᱮ: ᱤᱸᱫᱷᱚᱱ, ᱞᱚᱞᱚ ᱟᱨ ᱚᱠᱥᱤᱡᱮᱱ᱾ ᱢᱤᱫᱴᱟᱝ ᱥᱟᱦᱟ ᱞᱮᱠᱷᱟᱱ ᱜᱮ ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡᱚᱜ-ᱟ!"
+    },
+    {
+      "step": 3,
+      "title": "Common Industrial Fire Causes",
+      "titleHindi": "औद्योगिक आग के सामान्य कारण",
+      "titleSantali": "ᱠᱟᱹᱨᱜᱟᱲ ᱨᱮ ᱥᱮᱸᱜᱮᱞ ᱞᱟᱜᱟᱣ ᱨᱮᱱᱟᱜ ᱠᱟᱨᱚᱱ",
+      "description": "Belt friction, overheated rollers, spontaneous coal combustion, and oil leaks.",
+      "descriptionHindi": "कन्वेयर बेल्ट घर्षण, अधिक गर्म रोलर्स, कोयले का स्वतः दहन और तेल रिसाव।",
+      "descriptionSantali": "ᱠᱚᱱᱵᱷᱮᱭᱟᱨ ᱵᱮᱞᱴ ᱴᱟᱠᱨᱟᱣ, ᱞᱚᱞᱚ ᱨᱳᱞᱟᱨ, ᱠᱩᱭᱞᱟᱹ ᱨᱮ ᱟᱯᱱᱟᱨ ᱛᱮ ᱥᱮᱸᱜᱮᱞ ᱞᱟᱜᱟᱣ᱾",
+      "dialogue": "Watch out for coal dust buildup on conveyor return rollers. Jammed rollers cause deadly friction fires within minutes!",
+      "dialogueHindi": "कन्वेयर रोलर्स पर कोयले की धूल जमने से सावधान रहें। जाम रोलर कुछ ही मिनटों में घर्षण से आग पकड़ लेते हैं!",
+      "dialogueSantali": "ᱠᱚᱱᱵᱷᱮᱭᱟᱨ ᱨᱳᱞᱟᱨ ᱨᱮ ᱠᱩᱭᱞᱟᱹ ᱫᱷᱩᱲᱤ ᱡᱟᱣᱨᱟ ᱠᱷᱚᱱ ᱦᱩᱥᱤᱭᱟᱹᱨ ᱛᱟᱦᱮᱸᱱ ᱢᱮ᱾"
+    },
+    {
+      "step": 4,
+      "title": "Electrical Fire Hazards",
+      "titleHindi": "विद्युत आग के खतरे",
+      "titleSantali": "ᱵᱤᱡᱽᱞᱤ ᱥᱮᱸᱜᱮᱞ ᱵᱤᱯᱚᱫᱽ",
+      "description": "Short circuits, damaged trailing cables, and sub-station overloads.",
+      "descriptionHindi": "शॉर्ट सर्किट, क्षतिग्रस्त ट्रेलिंग केबल और सब-स्टेशन ओवरलोड।",
+      "descriptionSantali": "ᱥᱚᱨᱴ ᱥᱟᱨᱠᱤᱴ, ᱵᱟᱹᱲᱤᱡ ᱠᱮᱵᱚᱞ ᱟᱨ ᱵᱤᱡᱽᱞᱤ ᱚᱵᱷᱟᱨᱞᱳᱰ᱾",
+      "dialogue": "NEVER throw water on an electrical fire! Water conducts electricity and will cause fatal electrocution. Always use a Dry Chemical Powder (DCP) or CO2 extinguisher!",
+      "dialogueHindi": "विद्युत आग पर कभी भी पानी न डालें! पानी बिजली का सुचालक है और करंट का झटका लग सकता है। हमेशा डीसीपी या CO2 अग्निशामक का प्रयोग करें!",
+      "dialogueSantali": "ᱵᱤᱡᱽᱞᱤ ᱥᱮᱸᱜᱮᱞ ᱨᱮ ᱛᱤᱥ ᱦᱚᱸ ᱫᱟᱜ ᱟᱞᱚᱢ ᱫᱩᱞᱟ! ᱫᱟᱜ ᱛᱮ ᱠᱟᱨᱮᱱᱴ ᱞᱟᱜᱟᱣ-ᱟ᱾ ᱥᱟᱨᱟ ᱜᱷᱟᱹᱲᱤᱠ DCP ᱤᱬᱤᱡ ᱵᱮᱵᱷᱟᱨ ᱢᱮ!"
+    },
+    {
+      "step": 5,
+      "title": "Fuel and Gas Fire Hazards",
+      "titleHindi": "ईंधन और गैस आग के खतरे",
+      "titleSantali": "ᱤᱸᱫᱷᱚᱱ ᱟᱨ ᱜᱮᱥ ᱥᱮᱸᱜᱮᱞ ᱵᱤᱯᱚᱫᱽ",
+      "description": "Diesel haulage leaks, hydraulic line punctures, and methane layer ignition.",
+      "descriptionHindi": "डीजल वाहन रिसाव, हाइड्रोलिक पाइप टूटना और मीथेन गैस परत में आग लगना।",
+      "descriptionSantali": "ᱰᱤᱡᱮᱞ ᱜᱟᱹᱰᱤ ᱡᱚᱨᱚ, ᱦᱟᱭᱰᱨᱳᱞᱤᱠ ᱯᱟᱭᱤᱯ ᱯᱷᱩᱴᱟᱹᱣ ᱟᱨ ᱢᱤᱛᱷᱮᱱ ᱜᱮᱥ ᱡᱩᱞᱩᱜ᱾",
+      "dialogue": "Flammable liquid fires spread rapidly along the incline floor. Contain fuel spills with stone dust immediately.",
+      "dialogueHindi": "ज्वलनशील तरल पदार्थ की आग ढलान पर तेजी से फैलती है। तुरंत स्टोन डस्ट डालकर ईंधन रिसाव को रोकें।",
+      "dialogueSantali": "ᱡᱩᱞᱩᱜ ᱤᱸᱫᱷᱚᱱ ᱟᱹᱰᱤ ᱞᱚᱜᱚᱱ ᱯᱟᱥᱱᱟᱣ-ᱟ᱾ ᱞᱚᱜᱚᱱ ᱫᱷᱩᱲᱤ ᱫᱩᱞ ᱠᱟᱛᱮ ᱟᱴᱠᱟᱣ ᱢᱮ᱾"
+    },
+    {
+      "step": 6,
+      "title": "Recognizing a Fire Emergency",
+      "titleHindi": "आग आपातकाल की पहचान",
+      "titleSantali": "ᱥᱮᱸᱜᱮᱞ ᱟᱪᱠᱟ ᱵᱤᱯᱚᱫᱽ ᱪᱤᱱᱦᱟᱹᱣ",
+      "description": "Haze, unusual benzene/kerosene smell, thermal increase, and whistling airflow.",
+      "descriptionHindi": "धुंधलापन, असामान्य केरोसिन/बेंजीन गंध, तापमान में वृद्धि और सीटी जैसी हवा की आवाज।",
+      "descriptionSantali": "ᱫᱷᱩᱶᱟᱹ, ᱵᱟᱹᱲᱤᱡ ᱥᱚ, ᱞᱚᱞᱚ ᱵᱟᱹᱲᱛᱤᱜ ᱟᱨ ᱦᱚᱭ ᱨᱮᱱᱟᱜ ᱟᱲᱟᱝ᱾",
+      "dialogue": "If your cap lamp reveals smoke haze or you smell burning coal, sound the alarm immediately! Do NOT wait for confirmation.",
+      "dialogueHindi": "यदि आपकी कैप लैंप में धुएं की धुंध दिखे या जलने की गंध आए, तो तुरंत अलार्म बजाएं! पुष्टि की प्रतीक्षा न करें।",
+      "dialogueSantali": "ᱡᱩᱫᱤ ᱫᱷᱩᱶᱟᱹ ᱧᱮᱞᱚᱜ-ᱟ ᱥᱮ ᱥᱚ ᱧᱟᱢᱚᱜ-ᱟ, ᱠᱷᱟᱱ ᱜᱮ ᱟᱞᱟᱨᱢ ᱥᱟᱰᱮ ᱢᱮ!"
+    },
+    {
+      "step": 7,
+      "title": "Raising the Emergency Alarm",
+      "titleHindi": "आपातकालीन अलार्म बजाना",
+      "titleSantali": "ᱟᱪᱠᱟ ᱵᱤᱯᱚᱫᱽ ᱟᱞᱟᱨᱢ ᱥᱟᱰᱮ",
+      "description": "Break the glass alarm point, call surface control room, and alert coworkers.",
+      "descriptionHindi": "ग्लास अलार्म प्वाइंट तोड़ें, सतह नियंत्रण कक्ष को कॉल करें और सहकर्मियों को सूचित करें।",
+      "descriptionSantali": "ᱟᱞᱟᱨᱢ ᱴᱤᱯᱟᱹᱣ ᱢᱮ, ᱪᱮᱛᱟᱱ ᱠᱚᱱᱴᱨᱳᱞ ᱨᱩᱢ ᱛᱮ ᱯᱷᱳᱱ ᱢᱮ ᱟᱨ ᱜᱟᱛᱮ ᱠᱚ ᱞᱟᱹᱭ ᱟᱠᱚ ᱢᱮ᱾",
+      "dialogue": "Strike the manual call point and broadcast the 3-whistle emergency cap-lamp signal: Flash-Flash-Flash!",
+      "dialogueHindi": "मैनुअल कॉल प्वाइंट दबाएं और 3-सीटी वाला कैप-लैंप आपातकालीन सिग्नल दें: फ्लैश-फ्लैश-फ्लैश!",
+      "dialogueSantali": "ᱟᱞᱟᱨᱢ ᱫᱟᱵᱟᱣ ᱢᱮ ᱟᱨ ᱓ ᱫᱷᱟᱣ ᱞᱮᱢᱯ ᱤᱥᱟᱨᱟ ᱮᱢ ᱢᱮ!"
+    },
+    {
+      "step": 8,
+      "title": "Emergency Exit Identification",
+      "titleHindi": "आपातकालीन निकास की पहचान",
+      "titleSantali": "ᱫᱟᱹᱲ ᱩᱰᱩᱠ ᱰᱟᱦᱟᱨ ᱪᱤᱱᱦᱟᱹᱣ",
+      "description": "Follow green luminous signage towards intake airway shaft, NOT the return airway.",
+      "descriptionHindi": "हरे चमकदार संकेतों का पालन करें जो इनटेक एयरवे की ओर जाते हैं, रिटर्न एयरवे की ओर नहीं।",
+      "descriptionSantali": "ᱦᱟᱹᱨᱭᱟᱹᱲ ᱪᱤᱱᱦᱟᱹ ᱯᱟᱸᱡᱟ ᱠᱟᱛᱮ ᱥᱟᱯᱷᱟ ᱦᱚᱭ ᱰᱟᱦᱟᱨ ᱛᱮ ᱫᱟᱹᱲ ᱢᱮ᱾",
+      "dialogue": "Always evacuate along the INTAKE airway with fresh air at your back. Never enter the return airway filled with smoke and poisonous gas!",
+      "dialogueHindi": "हमेशा इनटेक एयरवे के रास्ते निकलें जहां से ताजी हवा आ रही हो। धुएं से भरे रिटर्न एयरवे में कभी न जाएं!",
+      "dialogueSantali": "ᱥᱟᱨᱟ ᱜᱷᱟᱹᱲᱤᱠ ᱥᱟᱯᱷᱟ ᱦᱚᱭ ᱦᱤᱡᱩᱜ ᱠᱟᱱ ᱰᱟᱦᱟᱨ ᱛᱮ ᱩᱰᱩᱠᱚᱜ ᱢᱮ!"
+    },
+    {
+      "step": 9,
+      "title": "Fire Extinguisher PASS Method",
+      "titleHindi": "अग्निशामक की PASS विधि",
+      "titleSantali": "ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ PASS ᱦᱚᱨᱟ",
+      "description": "Pull pin, Aim at base of fire, Squeeze lever, Sweep side-to-side.",
+      "descriptionHindi": "पुल (पिन खींचें), ऐम (आग की जड़ पर निशाना लगाएं), स्क्वीज (लीवर दबाएं), स्वीप (दाएं-बाएं घुमाएं)।",
+      "descriptionSantali": "Pull (ᱯᱤᱱ ᱚᱨ ᱢᱮ), Aim (ᱥᱮᱸᱜᱮᱞ ᱯᱷᱮᱰ ᱨᱮ ᱴᱟᱨᱜᱮᱴ ᱢᱮ), Squeeze (ᱞᱤᱵᱷᱟᱨ ᱫᱟᱵᱟᱣ ᱢᱮ), Sweep (ᱫᱷᱟᱨᱮ-ᱫᱷᱟᱨᱮ ᱤᱬᱤᱡ ᱢᱮ)᱾",
+      "dialogue": "Remember P-A-S-S: Pull the pin, Aim at the base of flames, Squeeze the handle, and Sweep side to side!",
+      "dialogueHindi": "PASS नियम याद रखें: पिन खींचें, आग के आधार पर निशाना साधें, हैंडल दबाएं और झाड़ू की तरह दाएं-बाएं चलाएं!",
+      "dialogueSantali": "PASS ᱦᱚᱨᱟ ᱫᱤᱥᱟᱹ ᱫᱚᱦᱚᱭ ᱢᱮ: ᱯᱤᱱ ᱚᱨ ᱢᱮ, ᱞᱟᱛᱟᱨ ᱨᱮ ᱴᱟᱨᱜᱮᱴ ᱢᱮ, ᱦᱮᱱᱰᱮᱞ ᱫᱟᱵᱟᱣ ᱢᱮ ᱟᱨ ᱫᱷᱟᱨᱮ-ᱫᱷᱟᱨᱮ ᱤᱬᱤᱡ ᱢᱮ!"
+    },
+    {
+      "step": 10,
+      "title": "Safe Evacuation Procedure",
+      "titleHindi": "सुरक्षित निकासी प्रक्रिया",
+      "titleSantali": "ᱨᱩᱠᱷᱤᱭᱟᱹ ᱩᱰᱩᱠ ᱰᱟᱦᱟᱨ ᱯᱟᱸᱡᱟ",
+      "description": "Don self-rescuer SCSR, stay low below the smoke layer, follow the lifeline cones.",
+      "descriptionHindi": "सेल्फ-रेस्क्यूअर (SCSR) पहनें, धुएं के स्तर से नीचे झुककर चलें और लाइफलाइन के शंकुओं का पालन करें।",
+      "descriptionSantali": "SCSR ᱢᱟᱥᱠ ᱦᱚᱨᱚᱜ ᱢᱮ, ᱞᱟᱛᱟᱨ ᱛᱮ ᱛᱟᱲᱟᱢ ᱢᱮ ᱟᱨ ᱞᱟᱭᱤᱯᱷᱞᱟᱭᱤᱱ ᱫଉᱨᱤ ᱥᱟᱵ ᱠᱟᱛᱮ ᱪᱟᱞᱟᱜ ᱢᱮ᱾",
+      "dialogue": "If visibility is zero, slide your hand along the tactile lifeline. The directional cones point directly to the pit-bottom escape cage!",
+      "dialogueHindi": "यदि कुछ भी दिखाई न दे, तो लाइफलाइन रस्सी को पकड़कर आगे बढ़ें। इसके शंकु सीधे लिफ्ट पिंजरे का रास्ता दिखाते हैं!",
+      "dialogueSantali": "ᱡᱩᱫᱤ ᱵᱟᱝ ᱧᱮᱞᱚᱜ-ᱟ, ᱞᱟᱭᱤᱯᱷᱞᱟᱭᱤᱱ ᱫᱩᱨᱤ ᱥᱟᱵ ᱠᱟᱛᱮ ᱞᱟᱦᱟᱜ ᱢᱮ!"
+    },
+    {
+      "step": 11,
+      "title": "Surface Assembly Point",
+      "titleHindi": "सतह असेंबली पॉइंट",
+      "titleSantali": "ᱪᱮᱛᱟᱱ ᱡᱟᱣᱨᱟ ᱡᱟᱭᱜᱟ (Assembly Point)",
+      "description": "Muster at the designated safe pithead zone and check off your biometric token.",
+      "descriptionHindi": "निर्धारित सुरक्षित असेंबली पॉइंट पर एकत्रित हों और अपना बायोमेट्रिक टोकन दर्ज कराएं।",
+      "descriptionSantali": "ᱴᱷᱟᱹᱣᱠᱟᱹ ᱟᱠᱟᱱ ᱡᱟᱣᱨᱟ ᱡᱟᱭᱜᱟ ᱨᱮ ᱡᱟᱣᱨᱟᱜ ᱢᱮ ᱟᱨ ᱴᱳᱠᱚᱱ ᱮᱢ ᱢᱮ᱾",
+      "dialogue": "Once at the surface assembly point, report immediately to the Safety Officer. Never re-enter the mine under any circumstances!",
+      "dialogueHindi": "सतह पर असेंबली पॉइंट पर पहुंचते ही सुरक्षा अधिकारी को रिपोर्ट करें। किसी भी परिस्थिति में दोबारा खदान में न जाएं!",
+      "dialogueSantali": "ᱪᱮᱛᱟᱱ ᱡᱟᱣᱨᱟ ᱡᱟᱭᱜᱟ ᱨᱮ ᱥᱮᱴᱮᱨ ᱠᱟᱛᱮ ᱥᱮᱯᱷᱴᱤ ᱚᱯᱷᱤᱥᱚᱨ ᱴᱷᱮᱱ ᱨᱤᱯᱳᱨᱴ ᱢᱮ!"
+    },
+    {
+      "step": 12,
+      "title": "Critical Unsafe Actions to Avoid",
+      "titleHindi": "असुरक्षित कार्य जिनसे बचना है",
+      "titleSantali": "ᱵᱤᱯᱚᱫᱽ ᱠᱟᱹᱢᱤ ᱡᱟᱦᱟᱸ ᱵᱟᱝ ᱠᱚᱨᱟᱣ ᱞᱟᱹᱠᱛᱤ",
+      "description": "Never use water on electrical fire, never run upstream against ventilation, never abandon buddy.",
+      "descriptionHindi": "विद्युत आग पर कभी पानी न डालें, वेंटिलेशन के विपरीत न दौड़ें, अपने साथी को कभी न छोड़ें।",
+      "descriptionSantali": "ᱵᱤᱡᱽᱞᱤ ᱨᱮ ᱫᱟᱜ ᱟᱞᱚᱢ ᱫᱩᱞᱟ, ᱦᱚᱭ ᱩᱞᱴᱟᱹ ᱟᱞᱚᱢ ᱫᱟᱹᱲᱟ, ᱜᱟᱛᱮ ᱟᱞᱚᱢ ᱵᱟᱹᱜᱤ ᱟᱭᱟ᱾",
+      "dialogue": "Congratulations! You have completed the cartoon safety theory. Now it is YOUR turn to take the phone camera and practice extinguishing the fire and evacuating in AR!",
+      "dialogueHindi": "बधाई हो! आपने कार्टून सुरक्षा सिद्धांत पूरा कर लिया है। अब आपकी बारी है — फोन का कैमरा खोलें और एआर में आग बुझाने व सुरक्षित निकासी का अभ्यास करें!",
+      "dialogueSantali": "ᱥᱟᱨᱦᱟᱣ! ᱟᱢ ᱠᱟᱨᱴᱩᱱ ᱯᱟᱲᱦᱟᱣ ᱯᱩᱨᱟᱹᱣ ᱠᱮᱫᱟᱢ᱾ ᱱᱤᱛ ᱟᱢᱟᱜ ᱵᱟᱨᱤ — ᱠᱮᱢᱨᱟ ᱛᱮ AR ᱨᱮ ᱥᱮᱪᱮᱫ ᱮᱦᱚᱵ ᱢᱮ!"
+    }
+  ],
+  "arTasks": [
+    {
+      "step": 1,
+      "title": "Identify Fire Hazard Hotspot",
+      "instruction": "Scan the underground transformer area and tap on the glowing fire hotspot.",
+      "instructionHindi": "ट्रांसफार्मर क्षेत्र को स्कैन करें और जलते हुए हॉटस्पॉट पर टैप करें।",
+      "instructionSantali": "ᱴᱨᱟᱱᱥᱯᱷᱟᱨᱢᱟᱨ ᱡᱟᱭᱜᱟ ᱥᱠᱮᱱ ᱢᱮ ᱟᱨ ᱥᱮᱸᱜᱮᱞ ᱡᱩᱞᱩᱜ ᱡᱟᱭᱜᱟ ᱨᱮ ᱴᱤᱯᱟᱹᱣ ᱢᱮ᱾",
+      "targetObject": "fire_hazard_hotspot",
+      "points": 15
+    },
+    {
+      "step": 2,
+      "title": "Activate Emergency Mine Alarm",
+      "instruction": "Locate the red emergency alarm pull station on the haulage wall and trigger it.",
+      "instructionHindi": "दीवार पर लगे लाल आपातकालीन अलार्म बॉक्स को ढूंढें और सक्रिय करें।",
+      "instructionSantali": "ᱠᱟᱸᱛ ᱨᱮ ᱞᱟᱜᱟᱣ ᱟᱠᱟᱱ ᱟᱨᱟᱜ ᱟᱞᱟᱨᱢ ᱵᱳᱠᱥ ᱴᱤᱯᱟᱹᱣ ᱢᱮ᱾",
+      "targetObject": "emergency_alarm_box",
+      "points": 15
+    },
+    {
+      "step": 3,
+      "title": "Select Correct Fire Extinguisher",
+      "instruction": "For electrical transformer fires, choose the Dry Chemical Powder (DCP) extinguisher, NOT the water bucket!",
+      "instructionHindi": "विद्युत ट्रांसफार्मर की आग के लिए डीसीपी अग्निशामक चुनें, पानी की बाल्टी नहीं!",
+      "instructionSantali": "ᱵᱤᱡᱽᱞᱤ ᱥᱮᱸᱜᱮᱞ ᱞᱟᱹᱜᱤᱫ DCP ᱥᱮᱸᱜᱮᱞ ᱤᱬᱤᱡ ᱵᱟᱪᱷᱟᱣ ᱢᱮ, ᱫᱟᱜ ᱵᱟᱹᱞᱴᱤ ᱫᱚ ᱵᱟᱝ!",
+      "targetObject": "dcp_extinguisher",
+      "points": 20
+    },
+    {
+      "step": 4,
+      "title": "Apply PASS Extinguishing Technique",
+      "instruction": "Aim the extinguisher nozzle at the base of the flames and perform horizontal sweep.",
+      "instructionHindi": "नोजल को आग की जड़ की ओर लक्षित करें और दाएं-बाएं स्वीप करें।",
+      "instructionSantali": "ᱱᱳᱡᱚᱞ ᱫᱚ ᱥᱮᱸᱜᱮᱞ ᱯᱷᱮᱰ ᱨᱮ ᱴᱟᱨᱜᱮᱴ ᱠᱟᱛᱮ ᱫᱷᱟᱨᱮ-ᱫᱷᱟᱨᱮ ᱤᱬᱤᱡ ᱢᱮ᱾",
+      "targetObject": "fire_base_target",
+      "points": 20
+    },
+    {
+      "step": 5,
+      "title": "Identify Correct Intake Airway Exit",
+      "instruction": "Locate the green illuminated Intake Escape Airway shaft and avoid the smoke-filled return airway.",
+      "instructionHindi": "हरे रंग के इनटेक निकास मार्ग की पहचान करें और धुएं भरे रिटर्न एयरवे से बचें।",
+      "instructionSantali": "ᱦᱟᱹᱨᱭᱟᱹᱲ ᱪᱤᱱᱦᱟᱹ ᱟᱠᱟᱱ ᱥᱟᱯᱷᱟ ᱦᱚᱭ ᱰᱟᱦᱟᱨ ᱵᱟᱪᱷᱟᱣ ᱢᱮ᱾",
+      "targetObject": "intake_exit_portal",
+      "points": 15
+    },
+    {
+      "step": 6,
+      "title": "Follow AR Evacuation Lifeline Route",
+      "instruction": "Follow the glowing directional arrows along the mine track toward the escape cage.",
+      "instructionHindi": "माइन ट्रैक के साथ चमकते तीरों का अनुसरण करते हुए निकास केज की ओर बढ़ें।",
+      "instructionSantali": "ᱡᱩᱞᱩᱜ ᱠᱟᱱ ᱛᱤᱨ ᱪᱤᱱᱦᱟᱹ ᱯᱟᱸᱡᱟ ᱠᱟᱛᱮ ᱩᱰᱩᱠᱚᱜ ᱰᱟᱦᱟᱨ ᱛᱮ ᱪᱟᱞᱟᱜ ᱢᱮ᱾",
+      "targetObject": "evacuation_lifeline_arrows",
+      "points": 10
+    },
+    {
+      "step": 7,
+      "title": "Report to Surface Assembly Point",
+      "instruction": "Reach the green safety muster banner at the pithead to complete practical training.",
+      "instructionHindi": "व्यावहारिक प्रशिक्षण पूरा करने के लिए सतह पर मस्टर असेंबली पॉइंट पर पहुंचें।",
+      "instructionSantali": "ᱠᱟᱹᱢᱤ ᱯᱩᱨᱟᱹᱣ ᱞᱟᱹᱜᱤᱫ ᱪᱮᱛᱟᱱ ᱡᱟᱣᱨᱟ ᱡᱟᱭᱜᱟ ᱨᱮ ᱥᱮᱴᱮᱨᱚᱜ ᱢᱮ᱾",
+      "targetObject": "assembly_point_marker",
+      "points": 5
+    }
+  ]
+}
