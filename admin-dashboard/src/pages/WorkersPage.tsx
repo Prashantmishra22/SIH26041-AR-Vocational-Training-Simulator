@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Worker, Sector, WorkerStatus } from '../types';
+import { WorkerStatus as WsWorkerStatus } from '../services/useWebSocket';
 import { WorkerTable } from '../components/workers/WorkerTable';
 import { WorkerFilters } from '../components/workers/WorkerFilters';
 import { Users, Plus, Download, FileSpreadsheet } from 'lucide-react';
 
 interface WorkersPageProps {
   workers: Worker[];
+  workerStatuses?: Record<string, WsWorkerStatus>;
   searchQuery: string;
   onSelectWorker: (worker: Worker) => void;
 }
 
-export const WorkersPage: React.FC<WorkersPageProps> = ({ workers, searchQuery, onSelectWorker }) => {
+export const WorkersPage: React.FC<WorkersPageProps> = ({ workers, workerStatuses = {}, searchQuery, onSelectWorker }) => {
   const [selectedSector, setSelectedSector] = useState<Sector | 'ALL'>('ALL');
   const [selectedDistrict, setSelectedDistrict] = useState<string>('ALL');
   const [selectedStatus, setSelectedStatus] = useState<WorkerStatus | 'ALL'>('ALL');
@@ -81,7 +83,7 @@ export const WorkersPage: React.FC<WorkersPageProps> = ({ workers, searchQuery, 
       />
 
       {/* Main Table */}
-      <WorkerTable workers={filteredWorkers} onSelectWorker={onSelectWorker} />
+      <WorkerTable workers={filteredWorkers} workerStatuses={workerStatuses} onSelectWorker={onSelectWorker} />
     </div>
   );
 };

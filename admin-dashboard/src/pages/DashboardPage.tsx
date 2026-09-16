@@ -1,21 +1,21 @@
 import React from 'react';
-import { KPISummary, TrainingModule, DistrictMetric, LanguageMetric, Worker } from '../types';
+import { KPISummary, TrainingModule, DistrictMetric, Worker } from '../types';
+import { WorkerStatus, ActivityEvent } from '../services/useWebSocket';
 import { KPICard } from '../components/dashboard/KPICard';
-import { TrainingChart } from '../components/dashboard/TrainingChart';
-import { ModulePerformance } from '../components/dashboard/ModulePerformance';
-import { PassFailChart } from '../components/dashboard/PassFailChart';
-import { SectorChart } from '../components/dashboard/SectorChart';
-import { CertificateTimeline } from '../components/dashboard/CertificateTimeline';
+import { TrainingProgressDonut } from '../components/dashboard/TrainingProgressDonut';
+import { AssessmentBarChart } from '../components/dashboard/AssessmentBarChart';
+import { WorkerStatusDonut } from '../components/dashboard/WorkerStatusDonut';
+import { LiveWorkerList } from '../components/dashboard/LiveWorkerList';
+import { WorkerLocationMap } from '../components/dashboard/WorkerLocationMap';
+import { RecentActivityList } from '../components/dashboard/RecentActivityList';
+import { TrainingModulesProgressList } from '../components/dashboard/TrainingModulesProgressList';
+import { CertificatesIssuedList } from '../components/dashboard/CertificatesIssuedList';
+import { AlertsNotificationsList } from '../components/dashboard/AlertsNotificationsList';
 import {
   Users,
-  Award,
-  ShieldCheck,
-  TrendingUp,
-  Radio,
-  Layers,
-  Flame,
-  ChevronRight,
-  AlertCircle
+  GraduationCap,
+  BarChart2,
+  Award
 } from 'lucide-react';
 
 interface DashboardPageProps {
@@ -24,189 +24,174 @@ interface DashboardPageProps {
   districts: DistrictMetric[];
   trainingTrend: any[];
   workers: Worker[];
+  isWsConnected?: boolean;
+  workerStatuses?: Record<string, WorkerStatus>;
+  activityFeed?: ActivityEvent[];
+  connectedWorkersCount?: number;
+  connectedAdminsCount?: number;
   onNavigateTab: (tab: string) => void;
   onSelectWorker: (worker: Worker) => void;
 }
 
 export const DashboardPage: React.FC<DashboardPageProps> = ({
   kpis,
-  modules,
-  districts,
-  trainingTrend,
   workers,
   onNavigateTab,
   onSelectWorker,
 }) => {
-  const recentCertifiedWorkers = workers.filter(w => w.status === 'CERTIFIED').slice(0, 4);
-
   return (
-    <div className="space-y-6">
-      {/* Top Welcome & Overview Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-r from-slate-900 via-[#131C2D] to-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl">
-        <div>
-          <div className="flex items-center space-x-2">
-            <span className="bg-amber-500/20 text-amber-300 text-xs font-bold px-2.5 py-0.5 rounded-md border border-amber-500/30">
-              STATE SAFETY COMPLIANCE MONITOR
-            </span>
-            <span className="text-xs text-slate-400">Jharkhand Eastern Zone</span>
-          </div>
-          <h1 className="text-2xl lg:text-3xl font-extrabold text-white mt-2 tracking-tight">
-            Jharkhand Mining & Manufacturing Safety Command Center
-          </h1>
-          <p className="text-xs lg:text-sm text-slate-400 mt-1 max-w-3xl">
-            Live monitoring of Augmented Reality vocational hazard simulations, DGMS regulatory certification rates, and multi-language adoption (Hindi, Santali & English) across Dhanbad, Bokaro, Jamshedpur & Koderma mining districts.
-          </p>
-        </div>
+    <div className="space-y-5 pb-6">
+      {/* 1. Hero Welcome Banner */}
+      <div className="relative overflow-hidden rounded-2xl bg-[#0F172A] border border-slate-700/60 shadow-sm min-h-[165px] flex items-center">
+        {/* Dark Mining Panoramic Background with Gradient Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-90"
+          style={{ backgroundImage: `url('/mining_hero_bg.svg')` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1325]/85 via-[#0F1D36]/60 to-[#1A2C4A]/70 z-10 pointer-events-none" />
 
-        <div className="flex items-center space-x-3 shrink-0">
-          <button
-            onClick={() => onNavigateTab('training')}
-            className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs transition-all shadow-lg shadow-amber-500/20 cursor-pointer"
-          >
-            <Flame className="w-4 h-4 fill-slate-950" />
-            <span>Launch AR Module Suite</span>
-          </button>
+        {/* Ambient mining dusk light accent */}
+        <div className="absolute right-12 top-0 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none z-10" />
+
+        {/* Banner Content */}
+        <div className="relative z-20 w-full px-8 py-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          {/* Left Welcome */}
+          <div>
+            <h1 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm">
+              Welcome Back, Admin!
+            </h1>
+            <p className="text-xs lg:text-sm text-slate-300 mt-1 font-medium drop-shadow-xs">
+              Monitor. Manage. Ensure a Safer Jharkhand.
+            </p>
+          </div>
+
+          {/* Right Date, Time & Quote */}
+          <div className="text-left md:text-right">
+            <div className="text-xs text-slate-300 font-medium tracking-wide drop-shadow-xs">
+              Tuesday, 16 Sep 2025 &nbsp;&nbsp;&nbsp;&nbsp; 01:24 PM
+            </div>
+            <div className="mt-2.5">
+              <p className="text-base lg:text-xl font-serif italic text-white font-medium tracking-wide drop-shadow-sm">
+                “Safety is not just a rule, it’s a way of life.”
+              </p>
+              <div className="h-1 w-28 bg-amber-400 rounded-full md:ml-auto mt-2 shadow-xs shadow-amber-400/50" />
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* 6 Key Performance Indicators Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      {/* 2. Top Metric Cards (5 Cards in 1 Row) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <KPICard
-          title="Total Workforce"
-          value={kpis.totalWorkers.toLocaleString()}
-          subtitle="Enrolled Miners"
-          change="+18.5%"
+          title="Total Workers"
+          value="1,254"
+          subtitle="vs last month"
+          change="↑ 12%"
           isPositive={true}
           icon={Users}
           colorScheme="blue"
         />
 
         <KPICard
-          title="In AR Training"
-          value={kpis.activeTrainees}
-          subtitle="Active Sessions"
-          change="+12.0%"
+          title="Active Workers"
+          value="892"
+          subtitle="Currently active"
+          change="↑ 8%"
           isPositive={true}
-          icon={Layers}
-          colorScheme="amber"
-        />
-
-        <KPICard
-          title="Certified Workers"
-          value={kpis.certifiedWorkers.toLocaleString()}
-          subtitle="DGMS Accredited"
-          change="+24.1%"
-          isPositive={true}
-          icon={Award}
+          icon={Users}
           colorScheme="emerald"
         />
 
         <KPICard
-          title="Compliance Rate"
-          value={`${kpis.complianceRate}%`}
-          subtitle="Target: 85%"
-          change="+4.2%"
+          title="Training Completed"
+          value="3,482"
+          subtitle="Total completions"
+          change="↑ 24%"
           isPositive={true}
-          icon={ShieldCheck}
-          colorScheme="cyan"
-        />
-
-        <KPICard
-          title="Avg Assessment Score"
-          value={`${kpis.averageScore}%`}
-          subtitle="Passing >= 70%"
-          change="+2.8%"
-          isPositive={true}
-          icon={TrendingUp}
+          icon={GraduationCap}
           colorScheme="purple"
         />
 
         <KPICard
-          title="Pending Syncs"
-          value={kpis.offlineSyncPending}
-          subtitle="Underground Batches"
-          change="Auto-upload"
+          title="Average Score"
+          value="83%"
+          subtitle="Assessment score"
+          change="↑ 5%"
           isPositive={true}
-          icon={Radio}
-          colorScheme="rose"
+          icon={BarChart2}
+          colorScheme="orange"
+        />
+
+        <KPICard
+          title="Certificates Issued"
+          value="2,130"
+          subtitle="Total certificates"
+          change="↑ 18%"
+          isPositive={true}
+          icon={Award}
+          colorScheme="amber"
         />
       </div>
 
-      {/* Charts Grid Row 1: Training Volume & Pass/Fail */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <TrainingChart data={trainingTrend} />
+      {/* 3. Row 1: Analytics Charts (3 Cards) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div className="lg:col-span-4 min-h-[260px]">
+          <TrainingProgressDonut />
         </div>
-        <div>
-          <PassFailChart passRate={kpis.passRatePercent} />
-        </div>
-      </div>
 
-      {/* Charts Grid Row 2: Module Performance & Sector Distribution */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <ModulePerformance modules={modules} />
+        <div className="lg:col-span-5 min-h-[260px]">
+          <AssessmentBarChart />
         </div>
-        <div>
-          <SectorChart />
+
+        <div className="lg:col-span-3 min-h-[260px]">
+          <WorkerStatusDonut />
         </div>
       </div>
 
-      {/* Charts Grid Row 3: District Compliance & Recent Certified Stream */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
-          <CertificateTimeline districts={districts} />
+      {/* 4. Row 2: Live Monitoring, Live Map, Recent Activity (3 Cards) */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="min-h-[290px]">
+          <LiveWorkerList
+            onViewAll={() => onNavigateTab('workers')}
+            onSelectWorker={(workerName) => {
+              const matched = workers.find((w) => w.name.toLowerCase().includes(workerName.toLowerCase()));
+              if (matched) onSelectWorker(matched);
+              else onNavigateTab('workers');
+            }}
+          />
         </div>
 
-        {/* Live Certification Stream */}
-        <div className="glass-card rounded-2xl p-6 border border-slate-800/80 flex flex-col justify-between">
-          <div>
-            <div className="flex items-center justify-between pb-3 border-b border-slate-800/60">
-              <h3 className="text-base font-bold text-white flex items-center space-x-2">
-                <Award className="w-4 h-4 text-amber-400" />
-                <span>Recent Certifications</span>
-              </h3>
-              <button
-                onClick={() => onNavigateTab('certificates')}
-                className="text-xs text-amber-400 hover:text-amber-300 font-semibold"
-              >
-                View All
-              </button>
-            </div>
+        <div className="min-h-[290px]">
+          <WorkerLocationMap
+            onViewFullMap={() => onNavigateTab('analytics')}
+          />
+        </div>
 
-            <div className="space-y-3 mt-4">
-              {recentCertifiedWorkers.map((w) => (
-                <div
-                  key={w.id}
-                  onClick={() => onSelectWorker(w)}
-                  className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 transition-all cursor-pointer flex items-center justify-between"
-                >
-                  <div className="flex items-center space-x-3 min-w-0">
-                    <div className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xs font-bold text-slate-200 shrink-0">
-                      {w.name.charAt(0)}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs font-bold text-white truncate">{w.name}</p>
-                      <p className="text-[10px] text-slate-400 truncate">{w.company} • {w.district}</p>
-                    </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <span className="text-xs font-bold text-emerald-400 font-['JetBrains_Mono',monospace]">
-                      {w.averageScore}%
-                    </span>
-                    <span className="text-[10px] text-slate-500 block">Score</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="min-h-[290px]">
+          <RecentActivityList
+            onViewAll={() => onNavigateTab('workers')}
+          />
+        </div>
+      </div>
 
-          <div className="pt-4 border-t border-slate-800/60 mt-4">
-            <div className="flex items-center justify-between text-xs text-slate-400">
-              <span>Automatic QR Hash verification enabled</span>
-              <span className="text-emerald-400 font-semibold">DGMS Validated</span>
-            </div>
-          </div>
+      {/* 5. Row 3: Training Modules, Certificates Issued, Alerts & Notifications (3 Cards) */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="min-h-[290px]">
+          <TrainingModulesProgressList
+            onViewAll={() => onNavigateTab('training')}
+          />
+        </div>
+
+        <div className="min-h-[290px]">
+          <CertificatesIssuedList
+            onViewAll={() => onNavigateTab('certificates')}
+          />
+        </div>
+
+        <div className="min-h-[290px]">
+          <AlertsNotificationsList
+            onViewAll={() => onNavigateTab('settings')}
+          />
         </div>
       </div>
     </div>

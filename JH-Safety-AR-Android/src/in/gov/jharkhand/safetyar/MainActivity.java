@@ -1,22 +1,29 @@
 package in.gov.jharkhand.safetyar;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.*;
 import in.gov.jharkhand.safetyar.ar.ARSurfaceView;
 import in.gov.jharkhand.safetyar.certificate.CertificateCanvasView;
 import in.gov.jharkhand.safetyar.core.LocalizationEngine;
 import in.gov.jharkhand.safetyar.data.*;
+import in.gov.jharkhand.safetyar.network.ApiClient;
+import in.gov.jharkhand.safetyar.network.ApiConfig;
+import in.gov.jharkhand.safetyar.network.WebSocketClient;
 import in.gov.jharkhand.safetyar.offline.OfflineDatabaseHelper;
+import in.gov.jharkhand.safetyar.offline.OfflineSyncManager;
 import in.gov.jharkhand.safetyar.video.CartoonPlayerView;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,9 +31,13 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Stack;
 
 public class MainActivity extends Activity implements View.OnClickListener {
+
     private FrameLayout mRootContainer;
     private WorkerProfile mCurrentWorker;
     private LocalizationEngine mLoc;
@@ -52,6 +63,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private int mCorrectAnswersCount = 0;
     private EditText mWorkerIdInput;
     private CartoonPlayerView mActiveCartoonPlayer;
+
+    private final Stack<Integer> mNavigationStack = new Stack<>();
+    private final Map<String, Integer> mModuleStepProgressMap = new HashMap<>();
+    private int mCurrentScreen = ScreenType.SPLASH;
+    private boolean mIsNavigatingBack = false;
 
     private static final int ID_BTN_LOGIN = 1001;
     private static final int ID_BTN_DEMO = 1002;
@@ -88,6 +104,138 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(mRootContainer);
 
         showSplashScreen();
+    }
+
+    public void navigateToScreen(int targetScreen) {
+        if (!mIsNavigatingBack && mCurrentScreen != targetScreen && mCurrentScreen != ScreenType.SPLASH) {
+            mNavigationStack.push(mCurrentScreen);
+        }
+        mIsNavigatingBack = false;
+        mCurrentScreen = targetScreen;
+
+        switch (targetScreen) {
+            case ScreenType.DASHBOARD:
+                renderDashboardScreen();
+                break;
+            case ScreenType.CARTOON_VIDEO:
+                renderCartoonVideoScreen();
+                break;
+            case ScreenType.AR_TRAINING:
+                renderARTrainingScreen();
+                break;
+            case ScreenType.ASSESSMENT:
+                renderAssessmentScreen();
+                break;
+            case ScreenType.SCORE_RESULT:
+                renderScoreResultScreen();
+                break;
+            case ScreenType.CERTIFICATE:
+                renderCertificateScreen();
+                break;
+            case ScreenType.DEMO_VIDEOS:
+                renderDemoVideosScreen();
+                break;
+            case ScreenType.PROFILE:
+                renderProfileScreen();
+                break;
+            case ScreenType.LANGUAGE:
+                renderLanguageScreen();
+                break;
+            case ScreenType.LOGIN:
+                renderLoginScreen();
+                break;
+            default:
+                renderDashboardScreen();
+                break;
+        }
+    }
+
+    public void handleBackNavigation() {
+        if (!mNavigationStack.isEmpty()) {
+            int prevScreen = mNavigationStack.pop();
+            mIsNavigatingBack = true;
+            navigateToScreen(prevScreen);
+        } else if (mCurrentScreen == ScreenType.DASHBOARD || mCurrentScreen == ScreenType.LOGIN || mCurrentScreen == ScreenType.SPLASH) {
+            showExitConfirmationDialog();
+        } else {
+            mIsNavigatingBack = true;
+            navigateToScreen(ScreenType.DASHBOARD);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        handleBackNavigation();
+    }
+
+    private void showExitConfirmationDialog() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+
+        LinearLayout card = new LinearLayout(this);
+        card.setOrientation(LinearLayout.VERTICAL);
+        card.setBackgroundResource(R.drawable.card_login_dark);
+        card.setPadding(44, 40, 44, 40);
+        card.setGravity(Gravity.CENTER_HORIZONTAL);
+
+        TextView icon = new TextView(this);
+        icon.setText("🚪");
+        icon.setTextSize(36);
+        card.addView(icon);
+
+        TextView title = new TextView(this);
+        title.setText("Exit JH-SAFETY?");
+        title.setTextSize(22);
+        title.setTextColor(Color.WHITE);
+        title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        LinearLayout.LayoutParams tLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        tLp.topMargin = 16;
+        card.addView(title, tLp);
+
+        TextView msg = new TextView(this);
+        msg.setText("Are you sure you want to exit the application?");
+        msg.setTextSize(14);
+        msg.setTextColor(Color.parseColor("#94A3B8"));
+        msg.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams mLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        mLp.topMargin = 10;
+        mLp.bottomMargin = 30;
+        card.addView(msg, mLp);
+
+        LinearLayout btnRow = new LinearLayout(this);
+        btnRow.setOrientation(LinearLayout.HORIZONTAL);
+
+        Button btnCancel = new Button(this);
+        btnCancel.setText("CANCEL");
+        btnCancel.setTextColor(Color.WHITE);
+        btnCancel.setBackgroundResource(R.drawable.card_bg);
+        btnCancel.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        LinearLayout.LayoutParams cLp = new LinearLayout.LayoutParams(0, 110, 1.0f);
+        cLp.rightMargin = 16;
+        btnCancel.setLayoutParams(cLp);
+        btnCancel.setOnClickListener(v -> dialog.dismiss());
+
+        Button btnExit = new Button(this);
+        btnExit.setText("EXIT");
+        btnExit.setTextColor(Color.WHITE);
+        btnExit.setBackgroundResource(R.drawable.card_red);
+        btnExit.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        LinearLayout.LayoutParams eLp = new LinearLayout.LayoutParams(0, 110, 1.0f);
+        btnExit.setLayoutParams(eLp);
+        btnExit.setOnClickListener(v -> {
+            dialog.dismiss();
+            finish();
+        });
+
+        btnRow.addView(btnCancel);
+        btnRow.addView(btnExit);
+        card.addView(btnRow);
+
+        dialog.setContentView(card);
+        dialog.show();
     }
 
     private void loadBitmaps() {
@@ -327,7 +475,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    private void showLanguageScreen() {
+    public void showLanguageScreen() {
+        navigateToScreen(ScreenType.LANGUAGE);
+    }
+
+    private void renderLanguageScreen() {
         mRootContainer.removeAllViews();
 
         ScrollView sv = new ScrollView(this);
@@ -386,71 +538,33 @@ public class MainActivity extends Activity implements View.OnClickListener {
         return card;
     }
 
-    private void showLoginScreen() {
-        mRootContainer.removeAllViews();
-
-        ScrollView sv = new ScrollView(this);
-        LinearLayout layout = new LinearLayout(this);
-        layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(40, 60, 40, 60);
-
-        TextView title = new TextView(this);
-        title.setText(mLoc.getText("worker_login", "Worker Login"));
-        title.setTextSize(28);
-        title.setTextColor(Color.parseColor("#00E5FF"));
-        title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-        layout.addView(title);
-
-        TextView sub = new TextView(this);
-        sub.setText(mLoc.getText("tagline", "Directorate of Mines & Industrial Safety • Govt of Jharkhand"));
-        sub.setTextSize(14);
-        sub.setTextColor(Color.parseColor("#94A3B8"));
-        layout.addView(sub);
-
-        mWorkerIdInput = new EditText(this);
-        mWorkerIdInput.setHint(mLoc.getText("worker_id_hint", "Enter Worker ID (e.g. DEMO-001)"));
-        mWorkerIdInput.setText("DEMO-001");
-        mWorkerIdInput.setTextColor(Color.WHITE);
-        mWorkerIdInput.setHintTextColor(Color.parseColor("#64748B"));
-        mWorkerIdInput.setBackgroundResource(R.drawable.card_bg);
-        mWorkerIdInput.setPadding(30, 24, 30, 24);
-        LinearLayout.LayoutParams inLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        inLp.topMargin = 40;
-        layout.addView(mWorkerIdInput, inLp);
-
-        Button btnLogin = new Button(this);
-        btnLogin.setId(ID_BTN_LOGIN);
-        btnLogin.setText(mLoc.getText("login", "Login"));
-        btnLogin.setBackgroundResource(R.drawable.btn_primary);
-        btnLogin.setTextColor(Color.BLACK);
-        btnLogin.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-        LinearLayout.LayoutParams btnLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 120);
-        btnLp.topMargin = 30;
-        btnLogin.setLayoutParams(btnLp);
-        btnLogin.setOnClickListener(this);
-        layout.addView(btnLogin);
-
-        Button btnDemo = new Button(this);
-        btnDemo.setId(ID_BTN_DEMO);
-        btnDemo.setText("⚡ " + mLoc.getText("demo_mode", "Demo Mode (Rahul Kumar - Mining)"));
-        btnDemo.setBackgroundResource(R.drawable.btn_demo);
-        btnDemo.setTextColor(Color.BLACK);
-        btnDemo.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-        LinearLayout.LayoutParams demoLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 130);
-        demoLp.topMargin = 24;
-        btnDemo.setLayoutParams(demoLp);
-        btnDemo.setOnClickListener(this);
-        layout.addView(btnDemo);
-
-        sv.addView(layout);
-        mRootContainer.addView(sv);
+    public void showLoginScreen() {
+        navigateToScreen(ScreenType.LOGIN);
     }
 
-    private void showDashboardScreen() {
+    private void renderLoginScreen() {
         mRootContainer.removeAllViews();
 
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
+        root.setBackgroundColor(Color.parseColor("#0B1120"));
+
+        // Top Bar with Language Selector
+        LinearLayout topBar = new LinearLayout(this);
+        topBar.setOrientation(LinearLayout.HORIZONTAL);
+        topBar.setGravity(Gravity.CENTER_VERTICAL | Gravity.END);
+        topBar.setPadding(30, 24, 30, 10);
+
+        TextView langBtn = new TextView(this);
+        langBtn.setText("🌐  English ∨");
+        langBtn.setTextSize(13);
+        langBtn.setTextColor(Color.WHITE);
+        langBtn.setBackgroundResource(R.drawable.btn_lang_dropdown);
+        langBtn.setPadding(24, 12, 24, 12);
+        langBtn.setOnClickListener(v -> showLanguageScreen());
+        topBar.addView(langBtn);
+
+        root.addView(topBar);
 
         ScrollView sv = new ScrollView(this);
         LinearLayout.LayoutParams svLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1.0f);
@@ -458,56 +572,572 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(30, 30, 30, 30);
+        layout.setPadding(40, 10, 40, 40);
+        layout.setGravity(Gravity.CENTER_HORIZONTAL);
 
-        LinearLayout profileCard = new LinearLayout(this);
-        profileCard.setOrientation(LinearLayout.VERTICAL);
-        profileCard.setBackgroundResource(R.drawable.card_bg_accent);
-        profileCard.setPadding(30, 24, 30, 24);
+        // Center Logo Branding
+        if (mLogoBitmap != null) {
+            ImageView logo = new ImageView(this);
+            logo.setImageBitmap(mLogoBitmap);
+            LinearLayout.LayoutParams lgLp = new LinearLayout.LayoutParams(160, 160);
+            lgLp.bottomMargin = 10;
+            layout.addView(logo, lgLp);
+        }
 
-        TextView wName = new TextView(this);
-        wName.setText(mCurrentWorker.fullName + " (" + mCurrentWorker.workerId + ")");
-        wName.setTextSize(22);
-        wName.setTextColor(Color.parseColor("#00E5FF"));
-        wName.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-        profileCard.addView(wName);
+        TextView logoTxt = new TextView(this);
+        logoTxt.setText("JH-SAFETY");
+        logoTxt.setTextSize(24);
+        logoTxt.setTextColor(Color.WHITE);
+        logoTxt.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        layout.addView(logoTxt);
 
-        TextView wSector = new TextView(this);
-        wSector.setText("Sector: " + mCurrentWorker.sector + "  •  District: " + mCurrentWorker.district);
-        wSector.setTextSize(14);
-        wSector.setTextColor(Color.parseColor("#F8FAFC"));
-        profileCard.addView(wSector);
+        TextView logoSub = new TextView(this);
+        logoSub.setText("AR TRAINING PLATFORM");
+        logoSub.setTextSize(11);
+        logoSub.setTextColor(Color.parseColor("#94A3B8"));
+        layout.addView(logoSub);
 
-        TextView statusBadge = new TextView(this);
-        statusBadge.setText(mLoc.getText("status_online_synced", "ONLINE • SYNCHRONIZED"));
-        statusBadge.setTextSize(12);
-        statusBadge.setTextColor(Color.parseColor("#10B981"));
-        statusBadge.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-        profileCard.addView(statusBadge);
+        TextView title = new TextView(this);
+        title.setText("Login to Continue");
+        title.setTextSize(22);
+        title.setTextColor(Color.WHITE);
+        title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        LinearLayout.LayoutParams tLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        tLp.topMargin = 16;
+        layout.addView(title, tLp);
 
-        layout.addView(profileCard);
-        layout.addView(createStatsRow());
+        TextView sub = new TextView(this);
+        sub.setText("Access your safety training journey");
+        sub.setTextSize(13);
+        sub.setTextColor(Color.parseColor("#94A3B8"));
+        LinearLayout.LayoutParams sLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        sLp.bottomMargin = 24;
+        layout.addView(sub, sLp);
 
-        TextView modHeader = new TextView(this);
-        modHeader.setText("🎯 " + mLoc.getText("nav_training", "Training Modules"));
-        modHeader.setTextSize(20);
-        modHeader.setTextColor(Color.parseColor("#FFB300"));
-        modHeader.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-        LinearLayout.LayoutParams mhlp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        mhlp.topMargin = 30;
-        mhlp.bottomMargin = 10;
-        layout.addView(modHeader, mhlp);
+        // Login Card Container
+        LinearLayout card = new LinearLayout(this);
+        card.setOrientation(LinearLayout.VERTICAL);
+        card.setBackgroundResource(R.drawable.card_login_dark);
+        card.setPadding(30, 30, 30, 30);
+        LinearLayout.LayoutParams cLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        card.setLayoutParams(cLp);
 
-        layout.addView(createModuleCard("module_fire", mFireModule.title, mFireModule.titleHindi, "DGMS CMR 2017 Reg 133", "READY • 12 LESSONS + AR", true));
-        layout.addView(createModuleCard("module_gas", mGasModule.title, mGasModule.titleHindi, "DGMS CMR 2017 Reg 169", "READY • 12 LESSONS + AR", true));
-        layout.addView(createModuleCard("module_machinery", "Module 3: Heavy Machinery & LOTO", "भारी मशीनरी एवं LOTO सुरक्षा", "Factories Act 1948", "COMING SOON", false));
-        layout.addView(createModuleCard("module_ppe", "Module 4: PPE & Silicosis Prevention", "पीपीई एवं सिलिकोसिस रोकथाम", "Mines Act Sec 22A", "COMING SOON", false));
+        // Field 1: Worker ID / Email
+        TextView lblWorkerId = new TextView(this);
+        lblWorkerId.setText("Worker ID / Email");
+        lblWorkerId.setTextSize(13);
+        lblWorkerId.setTextColor(Color.parseColor("#CBD5E1"));
+        card.addView(lblWorkerId);
+
+        mWorkerIdInput = new EditText(this);
+        mWorkerIdInput.setHint("Enter your Worker ID or Email");
+        mWorkerIdInput.setText(mCurrentWorker.workerId != null ? mCurrentWorker.workerId : "JH1024");
+        mWorkerIdInput.setTextColor(Color.WHITE);
+        mWorkerIdInput.setHintTextColor(Color.parseColor("#64748B"));
+        mWorkerIdInput.setBackgroundResource(R.drawable.input_box_dark);
+        mWorkerIdInput.setPadding(30, 20, 30, 20);
+        LinearLayout.LayoutParams in1Lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        in1Lp.topMargin = 10;
+        in1Lp.bottomMargin = 20;
+        card.addView(mWorkerIdInput, in1Lp);
+
+        // Field 2: Password
+        TextView lblPassword = new TextView(this);
+        lblPassword.setText("Password");
+        lblPassword.setTextSize(13);
+        lblPassword.setTextColor(Color.parseColor("#CBD5E1"));
+        card.addView(lblPassword);
+
+        EditText passInput = new EditText(this);
+        passInput.setHint("Enter your password");
+        passInput.setText("••••••••");
+        passInput.setTextColor(Color.WHITE);
+        passInput.setHintTextColor(Color.parseColor("#64748B"));
+        passInput.setBackgroundResource(R.drawable.input_box_dark);
+        passInput.setPadding(30, 20, 30, 20);
+        LinearLayout.LayoutParams in2Lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        in2Lp.topMargin = 10;
+        in2Lp.bottomMargin = 20;
+        card.addView(passInput, in2Lp);
+
+        // Checkbox & Link row
+        LinearLayout optionRow = new LinearLayout(this);
+        optionRow.setOrientation(LinearLayout.HORIZONTAL);
+        optionRow.setGravity(Gravity.CENTER_VERTICAL);
+        LinearLayout.LayoutParams optLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        optLp.bottomMargin = 24;
+        optionRow.setLayoutParams(optLp);
+
+        CheckBox chkRemember = new CheckBox(this);
+        chkRemember.setText("Remember me");
+        chkRemember.setTextColor(Color.parseColor("#CBD5E1"));
+        chkRemember.setChecked(true);
+        LinearLayout.LayoutParams chkLp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+        optionRow.addView(chkRemember, chkLp);
+
+        TextView forgotTxt = new TextView(this);
+        forgotTxt.setText("Forgot Password?");
+        forgotTxt.setTextSize(13);
+        forgotTxt.setTextColor(Color.parseColor("#38BDF8"));
+        optionRow.addView(forgotTxt);
+
+        card.addView(optionRow);
+
+        // Login Button
+        Button btnLogin = new Button(this);
+        btnLogin.setId(ID_BTN_LOGIN);
+        btnLogin.setText("Login");
+        btnLogin.setBackgroundResource(R.drawable.btn_login_yellow);
+        btnLogin.setTextColor(Color.BLACK);
+        btnLogin.setTextSize(16);
+        btnLogin.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        LinearLayout.LayoutParams btnLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 110);
+        btnLogin.setLayoutParams(btnLp);
+        btnLogin.setOnClickListener(this);
+        card.addView(btnLogin);
+
+        // Divider OR
+        TextView divider = new TextView(this);
+        divider.setText("────────  OR  ────────");
+        divider.setTextSize(12);
+        divider.setTextColor(Color.parseColor("#64748B"));
+        divider.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams divLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        divLp.topMargin = 20;
+        divLp.bottomMargin = 20;
+        card.addView(divider, divLp);
+
+        // Google Button
+        Button btnGoogle = new Button(this);
+        btnGoogle.setText("G  Continue with Google");
+        btnGoogle.setBackgroundResource(R.drawable.input_box_dark);
+        btnGoogle.setTextColor(Color.WHITE);
+        btnGoogle.setTextSize(14);
+        btnGoogle.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        LinearLayout.LayoutParams gLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 110);
+        btnGoogle.setLayoutParams(gLp);
+        btnGoogle.setOnClickListener(this);
+        card.addView(btnGoogle);
+
+        // New user link
+        TextView newUserTxt = new TextView(this);
+        newUserTxt.setText("New user?  Create Account");
+        newUserTxt.setTextSize(13);
+        newUserTxt.setTextColor(Color.parseColor("#38BDF8"));
+        newUserTxt.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams nuLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        nuLp.topMargin = 20;
+        newUserTxt.setLayoutParams(nuLp);
+        newUserTxt.setOnClickListener(v -> showDashboardScreen());
+        card.addView(newUserTxt);
+
+        layout.addView(card);
+
+        // 3 Feature Icons Row
+        LinearLayout featuresRow = new LinearLayout(this);
+        featuresRow.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams frLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        frLp.topMargin = 30;
+        featuresRow.setLayoutParams(frLp);
+
+        featuresRow.addView(createFeatureItem("🛡️", "Learn\nSafety"));
+        featuresRow.addView(createFeatureItem("👥", "Work\nSafer"));
+        featuresRow.addView(createFeatureItem("🍃", "Build a\nBetter Jharkhand"));
+
+        layout.addView(featuresRow);
+
+        // Bottom Banner Quote
+        LinearLayout bottomQuoteCard = new LinearLayout(this);
+        bottomQuoteCard.setOrientation(LinearLayout.VERTICAL);
+        bottomQuoteCard.setBackgroundResource(R.drawable.card_login_dark);
+        bottomQuoteCard.setPadding(20, 24, 20, 24);
+        bottomQuoteCard.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams bqcLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        bqcLp.topMargin = 24;
+        bottomQuoteCard.setLayoutParams(bqcLp);
+
+        TextView bqTxt = new TextView(this);
+        bqTxt.setText("“Safety is not just a rule,\nit's a way of life.”");
+        bqTxt.setTextSize(15);
+        bqTxt.setTextColor(Color.WHITE);
+        bqTxt.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.ITALIC));
+        bqTxt.setGravity(Gravity.CENTER);
+        bottomQuoteCard.addView(bqTxt);
+
+        layout.addView(bottomQuoteCard);
+
+        sv.addView(layout);
+        root.addView(sv);
+
+        mRootContainer.addView(root);
+    }
+
+    private View createFeatureItem(String iconStr, String titleStr) {
+        LinearLayout box = new LinearLayout(this);
+        box.setOrientation(LinearLayout.VERTICAL);
+        box.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+        box.setLayoutParams(lp);
+
+        TextView icon = new TextView(this);
+        icon.setText(iconStr);
+        icon.setTextSize(24);
+        box.addView(icon);
+
+        TextView title = new TextView(this);
+        title.setText(titleStr);
+        title.setTextSize(12);
+        title.setTextColor(Color.WHITE);
+        title.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams tLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        tLp.topMargin = 6;
+        title.setLayoutParams(tLp);
+        box.addView(title);
+
+        return box;
+    }
+
+    public void showDashboardScreen() {
+        navigateToScreen(ScreenType.DASHBOARD);
+    }
+
+    private void renderDashboardScreen() {
+        mRootContainer.removeAllViews();
+
+        LinearLayout root = new LinearLayout(this);
+        root.setOrientation(LinearLayout.VERTICAL);
+        root.setBackgroundColor(Color.parseColor("#0B1120"));
+
+        // Top App Header Bar
+        LinearLayout topBar = new LinearLayout(this);
+        topBar.setOrientation(LinearLayout.HORIZONTAL);
+        topBar.setGravity(Gravity.CENTER_VERTICAL);
+        topBar.setPadding(30, 20, 30, 16);
+        topBar.setBackgroundColor(Color.parseColor("#0B1120"));
+
+        if (mLogoBitmap != null) {
+            ImageView logoView = new ImageView(this);
+            logoView.setImageBitmap(mLogoBitmap);
+            LinearLayout.LayoutParams logoLp = new LinearLayout.LayoutParams(80, 80);
+            logoLp.rightMargin = 16;
+            topBar.addView(logoView, logoLp);
+        }
+
+        LinearLayout titleBox = new LinearLayout(this);
+        titleBox.setOrientation(LinearLayout.VERTICAL);
+
+        TextView appTitle = new TextView(this);
+        appTitle.setText("JH-SAFETY");
+        appTitle.setTextSize(20);
+        appTitle.setTextColor(Color.WHITE);
+        appTitle.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        titleBox.addView(appTitle);
+
+        TextView appSub = new TextView(this);
+        appSub.setText("AR TRAINING PLATFORM");
+        appSub.setTextSize(10);
+        appSub.setTextColor(Color.parseColor("#94A3B8"));
+        titleBox.addView(appSub);
+
+        LinearLayout.LayoutParams tbLp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+        topBar.addView(titleBox, tbLp);
+
+        TextView btnBell = new TextView(this);
+        btnBell.setText("🔔");
+        btnBell.setTextSize(20);
+        btnBell.setPadding(16, 10, 16, 10);
+        btnBell.setOnClickListener(v -> Toast.makeText(this, "4 Active Safety Notifications", Toast.LENGTH_SHORT).show());
+        topBar.addView(btnBell);
+
+        TextView btnGear = new TextView(this);
+        btnGear.setText("⚙️");
+        btnGear.setTextSize(20);
+        btnGear.setPadding(16, 10, 16, 10);
+        btnGear.setOnClickListener(v -> showLanguageScreen());
+        topBar.addView(btnGear);
+
+        root.addView(topBar);
+
+        ScrollView sv = new ScrollView(this);
+        LinearLayout.LayoutParams svLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1.0f);
+        sv.setLayoutParams(svLp);
+
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setPadding(24, 16, 24, 24);
+
+        // Worker Profile Header Card
+        LinearLayout profileHeader = new LinearLayout(this);
+        profileHeader.setOrientation(LinearLayout.HORIZONTAL);
+        profileHeader.setBackgroundResource(R.drawable.card_login_dark);
+        profileHeader.setPadding(24, 24, 24, 24);
+        profileHeader.setGravity(Gravity.CENTER_VERTICAL);
+
+        if (mRajuBitmap != null) {
+            ImageView avatarView = new ImageView(this);
+            avatarView.setImageBitmap(mRajuBitmap);
+            LinearLayout.LayoutParams avLp = new LinearLayout.LayoutParams(130, 130);
+            avLp.rightMargin = 20;
+            profileHeader.addView(avatarView, avLp);
+        }
+
+        LinearLayout infoBox = new LinearLayout(this);
+        infoBox.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams ibLp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+        infoBox.setLayoutParams(ibLp);
+
+        TextView welcomeTxt = new TextView(this);
+        welcomeTxt.setText("Welcome,");
+        welcomeTxt.setTextSize(13);
+        welcomeTxt.setTextColor(Color.parseColor("#94A3B8"));
+        infoBox.addView(welcomeTxt);
+
+        TextView nameTxt = new TextView(this);
+        nameTxt.setText(mCurrentWorker.fullName);
+        nameTxt.setTextSize(20);
+        nameTxt.setTextColor(Color.WHITE);
+        nameTxt.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        infoBox.addView(nameTxt);
+
+        TextView idTxt = new TextView(this);
+        idTxt.setText("Worker ID: " + mCurrentWorker.workerId);
+        idTxt.setTextSize(13);
+        idTxt.setTextColor(Color.parseColor("#94A3B8"));
+        infoBox.addView(idTxt);
+
+        TextView activeBadge = new TextView(this);
+        activeBadge.setText("✓ Active");
+        activeBadge.setTextSize(11);
+        activeBadge.setTextColor(Color.WHITE);
+        activeBadge.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        activeBadge.setBackgroundResource(R.drawable.badge_active_green);
+        activeBadge.setPadding(16, 6, 16, 6);
+        LinearLayout.LayoutParams abLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        abLp.topMargin = 10;
+        infoBox.addView(activeBadge, abLp);
+
+        profileHeader.addView(infoBox);
+
+        TextView sloganTxt = new TextView(this);
+        sloganTxt.setText("Safe Worker\nStronger\nJharkhand");
+        sloganTxt.setTextSize(13);
+        sloganTxt.setTextColor(Color.parseColor("#F59E0B"));
+        sloganTxt.setTypeface(Typeface.create(Typeface.SERIF, Typeface.BOLD_ITALIC));
+        sloganTxt.setGravity(Gravity.END);
+        profileHeader.addView(sloganTxt);
+
+        layout.addView(profileHeader);
+
+        // Your Training Progress Card
+        LinearLayout progressCard = new LinearLayout(this);
+        progressCard.setOrientation(LinearLayout.VERTICAL);
+        progressCard.setBackgroundResource(R.drawable.card_login_dark);
+        progressCard.setPadding(24, 20, 24, 20);
+        LinearLayout.LayoutParams pcLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        pcLp.topMargin = 20;
+        progressCard.setLayoutParams(pcLp);
+
+        LinearLayout prgHeaderRow = new LinearLayout(this);
+        prgHeaderRow.setOrientation(LinearLayout.HORIZONTAL);
+
+        TextView prgTitle = new TextView(this);
+        prgTitle.setText("Your Training Progress");
+        prgTitle.setTextSize(15);
+        prgTitle.setTextColor(Color.WHITE);
+        prgTitle.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        LinearLayout.LayoutParams ptLp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+        prgHeaderRow.addView(prgTitle, ptLp);
+
+        TextView prgPercent = new TextView(this);
+        prgPercent.setText(mCurrentWorker.trainingProgressPercent + "% Complete");
+        prgPercent.setTextSize(14);
+        prgPercent.setTextColor(Color.WHITE);
+        prgPercent.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        prgHeaderRow.addView(prgPercent);
+
+        progressCard.addView(prgHeaderRow);
+
+        // Progress bar line
+        View pbBg = new View(this);
+        pbBg.setBackgroundColor(Color.parseColor("#10B981"));
+        LinearLayout.LayoutParams pbfLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 20);
+        pbfLp.topMargin = 16;
+        pbfLp.bottomMargin = 16;
+        pbBg.setLayoutParams(pbfLp);
+        progressCard.addView(pbBg);
+
+        LinearLayout prgFooterRow = new LinearLayout(this);
+        prgFooterRow.setOrientation(LinearLayout.HORIZONTAL);
+
+        TextView prgSub = new TextView(this);
+        prgSub.setText(mCurrentWorker.completedModulesCount + " of " + mCurrentWorker.totalModulesCount + " modules completed");
+        prgSub.setTextSize(13);
+        prgSub.setTextColor(Color.parseColor("#94A3B8"));
+        LinearLayout.LayoutParams psLp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+        prgFooterRow.addView(prgSub, psLp);
+
+        TextView prgArrow = new TextView(this);
+        prgArrow.setText(">");
+        prgArrow.setTextSize(16);
+        prgArrow.setTextColor(Color.parseColor("#94A3B8"));
+        prgFooterRow.addView(prgArrow);
+
+        progressCard.addView(prgFooterRow);
+        progressCard.setOnClickListener(v -> showCartoonVideoScreen());
+
+        layout.addView(progressCard);
+
+        // Grid of 6 Cards (2 Columns x 3 Rows)
+        LinearLayout gridLayout = new LinearLayout(this);
+        gridLayout.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams glLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        glLp.topMargin = 20;
+        gridLayout.setLayoutParams(glLp);
+
+        // Row 1
+        LinearLayout row1 = new LinearLayout(this);
+        row1.setOrientation(LinearLayout.HORIZONTAL);
+        row1.addView(createGridCard("🔥", "Training Modules >", "Learn with AR simulations", R.drawable.card_red, v -> showCartoonVideoScreen()));
+        row1.addView(createGridCard("📄", "Assessments >", "Test your knowledge", R.drawable.card_blue, v -> showAssessmentScreen()));
+        gridLayout.addView(row1);
+
+        // Row 2
+        LinearLayout row2 = new LinearLayout(this);
+        row2.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams r2Lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        r2Lp.topMargin = 16;
+        row2.setLayoutParams(r2Lp);
+        row2.addView(createGridCard("📜", "My Certificates >", "View & Download", R.drawable.card_green, v -> showCertificateScreen()));
+        row2.addView(createGridCard("📊", "My Progress >", "Track your learning", R.drawable.card_purple, v -> showProfileScreen()));
+        gridLayout.addView(row2);
+
+        // Row 3
+        LinearLayout row3 = new LinearLayout(this);
+        row3.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams r3Lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        r3Lp.topMargin = 16;
+        row3.setLayoutParams(r3Lp);
+        row3.addView(createGridCard("📖", "Safety Library >", "Guides & Resources", R.drawable.card_orange, v -> showDemoVideosScreen()));
+        row3.addView(createGridCard("☁️", "Offline Content >", "Available for you", R.drawable.card_teal, v -> Toast.makeText(this, "Offline Content Available", Toast.LENGTH_SHORT).show()));
+        gridLayout.addView(row3);
+
+        layout.addView(gridLayout);
+
+        // Banner Quote Card
+        LinearLayout bannerCard = new LinearLayout(this);
+        bannerCard.setOrientation(LinearLayout.VERTICAL);
+        bannerCard.setBackgroundResource(R.drawable.card_login_dark);
+        bannerCard.setPadding(26, 26, 26, 26);
+        LinearLayout.LayoutParams bcLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        bcLp.topMargin = 20;
+        bannerCard.setLayoutParams(bcLp);
+
+        TextView quoteTxt = new TextView(this);
+        quoteTxt.setText("“A Safer Today\nfor a Brighter\nTomorrow”");
+        quoteTxt.setTextSize(20);
+        quoteTxt.setTextColor(Color.WHITE);
+        quoteTxt.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        bannerCard.addView(quoteTxt);
+
+        TextView subTxt = new TextView(this);
+        subTxt.setText("— JH-SAFETY");
+        subTxt.setTextSize(13);
+        subTxt.setTextColor(Color.parseColor("#94A3B8"));
+        LinearLayout.LayoutParams stLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        stLp.topMargin = 10;
+        bannerCard.addView(subTxt, stLp);
+
+        layout.addView(bannerCard);
+
+        // Sync Status Bar
+        LinearLayout syncBar = new LinearLayout(this);
+        syncBar.setOrientation(LinearLayout.HORIZONTAL);
+        syncBar.setBackgroundResource(R.drawable.card_login_dark);
+        syncBar.setPadding(20, 16, 20, 16);
+        syncBar.setGravity(Gravity.CENTER_VERTICAL);
+        LinearLayout.LayoutParams sbLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        sbLp.topMargin = 20;
+        sbLp.bottomMargin = 20;
+        syncBar.setLayoutParams(sbLp);
+
+        TextView wifiIcon = new TextView(this);
+        wifiIcon.setText("📶 ");
+        wifiIcon.setTextSize(18);
+        syncBar.addView(wifiIcon);
+
+        LinearLayout syncTextContainer = new LinearLayout(this);
+        syncTextContainer.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams stcLp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+        syncTextContainer.setLayoutParams(stcLp);
+
+        TextView syncTitle = new TextView(this);
+        syncTitle.setText("Sync Status");
+        syncTitle.setTextSize(14);
+        syncTitle.setTextColor(Color.WHITE);
+        syncTitle.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        syncTextContainer.addView(syncTitle);
+
+        TextView syncSub = new TextView(this);
+        syncSub.setText("Last synced: 2 mins ago");
+        syncSub.setTextSize(12);
+        syncSub.setTextColor(Color.parseColor("#94A3B8"));
+        syncTextContainer.addView(syncSub);
+
+        syncBar.addView(syncTextContainer);
+
+        TextView syncBtn = new TextView(this);
+        syncBtn.setText("Synced");
+        syncBtn.setTextSize(12);
+        syncBtn.setTextColor(Color.WHITE);
+        syncBtn.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        syncBtn.setBackgroundResource(R.drawable.badge_active_green);
+        syncBtn.setPadding(24, 10, 24, 10);
+        syncBtn.setOnClickListener(v -> showProfileScreen());
+        syncBar.addView(syncBtn);
+
+        layout.addView(syncBar);
 
         sv.addView(layout);
         root.addView(sv);
         root.addView(createBottomNavBar(0));
 
         mRootContainer.addView(root);
+    }
+
+    private View createGridCard(String iconStr, String titleStr, String descStr, int bgDrawableRes, View.OnClickListener listener) {
+        LinearLayout card = new LinearLayout(this);
+        card.setOrientation(LinearLayout.VERTICAL);
+        card.setBackgroundResource(bgDrawableRes);
+        card.setPadding(24, 24, 24, 24);
+
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+        lp.setMargins(6, 0, 6, 0);
+        card.setLayoutParams(lp);
+
+        TextView icon = new TextView(this);
+        icon.setText(iconStr);
+        icon.setTextSize(26);
+        card.addView(icon);
+
+        TextView title = new TextView(this);
+        title.setText(titleStr);
+        title.setTextSize(15);
+        title.setTextColor(Color.WHITE);
+        title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        LinearLayout.LayoutParams tLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        tLp.topMargin = 12;
+        card.addView(title, tLp);
+
+        TextView desc = new TextView(this);
+        desc.setText(descStr);
+        desc.setTextSize(11);
+        desc.setTextColor(Color.parseColor("#E2E8F0"));
+        LinearLayout.LayoutParams dLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dLp.topMargin = 4;
+        card.addView(desc, dLp);
+
+        if (listener != null) card.setOnClickListener(listener);
+        return card;
     }
 
     private View createStatsRow() {
@@ -607,7 +1237,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    private void showCartoonVideoScreen() {
+    public void showCartoonVideoScreen() {
+        navigateToScreen(ScreenType.CARTOON_VIDEO);
+    }
+
+    private void renderCartoonVideoScreen() {
         mRootContainer.removeAllViews();
 
         LinearLayout root = new LinearLayout(this);
@@ -691,23 +1325,88 @@ public class MainActivity extends Activity implements View.OnClickListener {
         @Override
         public void onModuleCompleted(float practicalScorePercent) {
             mActivity.mLastPracticalScore = practicalScorePercent;
-            mActivity.showAssessmentScreen();
+            mActivity.navigateToScreen(ScreenType.ASSESSMENT);
         }
     }
 
-    private void showARTrainingScreen() {
+    public void showARTrainingScreen() {
+        navigateToScreen(ScreenType.AR_TRAINING);
+    }
+
+    private void renderARTrainingScreen() {
         mRootContainer.removeAllViews();
 
         ModuleConfig config = mActiveModuleId.equals("module_gas") ? mGasModule : mFireModule;
         Bitmap sceneBg = mActiveModuleId.equals("module_gas") ? mGasSceneBitmap : mFireSceneBitmap;
 
-        ARSurfaceView arView = new ARSurfaceView(this);
+        FrameLayout frameLayout = new FrameLayout(this);
+
+        final ARSurfaceView arView = new ARSurfaceView(this);
         arView.setupModule(config, sceneBg, new ARSessionHandler(this));
 
-        mRootContainer.addView(arView);
+        // Restore saved step progress if user previously exited training
+        Integer savedStep = mModuleStepProgressMap.get(mActiveModuleId);
+        if (savedStep != null) {
+            arView.setStepIndex(savedStep);
+        }
+        frameLayout.addView(arView);
+
+        // Bottom In-App Navigation Bar (← BACK & NEXT →)
+        LinearLayout navOverlay = new LinearLayout(this);
+        navOverlay.setOrientation(LinearLayout.HORIZONTAL);
+        navOverlay.setPadding(30, 20, 30, 30);
+        navOverlay.setBackgroundColor(Color.parseColor("#990B1120")); // Translucent dark background
+
+        FrameLayout.LayoutParams overlayLp = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        overlayLp.gravity = Gravity.BOTTOM;
+        navOverlay.setLayoutParams(overlayLp);
+
+        // BOTTOM LEFT: ← BACK
+        Button btnBack = new Button(this);
+        btnBack.setText("← BACK");
+        btnBack.setTextSize(15);
+        btnBack.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        btnBack.setTextColor(Color.WHITE);
+        btnBack.setBackgroundResource(R.drawable.card_login_dark);
+        btnBack.setPadding(30, 20, 30, 20);
+        LinearLayout.LayoutParams bLp = new LinearLayout.LayoutParams(0, 110, 1.0f);
+        bLp.rightMargin = 20;
+        btnBack.setLayoutParams(bLp);
+        btnBack.setOnClickListener(v -> {
+            mModuleStepProgressMap.put(mActiveModuleId, arView.getCurrentStepIndex());
+            handleBackNavigation();
+        });
+        navOverlay.addView(btnBack);
+
+        // BOTTOM RIGHT: NEXT →
+        Button btnNext = new Button(this);
+        btnNext.setText("NEXT →");
+        btnNext.setTextSize(15);
+        btnNext.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        btnNext.setTextColor(Color.BLACK);
+        btnNext.setBackgroundResource(R.drawable.btn_login_yellow);
+        btnNext.setPadding(30, 20, 30, 20);
+        LinearLayout.LayoutParams nLp = new LinearLayout.LayoutParams(0, 110, 1.0f);
+        btnNext.setLayoutParams(nLp);
+        btnNext.setOnClickListener(v -> {
+            boolean hasMore = arView.advanceNextStep();
+            mModuleStepProgressMap.put(mActiveModuleId, arView.getCurrentStepIndex());
+            if (!hasMore) {
+                navigateToScreen(ScreenType.ASSESSMENT);
+            }
+        });
+        navOverlay.addView(btnNext);
+
+        frameLayout.addView(navOverlay);
+        mRootContainer.addView(frameLayout);
     }
 
-    private void showAssessmentScreen() {
+    public void showAssessmentScreen() {
+        navigateToScreen(ScreenType.ASSESSMENT);
+    }
+
+    private void renderAssessmentScreen() {
         mRootContainer.removeAllViews();
         mCurrentQuestionIdx = 0;
         mCorrectAnswersCount = 0;
@@ -739,7 +1438,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         List<QuestionItem> questions = mActiveModuleId.equals("module_gas") ? mGasQuestions : mFireQuestions;
         if (mCurrentQuestionIdx >= questions.size()) {
             mLastTheoryScore = ((float) mCorrectAnswersCount / questions.size()) * 100f;
-            showScoreResultScreen();
+            navigateToScreen(ScreenType.SCORE_RESULT);
             return;
         }
 
@@ -790,7 +1489,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mRootContainer.addView(sv);
     }
 
-    private void showScoreResultScreen() {
+    public void showScoreResultScreen() {
+        navigateToScreen(ScreenType.SCORE_RESULT);
+    }
+
+    private void renderScoreResultScreen() {
         mRootContainer.removeAllViews();
 
         ScrollView sv = new ScrollView(this);
@@ -884,7 +1587,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         return row;
     }
 
-    private void showCertificateScreen() {
+    public void showCertificateScreen() {
+        navigateToScreen(ScreenType.CERTIFICATE);
+    }
+
+    private void renderCertificateScreen() {
         mRootContainer.removeAllViews();
 
         LinearLayout root = new LinearLayout(this);
@@ -1010,7 +1717,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    private void showDemoVideosScreen() {
+    public void showDemoVideosScreen() {
+        navigateToScreen(ScreenType.DEMO_VIDEOS);
+    }
+
+    private void renderDemoVideosScreen() {
         mRootContainer.removeAllViews();
 
         LinearLayout root = new LinearLayout(this);
@@ -1090,7 +1801,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mRootContainer.addView(root);
     }
 
-    private void showProfileScreen() {
+    public void showProfileScreen() {
+        navigateToScreen(ScreenType.PROFILE);
+    }
+
+    private void renderProfileScreen() {
         mRootContainer.removeAllViews();
 
         LinearLayout root = new LinearLayout(this);
@@ -1167,26 +1882,26 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         @Override
         public void onClick(View v) {
-            if (mIdx == 0 || mIdx == 1) mActivity.showDashboardScreen();
-            else if (mIdx == 2) mActivity.showDemoVideosScreen();
-            else if (mIdx == 3) mActivity.showCertificateScreen();
-            else if (mIdx == 4) mActivity.showProfileScreen();
+            if (mIdx == 0) mActivity.showDashboardScreen();
+            else if (mIdx == 1) mActivity.showCartoonVideoScreen();
+            else if (mIdx == 2) mActivity.showCertificateScreen();
+            else if (mIdx == 3) mActivity.showProfileScreen();
         }
     }
 
     private View createBottomNavBar(int activeTabIdx) {
         LinearLayout nav = new LinearLayout(this);
         nav.setOrientation(LinearLayout.HORIZONTAL);
-        nav.setBackgroundColor(Color.parseColor("#0B132B"));
+        nav.setBackgroundColor(Color.parseColor("#0B1120"));
         nav.setPadding(10, 16, 10, 16);
         nav.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 140));
 
-        String[] tabs = {"🏠 Home", "🎯 Training", "🎥 Videos", "📜 Certs", "👤 Profile"};
+        String[] tabs = {"🏠 Home", "📚 Modules", "📜 Certificates", "👤 Profile"};
         for (int i = 0; i < tabs.length; i++) {
             Button btn = new Button(this);
             btn.setText(tabs[i]);
-            btn.setTextSize(11);
-            btn.setTextColor(i == activeTabIdx ? Color.parseColor("#00E5FF") : Color.parseColor("#94A3B8"));
+            btn.setTextSize(12);
+            btn.setTextColor(i == activeTabIdx ? Color.parseColor("#F59E0B") : Color.parseColor("#94A3B8"));
             btn.setBackgroundColor(Color.TRANSPARENT);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1.0f);
             btn.setLayoutParams(lp);
@@ -1196,6 +1911,79 @@ public class MainActivity extends Activity implements View.OnClickListener {
         return nav;
     }
 
+    // ──────────────────────────────────────────────
+    // API INTEGRATION: Named static callback classes
+    // ──────────────────────────────────────────────
+
+    private static class LoginApiCallback implements ApiClient.ApiCallback {
+        private final MainActivity mActivity;
+        public LoginApiCallback(MainActivity act) { this.mActivity = act; }
+        @Override
+        public void onSuccess(int statusCode, String response) {
+            try {
+                JSONObject resp = new JSONObject(response);
+                String token = resp.optString("access_token", "");
+                int userId = resp.optInt("user_id", -1);
+                if (!token.isEmpty()) {
+                    ApiConfig.setToken(mActivity, token);
+                    ApiConfig.setUserId(mActivity, userId);
+                }
+                ApiConfig.setWorkerId(mActivity, mActivity.mCurrentWorker.workerId);
+                ApiConfig.setWorkerName(mActivity, mActivity.mCurrentWorker.fullName);
+                ApiConfig.setSector(mActivity, mActivity.mCurrentWorker.sector);
+                ApiConfig.setDistrict(mActivity, mActivity.mCurrentWorker.district);
+                Toast.makeText(mActivity, "Connected to State Registry", Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(mActivity, "Offline mode: Data saved locally", Toast.LENGTH_SHORT).show();
+            }
+            // Connect Real-Time WebSocket Pipeline
+            WebSocketClient.getInstance().connect(mActivity, mActivity.mCurrentWorker.workerId);
+            mActivity.showDashboardScreen();
+        }
+        @Override
+        public void onError(int statusCode, String errorMessage) {
+            ApiConfig.setWorkerId(mActivity, mActivity.mCurrentWorker.workerId);
+            ApiConfig.setWorkerName(mActivity, mActivity.mCurrentWorker.fullName);
+            Toast.makeText(mActivity, "Offline mode: " + errorMessage, Toast.LENGTH_SHORT).show();
+            // Connect Real-Time WebSocket Pipeline even in offline fallback
+            WebSocketClient.getInstance().connect(mActivity, mActivity.mCurrentWorker.workerId);
+            mActivity.showDashboardScreen();
+        }
+    }
+
+    private void doLoginWithBackend() {
+        ApiConfig.setWorkerId(this, mCurrentWorker.workerId);
+        JSONObject body = new JSONObject();
+        try {
+            body.put("name", mCurrentWorker.fullName != null ? mCurrentWorker.fullName : "Prashant Mishra");
+            body.put("worker_id", mCurrentWorker.workerId != null ? mCurrentWorker.workerId : "JH1024");
+            body.put("password", "password123");
+            body.put("sector", mCurrentWorker.sector != null ? mCurrentWorker.sector : "Mining");
+            body.put("organization", mCurrentWorker.employer != null ? mCurrentWorker.employer : "BCCL Dhanbad");
+            body.put("district", mCurrentWorker.district != null ? mCurrentWorker.district : "Dhanbad");
+            body.put("language", mCurrentWorker.selectedLanguage != null ? mCurrentWorker.selectedLanguage : "en");
+        } catch (Exception e) {}
+        ApiClient.post(this, "/api/auth/register", body, new LoginApiCallback(this));
+    }
+
+    private static class SyncFlushCallback implements OfflineSyncManager.SyncCallback {
+        private final MainActivity mActivity;
+        public SyncFlushCallback(MainActivity act) { this.mActivity = act; }
+        @Override
+        public void onComplete(boolean success, int syncedCount, String message) {
+            Toast.makeText(mActivity, message, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private static class AttemptRecordCallback implements OfflineSyncManager.SyncCallback {
+        private final MainActivity mActivity;
+        public AttemptRecordCallback(MainActivity act) { this.mActivity = act; }
+        @Override
+        public void onComplete(boolean success, int syncedCount, String message) {
+            Toast.makeText(mActivity, message, Toast.LENGTH_SHORT).show();
+        }
+    }
+
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -1203,11 +1991,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             if (mWorkerIdInput != null) {
                 mCurrentWorker.workerId = mWorkerIdInput.getText().toString().trim();
             }
-            showDashboardScreen();
+            doLoginWithBackend();
         } else if (id == ID_BTN_DEMO) {
             mCurrentWorker = WorkerProfile.createDefaultDemoUser();
             mCurrentWorker.selectedLanguage = mLoc.getCurrentLanguage();
-            showDashboardScreen();
+            doLoginWithBackend();
         } else if (id == ID_BTN_START_AR) {
             showARTrainingScreen();
         } else if (id == ID_BTN_PREV_LESSON) {
@@ -1220,6 +2008,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
             ModuleConfig cfg = mActiveModuleId.equals("module_gas") ? mGasModule : mFireModule;
             mActiveCertificate = CertificateData.generateForWorker(mCurrentWorker, cfg.id, cfg.title, mLastPracticalScore, mLastTheoryScore);
             mDb.saveCertificate(mActiveCertificate);
+            // Record the training attempt to backend
+            OfflineSyncManager.getInstance(this).recordTrainingAttempt(
+                    mActiveModuleId, mLastPracticalScore, mLastTheoryScore,
+                    new AttemptRecordCallback(this));
+            
+            // Broadcast CERTIFICATE_GENERATED over WebSocket
+            WebSocketClient.getInstance().sendEvent(
+                    "CERTIFICATE_GENERATED",
+                    mActiveModuleId,
+                    "DGMS Accredited Certificate issued: " + (mActiveCertificate != null ? mActiveCertificate.certificateId : "JH-SAFE-2026"),
+                    null,
+                    null,
+                    mActiveCertificate != null ? (double) mActiveCertificate.compositeScore : 80.0,
+                    null
+            );
+
             showCertificateScreen();
         } else if (id == ID_BTN_RETRY) {
             showCartoonVideoScreen();
@@ -1228,9 +2032,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } else if (id == ID_BTN_BACK_HOME) {
             showDashboardScreen();
         } else if (id == ID_BTN_SYNC_REGISTRY) {
-            Toast.makeText(this, mLoc.getText("sync_success", "Sync Successful! Mirrored to state registry."), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Syncing to State Registry...", Toast.LENGTH_SHORT).show();
+            OfflineSyncManager.getInstance(this).flushSyncQueue(new SyncFlushCallback(this));
         } else if (id == ID_BTN_SWITCH_LANG) {
             showLanguageScreen();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        WebSocketClient.getInstance().disconnect();
     }
 }

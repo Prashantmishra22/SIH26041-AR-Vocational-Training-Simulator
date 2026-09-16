@@ -27,6 +27,7 @@ class User(Base):
     language = Column(String(10), default="en")  # en, hi, sat
     role = Column(SAEnum(UserRole), default=UserRole.WORKER)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    last_active = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
     # Relationships
     attempts = relationship("TrainingAttempt", back_populates="user")

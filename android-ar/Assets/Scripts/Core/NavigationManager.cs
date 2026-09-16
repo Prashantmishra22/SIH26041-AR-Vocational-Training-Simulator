@@ -84,6 +84,32 @@ namespace JHSafetyAR.Core
             }
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                HandleAndroidBack();
+            }
+        }
+
+        public void HandleAndroidBack()
+        {
+            if (_currentScreenId == "home" || string.IsNullOrEmpty(_currentScreenId) || _currentScreenId == "splash")
+            {
+                ShowExitConfirmation();
+            }
+            else
+            {
+                GoBack();
+            }
+        }
+
+        private void ShowExitConfirmation()
+        {
+            // Call native or canvas dialog if available
+            Debug.Log("[NavigationManager] Exit confirmation requested on Home screen.");
+        }
+
         public string GetCurrentScreen() => _currentScreenId;
     }
 }

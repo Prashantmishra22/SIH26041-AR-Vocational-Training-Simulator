@@ -39,6 +39,7 @@ if ($LASTEXITCODE -ne 0) { Write-Error "Resource linking failed"; exit 1 }
 Write-Host "[3/7] Compiling Java classes..."
 $javaFiles = Get-ChildItem -Path "$projectDir\src" -Recurse -Filter "*.java" | ForEach-Object { $_.FullName }
 & "C:\Program Files\Java\jdk-21\bin\javac.exe" `
+    -g `
     -source 8 -target 8 `
     -cp "$platformJar" `
     -d "$binDir" `

@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using JHSafetyAR.Core;
 using JHSafetyAR.Certificate;
 using JHSafetyAR.Offline;
+using JHSafetyAR.Networking;
 
 namespace JHSafetyAR.UI.Screens
 {
@@ -63,6 +65,28 @@ namespace JHSafetyAR.UI.Screens
                 AudioManager.Instance?.PlayCertificateFanfare();
                 var cert = CertificateGenerator.GenerateCertificate(AppManager.Instance.SelectedModuleId, finalScore);
                 OfflineDatabase.Instance?.SaveCertificate(cert);
+
+                // Broadcast CERTIFICATE_GENERATED event to Admin dashboard via WebSocket
+                var certData = new Dictionary<string, object>
+                {
+                    { "certificate_number", cert.certificateNumber },
+                    { "worker_id", cert.workerId },
+                    { "worker_name", cert.workerName },
+                    { "module_title", cert.moduleTitle },
+                    { "score", cert.finalScore },
+                    { "issue_date", cert.issueDate },
+                    { "verification_url", cert.verificationUrl }
+                };
+
+                WebSocketClient.Instance?.SendEvent(
+                    "CERTIFICATE_GENERATED",
+                    cert.moduleId,
+                    $"DGMS Safety Certificate {cert.certificateNumber} issued to {cert.workerName} ({cert.finalScore:F0}%)",
+                    null,
+                    null,
+                    cert.finalScore,
+                    certData
+                );
             }
             else
             {

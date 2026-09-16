@@ -1,13 +1,15 @@
 import React from 'react';
 import { Worker } from '../../types';
+import { WorkerStatus as WsWorkerStatus } from '../../services/useWebSocket';
 import { Award, ShieldCheck, Clock, AlertTriangle, Eye, QrCode } from 'lucide-react';
 
 interface WorkerTableProps {
   workers: Worker[];
+  workerStatuses?: Record<string, WsWorkerStatus>;
   onSelectWorker: (worker: Worker) => void;
 }
 
-export const WorkerTable: React.FC<WorkerTableProps> = ({ workers, onSelectWorker }) => {
+export const WorkerTable: React.FC<WorkerTableProps> = ({ workers, workerStatuses = {}, onSelectWorker }) => {
   const getSectorBadge = (sector: string) => {
     switch (sector) {
       case 'MINING':
@@ -88,27 +90,50 @@ export const WorkerTable: React.FC<WorkerTableProps> = ({ workers, onSelectWorke
                 </td>
               </tr>
             ) : (
-              workers.map((worker) => (
-                <tr
-                  key={worker.id}
-                  className="hover:bg-slate-800/40 transition-colors group cursor-pointer"
-                  onClick={() => onSelectWorker(worker)}
-                >
-                  <td className="py-3.5 px-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xs font-bold text-slate-200">
-                        {worker.name.charAt(0)}
-                      </div>
-                      <div>
-                        <div className="font-semibold text-white group-hover:text-amber-300 transition-colors">
-                          {worker.name}
+              workers.map((worker) => {
+                const liveStatus = workerStatuses[worker.id] || workerStatuses[worker.workerId];
+                const isOnline = liveStatus?.status === 'ONLINE';
+
+                return (
+                  <tr
+                    key={worker.id}
+                    className="hover:bg-slate-800/40 transition-colors group cursor-pointer"
+                    onClick={() => onSelectWorker(worker)}
+                  >
+                    <td className="py-3.5 px-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="relative">
+                          <div className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xs font-bold text-slate-200">
+                            {worker.name.charAt(0)}
+                          </div>
+                          {isOnline ? (
+                            <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                            </span>
+                          ) : (
+                            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-slate-600 ring-1 ring-slate-900" />
+                          )}
                         </div>
-                        <div className="text-[11px] text-slate-400 font-['JetBrains_Mono',monospace]">
-                          {worker.workerId}
+                        <div>
+                          <div className="font-semibold text-white group-hover:text-amber-300 transition-colors flex items-center gap-2">
+                            <span>{worker.name}</span>
+                            {isOnline ? (
+                              <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 animate-pulse">
+                                ONLINE
+                              </span>
+                            ) : (
+                              <span className="text-[9px] font-medium px-1.5 py-0.2 rounded bg-slate-800 text-slate-500">
+                                OFFLINE
+                              </span>
+                            )}
+                          </div>
+                          <div className="text-[11px] text-slate-400 font-['JetBrains_Mono',monospace]">
+                            {worker.workerId}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
+                    </td>
 
                   <td className="py-3.5 px-4">
                     <div className="space-y-1">
@@ -169,9 +194,10 @@ export const WorkerTable: React.FC<WorkerTableProps> = ({ workers, onSelectWorke
                     </button>
                   </td>
                 </tr>
-              ))
-            )}
-          </tbody>
+              );
+            })
+          )}
+        </tbody>
         </table>
       </div>
     </div>

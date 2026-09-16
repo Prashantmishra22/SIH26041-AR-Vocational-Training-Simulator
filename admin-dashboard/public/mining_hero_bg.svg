@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" width="1600" height="500">
+  <defs>
+    <!-- Sky dusk sunset gradient -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#0B1325" />
+      <stop offset="35%" stopColor="#13233D" />
+      <stop offset="65%" stopColor="#2A3B52" />
+      <stop offset="85%" stopColor="#5C4D43" />
+      <stop offset="100%" stopColor="#8A6B47" />
+    </linearGradient>
+
+    <!-- Warm sunset glow on horizon -->
+    <radialGradient id="sunGlow" cx="65%" cy="85%" r="50%">
+      <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.45" />
+      <stop offset="50%" stopColor="#D97706" stopOpacity="0.2" />
+      <stop offset="100%" stopColor="#0B1325" stopOpacity="0" />
+    </radialGradient>
+
+    <!-- Distant mountain gradient -->
+    <linearGradient id="mountGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#253549" stopOpacity="0.8" />
+      <stop offset="100%" stopColor="#111C2B" stopOpacity="0.95" />
+    </linearGradient>
+
+    <!-- Mid-ground mountain ridge -->
+    <linearGradient id="mountGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#1E2B3D" />
+      <stop offset="100%" stopColor="#0E1624" />
+    </linearGradient>
+
+    <!-- Pit terrace terrain -->
+    <linearGradient id="terraceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#1B2636" />
+      <stop offset="50%" stopColor="#131C29" />
+      <stop offset="100%" stopColor="#0A101A" />
+    </linearGradient>
+
+    <!-- Headlight beam -->
+    <linearGradient id="lightBeam" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stopColor="#FEF08A" stopOpacity="0.6" />
+      <stop offset="100%" stopColor="#FDE047" stopOpacity="0" />
+    </linearGradient>
+
+    <!-- Dust haze -->
+    <radialGradient id="dustHaze" cx="60%" cy="80%" r="35%">
+      <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.25" />
+      <stop offset="60%" stopColor="#78350F" stopOpacity="0.1" />
+      <stop offset="100%" stopColor="#000000" stopOpacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="1600" height="500" fill="url(#skyGrad)" />
+  <rect width="1600" height="500" fill="url(#sunGlow)" />
+
+  <!-- Distant Mountain Silhouettes (Layer 1) -->
+  <path d="M 0,320 Q 200,240 450,280 T 900,230 T 1350,260 Q 1500,220 1600,250 L 1600,500 L 0,500 Z" fill="url(#mountGrad1)" opacity="0.7" />
+
+  <!-- Mid-distance Ridges & Mine Overburden Heaps (Layer 2) -->
+  <path d="M 0,350 Q 280,290 560,330 T 1100,290 Q 1300,270 1480,310 L 1600,300 L 1600,500 L 0,500 Z" fill="url(#mountGrad2)" opacity="0.85" />
+
+  <!-- Open Pit Mine Terraces / Benches (Layer 3) -->
+  <!-- Upper Bench -->
+  <path d="M 0,390 L 320,385 L 360,405 L 750,400 L 800,420 L 1250,410 L 1320,430 L 1600,420 L 1600,500 L 0,500 Z" fill="#141F2E" />
+
+  <!-- Main Work Floor / Quarry Ground -->
+  <path d="M 0,440 L 450,435 L 500,450 L 980,445 L 1050,460 L 1600,455 L 1600,500 L 0,500 Z" fill="#0D1522" />
+
+  <!-- Dust atmosphere over machines -->
+  <circle cx="980" cy="380" r="320" fill="url(#dustHaze)" />
+  <circle cx="1280" cy="400" r="250" fill="url(#dustHaze)" />
+
+  <!-- Light Poles / Stadium Safety Lighting Towers -->
+  <g stroke="#64748B" strokeWidth="2">
+    <line x1="420" y1="385" x2="420" y2="330" />
+    <line x1="412" y1="330" x2="428" y2="330" />
+    <circle cx="414" cy="328" r="3" fill="#FEF08A" />
+    <circle cx="426" cy="328" r="3" fill="#FEF08A" />
+    
+    <line x1="820" y1="400" x2="820" y2="340" />
+    <line x1="812" y1="340" x2="828" y2="340" />
+    <circle cx="815" cy="338" r="3.5" fill="#FEF08A" />
+    <circle cx="825" cy="338" r="3.5" fill="#FEF08A" />
+
+    <line x1="1440" y1="410" x2="1440" y2="350" />
+    <line x1="1432" y1="350" x2="1448" y2="350" />
+    <circle cx="1435" cy="348" r="3" fill="#FEF08A" />
+    <circle cx="1445" cy="348" r="3" fill="#FEF08A" />
+  </g>
+
+  <!-- Giant Mining Hydraulic Excavator (Center-Right at x=920, y=360) -->
+  <g id="excavator" transform="translate(860, 240)">
+    <!-- Crawler Tracks Base -->
+    <rect x="70" y="165" width="140" height="28" rx="8" fill="#1C1917" stroke="#44403C" strokeWidth="2" />
+    <!-- Track rollers -->
+    <circle cx="85" cy="179" r="8" fill="#44403C" />
+    <circle cx="108" cy="179" r="8" fill="#44403C" />
+    <circle cx="131" cy="179" r="8" fill="#44403C" />
+    <circle cx="154" cy="179" r="8" fill="#44403C" />
+    <circle cx="177" cy="179" r="8" fill="#44403C" />
+    <circle cx="195" cy="179" r="8" fill="#44403C" />
+
+    <!-- Slew Turntable & Counterweight Base -->
+    <path d="M 60,165 L 210,165 L 195,125 L 50,130 Z" fill="#292524" />
+    <!-- Yellow Counterweight Block -->
+    <rect x="40" y="115" width="55" height="40" rx="3" fill="#EAB308" stroke="#CA8A04" strokeWidth="1.5" />
+    <rect x="45" y="125" width="45" height="6" fill="#1C1917" />
+    
+    <!-- Operator Cabin with lit interior glass -->
+    <path d="M 125,100 L 165,100 L 172,145 L 125,145 Z" fill="#EAB308" />
+    <path d="M 132,105 L 160,105 L 165,135 L 132,135 Z" fill="#67E8F9" opacity="0.85" />
+    <!-- Cab light glow -->
+    <circle cx="145" cy="120" r="10" fill="#FEF08A" opacity="0.5" />
+
+    <!-- Engine House Body -->
+    <rect x="85" y="105" width="50" height="42" fill="#CA8A04" />
+
+    <!-- Main Boom (Arching UP and Left) -->
+    <path d="M 155,125 L 75,30 L 92,20 L 175,115 Z" fill="#EAB308" stroke="#A16207" strokeWidth="2" />
+    <!-- Boom Hydraulic Cylinder -->
+    <line x1="165" y1="120" x2="115" y2="55" stroke="#78716C" strokeWidth="7" strokeLinecap="round" />
+    <line x1="115" y1="55" x2="100" y2="35" stroke="#D6D3D1" strokeWidth="4" strokeLinecap="round" />
+
+    <!-- Arm / Stick (Extending downward to ground) -->
+    <path d="M 80,22 L 5,110 L 18,118 L 92,30 Z" fill="#CA8A04" stroke="#854D0E" strokeWidth="1.5" />
+    <!-- Stick Hydraulic Cylinder -->
+    <line x1="110" y1="45" x2="45" y2="70" stroke="#78716C" strokeWidth="5" />
+    <line x1="45" y1="70" x2="25" y2="85" stroke="#E7E5E4" strokeWidth="3" />
+
+    <!-- Heavy Bucket with Digging Teeth -->
+    <path d="M 5,110 Q -30,130 -15,165 Q 15,175 35,150 L 18,118 Z" fill="#1C1917" stroke="#44403C" strokeWidth="2" />
+    <!-- Bucket Teeth -->
+    <polygon points="-15,165 -18,172 -12,168" fill="#78716C" />
+    <polygon points="-8,168 -10,175 -5,170" fill="#78716C" />
+    <polygon points="0,169 -1,176 5,171" fill="#78716C" />
+    <polygon points="10,168 11,175 16,169" fill="#78716C" />
+
+    <!-- Working Spotlights on Boom -->
+    <circle cx="120" cy="65" r="4" fill="#FEF08A" />
+    <polygon points="120,65 -20,180 80,200" fill="url(#lightBeam)" opacity="0.35" />
+  </g>
+
+  <!-- Heavy Haul Dump Truck 1 (CAT 797 style) at x=1140, y=360 -->
+  <g id="dumptruck1" transform="translate(1120, 310)">
+    <!-- Giant Off-Road Tires -->
+    <!-- Front Tire -->
+    <circle cx="50" cy="98" r="24" fill="#0C0A09" stroke="#292524" strokeWidth="3" />
+    <circle cx="50" cy="98" r="14" fill="#44403C" />
+    <circle cx="50" cy="98" r="6" fill="#78716C" />
+    <!-- Rear Dual Tires -->
+    <circle cx="150" cy="98" r="26" fill="#0C0A09" stroke="#292524" strokeWidth="3" />
+    <circle cx="150" cy="98" r="15" fill="#44403C" />
+    <circle cx="150" cy="98" r="6" fill="#78716C" />
+    <circle cx="166" cy="98" r="26" fill="#0C0A09" stroke="#292524" strokeWidth="2" />
+
+    <!-- Chassis & Suspension Frame -->
+    <rect x="40" y="75" width="135" height="15" fill="#1C1917" />
+
+    <!-- Driver Cab & Canopy -->
+    <rect x="25" y="40" width="38" height="35" rx="3" fill="#EAB308" />
+    <!-- Windshield -->
+    <rect x="28" y="44" width="20" height="16" rx="2" fill="#67E8F9" opacity="0.8" />
+    <!-- Cab Stairs & Handrails -->
+    <line x1="22" y1="50" x2="22" y2="82" stroke="#FEF08A" strokeWidth="1.5" />
+    <line x1="18" y1="60" x2="26" y2="60" stroke="#FEF08A" strokeWidth="1" />
+    <line x1="18" y1="70" x2="26" y2="70" stroke="#FEF08A" strokeWidth="1" />
+
+    <!-- Radiator Grille -->
+    <rect x="15" y="55" width="10" height="22" fill="#292524" />
+
+    <!-- Glowing Headlights -->
+    <circle cx="14" cy="65" r="3.5" fill="#FEF08A" />
+    <!-- Headlight Light Cones shining forward -->
+    <polygon points="14,65 -140,40 -140,110" fill="url(#lightBeam)" opacity="0.4" />
+
+    <!-- Giant Angled Dump Body / Tipper Bed -->
+    <path d="M 60,35 L 180,30 L 195,75 L 75,75 Z" fill="#EAB308" stroke="#CA8A04" strokeWidth="2" />
+    <!-- Canopy over Cab Extension -->
+    <path d="M 60,35 L 20,28 L 22,35 L 60,40 Z" fill="#CA8A04" />
+    <!-- Reinforced Ribs on Dump Bed -->
+    <line x1="90" y1="34" x2="100" y2="74" stroke="#A16207" strokeWidth="2.5" />
+    <line x1="120" y1="33" x2="130" y2="74" stroke="#A16207" strokeWidth="2.5" />
+    <line x1="150" y1="31" x2="160" y2="74" stroke="#A16207" strokeWidth="2.5" />
+    <!-- Mined Ore / Rock Heap Inside Truck -->
+    <path d="M 65,34 Q 120,15 175,31 Z" fill="#292524" />
+  </g>
+
+  <!-- Second Smaller Haul Truck (in distance at x=720, y=340) -->
+  <g id="dumptruck2" transform="translate(680, 335) scale(0.65)">
+    <circle cx="45" cy="85" r="18" fill="#0C0A09" />
+    <circle cx="125" cy="85" r="20" fill="#0C0A09" />
+    <rect x="35" y="65" width="105" height="12" fill="#1C1917" />
+    <rect x="25" y="38" width="28" height="28" fill="#EAB308" />
+    <rect x="28" y="42" width="14" height="12" fill="#67E8F9" opacity="0.7" />
+    <path d="M 50,32 L 140,28 L 150,65 L 60,65 Z" fill="#EAB308" />
+    <path d="M 55,32 Q 95,18 135,28 Z" fill="#292524" />
+    <circle cx="20" cy="55" r="2.5" fill="#FEF08A" />
+    <polygon points="20,55 -90,40 -90,90" fill="url(#lightBeam)" opacity="0.3" />
+  </g>
+
+  <!-- Third Distant Haul Truck at x=1380 -->
+  <g id="dumptruck3" transform="translate(1360, 345) scale(0.55)">
+    <circle cx="45" cy="85" r="18" fill="#0C0A09" />
+    <circle cx="125" cy="85" r="20" fill="#0C0A09" />
+    <rect x="35" y="65" width="105" height="12" fill="#1C1917" />
+    <rect x="25" y="38" width="28" height="28" fill="#EAB308" />
+    <path d="M 50,32 L 140,28 L 150,65 L 60,65 Z" fill="#EAB308" />
+    <circle cx="20" cy="55" r="2.5" fill="#FEF08A" />
+  </g>
+
+  <!-- Subtle Dust Particles in Light Beams -->
+  <g fill="#FEF08A" opacity="0.6">
+    <circle cx="950" cy="380" r="1.5" />
+    <circle cx="990" cy="360" r="1" />
+    <circle cx="1020" cy="390" r="2" />
+    <circle cx="1060" cy="370" r="1.5" />
+    <circle cx="1090" cy="350" r="1" />
+    <circle cx="1110" cy="385" r="2" />
+    <circle cx="890" cy="340" r="1.5" />
+    <circle cx="920" cy="320" r="1.5" />
+    <circle cx="960" cy="300" r="1" />
+  </g>
+</svg>

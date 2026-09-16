@@ -73,6 +73,38 @@ public class ARSurfaceView extends SurfaceView implements SurfaceHolder.Callback
         invalidate();
     }
 
+    public int getCurrentStepIndex() {
+        return mCurrentTaskIndex;
+    }
+
+    public void setStepIndex(int stepIndex) {
+        if (mModuleConfig != null && !mModuleConfig.arTasks.isEmpty()) {
+            this.mCurrentTaskIndex = Math.max(0, Math.min(stepIndex, mModuleConfig.arTasks.size() - 1));
+            invalidate();
+        }
+    }
+
+    public boolean advanceNextStep() {
+        if (mModuleConfig == null || mModuleConfig.arTasks.isEmpty()) return false;
+        
+        // Grant points for advancing step
+        if (mCurrentTaskIndex < mModuleConfig.arTasks.size()) {
+            ModuleConfig.ARTask currentTask = mModuleConfig.arTasks.get(mCurrentTaskIndex);
+            mTotalPoints += currentTask.points;
+        }
+
+        mCurrentTaskIndex++;
+        if (mCurrentTaskIndex >= mModuleConfig.arTasks.size()) {
+            float finalPercent = mMaxPoints > 0 ? ((float) mTotalPoints / mMaxPoints) * 100f : 100f;
+            if (mFinishedListener != null) {
+                mFinishedListener.onModuleCompleted(finalPercent);
+            }
+            return false; // Reached end
+        }
+        invalidate();
+        return true; // More steps remaining
+    }
+
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         try {

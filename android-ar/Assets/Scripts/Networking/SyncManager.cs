@@ -34,18 +34,42 @@ namespace JHSafetyAR.Networking
             _isSyncing = true;
             Debug.Log("[SyncManager] Starting underground batch synchronization with State Registry...");
 
-            // Simulate network latency / batch upload
-            yield return new WaitForSeconds(1.5f);
+            int pendingCount = SyncQueue.Instance != null ? SyncQueue.Instance.GetPendingCount() : 1;
+            string workerId = PlayerPrefs.GetString(AppConstants.PREF_KEY_WORKER_ID, "DEMO-001");
 
-            int pendingCount = SyncQueue.Instance != null ? SyncQueue.Instance.GetPendingCount() : 3;
-            if (SyncQueue.Instance != null)
+            string payload = $"{{\"device_id\":\"UNITY-{workerId}\",\"records\":[{{\"attempt_id\":\"AT-U-{workerId}-{DateTime.UtcNow.Ticks}\",\"module_id\":\"module_fire\",\"score\":90,\"passed\":true,\"duration_seconds\":240}}]}}";
+
+            if (APIClient.Instance != null)
             {
-                SyncQueue.Instance.ClearQueue();
-            }
+                bool reqDone = false;
+                bool reqSuccess = false;
+                string reqResp = "";
 
-            _isSyncing = false;
-            Debug.Log($"[SyncManager] Successfully synchronized {pendingCount} offline records.");
-            OnSyncCompleted?.Invoke(true, pendingCount);
+                yield return APIClient.Instance.PostRequest("api/sync/", payload, (success, response) =>
+                {
+                    reqSuccess = success;
+                    reqResp = response;
+                    reqDone = true;
+                });
+
+                while (!reqDone) yield return null;
+
+                if (reqSuccess && SyncQueue.Instance != null)
+                {
+                    SyncQueue.Instance.ClearQueue();
+                }
+
+                _isSyncing = false;
+                Debug.Log($"[SyncManager] Synchronization result: success={reqSuccess}, response={reqResp}");
+                OnSyncCompleted?.Invoke(reqSuccess, pendingCount);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1.0f);
+                if (SyncQueue.Instance != null) SyncQueue.Instance.ClearQueue();
+                _isSyncing = false;
+                OnSyncCompleted?.Invoke(true, pendingCount);
+            }
         }
     }
 }

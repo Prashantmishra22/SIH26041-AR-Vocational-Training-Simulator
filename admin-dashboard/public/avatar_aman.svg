@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <circle cx="50" cy="50" r="50" fill="#E2E8F0" />
+  
+  <!-- High Vis Yellow Jacket -->
+  <path d="M 20,95 Q 50,78 80,95 L 85,100 L 15,100 Z" fill="#84CC16" />
+  <path d="M 32,95 L 40,84 L 46,100 L 32,100 Z" fill="#EAB308" />
+  <path d="M 68,95 L 60,84 L 54,100 L 68,100 Z" fill="#EAB308" />
+  <line x1="28" y1="91" x2="42" y2="91" stroke="#FFFFFF" strokeWidth="2.5" />
+  <line x1="72" y1="91" x2="58" y2="91" stroke="#FFFFFF" strokeWidth="2.5" />
+
+  <!-- Neck & Collar -->
+  <path d="M 43,74 L 57,74 L 54,83 L 46,83 Z" fill="#B37A53" />
+
+  <!-- Face (Aman Toppo - Young Male Worker) -->
+  <ellipse cx="50" cy="57" rx="16" ry="18" fill="#C58B62" />
+  
+  <!-- Short Dark Hair on sides -->
+  <path d="M 33,52 L 33,62 L 36,60 L 36,52 Z" fill="#18181B" />
+  <path d="M 67,52 L 67,62 L 64,60 L 64,52 Z" fill="#18181B" />
+
+  <!-- Eyes -->
+  <circle cx="44" cy="56" r="2" fill="#18181B" />
+  <circle cx="56" cy="56" r="2" fill="#18181B" />
+  <!-- Eyebrows -->
+  <path d="M 40,51 Q 44,49 48,52" stroke="#18181B" strokeWidth="1.8" fill="none" />
+  <path d="M 52,52 Q 56,49 60,51" stroke="#18181B" strokeWidth="1.8" fill="none" />
+  <!-- Nose & Smile -->
+  <path d="M 49,57 L 50,62 L 53,62" stroke="#9A623C" strokeWidth="1.2" fill="none" />
+  <path d="M 45,66 Q 50,70 55,66" stroke="#451A03" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+
+  <!-- White Safety Helmet with Headlamp -->
+  <path d="M 31,46 Q 50,22 69,46 Z" fill="#F8FAFC" stroke="#CBD5E1" strokeWidth="1.5" />
+  <path d="M 28,46 Q 50,43 72,46 L 70,48 Q 50,45 30,48 Z" fill="#E2E8F0" />
+  <!-- Helmet Mounted LED Lamp -->
+  <rect x="46" y="38" width="8" height="6" rx="1.5" fill="#334155" />
+  <circle cx="50" cy="41" r="2.5" fill="#FEF08A" />
+</svg>

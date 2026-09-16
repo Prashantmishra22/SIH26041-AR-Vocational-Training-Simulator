@@ -7,16 +7,27 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import in.gov.jharkhand.safetyar.data.CertificateData;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class OfflineDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "jh_safety_ar_offline.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public static final String TABLE_ATTEMPTS = "attempts";
     public static final String TABLE_CERTIFICATES = "certificates";
     public static final String TABLE_SYNC_QUEUE = "sync_queue";
+
+    public static class SyncQueueItem {
+        public long id;
+        public String payloadType;
+        public String payloadJson;
+        public String status;
+        public String createdAt;
+    }
 
     public OfflineDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -24,8 +35,9 @@ public class OfflineDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_ATTEMPTS + " (" +
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_ATTEMPTS + " (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "attempt_id TEXT UNIQUE, " +
                 "worker_id TEXT, " +
                 "module_id TEXT, " +
                 "practical_score REAL, " +
@@ -34,7 +46,7 @@ public class OfflineDatabaseHelper extends SQLiteOpenHelper {
                 "passed INTEGER, " +
                 "timestamp TEXT);");
 
-        db.execSQL("CREATE TABLE " + TABLE_CERTIFICATES + " (" +
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_CERTIFICATES + " (" +
                 "certificate_id TEXT PRIMARY KEY, " +
                 "worker_name TEXT, " +
                 "worker_id TEXT, " +
@@ -47,8 +59,9 @@ public class OfflineDatabaseHelper extends SQLiteOpenHelper {
                 "verification_url TEXT, " +
                 "hash TEXT);");
 
-        db.execSQL("CREATE TABLE " + TABLE_SYNC_QUEUE + " (" +
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_SYNC_QUEUE + " (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "attempt_id TEXT UNIQUE, " +
                 "payload_type TEXT, " +
                 "payload_json TEXT, " +
                 "status TEXT, " +
@@ -128,5 +141,69 @@ public class OfflineDatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return cert;
+    }
+
+    // ──────────────────────────────────────────────
+    // ATTEMPT RECORDING & QUEUE OPERATIONS
+    // ──────────────────────────────────────────────
+
+    public void saveAttempt(String attemptId, String workerId, String moduleId, float practical, float theory, float composite, boolean passed) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("attempt_id", attemptId);
+        cv.put("worker_id", workerId);
+        cv.put("module_id", moduleId);
+        cv.put("practical_score", practical);
+        cv.put("theory_score", theory);
+        cv.put("composite_score", composite);
+        cv.put("passed", passed ? 1 : 0);
+        cv.put("timestamp", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).format(new Date()));
+        db.insertWithOnConflict(TABLE_ATTEMPTS, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+    }
+
+    public long enqueueSync(String attemptId, String payloadType, String payloadJson) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("attempt_id", attemptId);
+        cv.put("payload_type", payloadType);
+        cv.put("payload_json", payloadJson);
+        cv.put("status", "PENDING");
+        cv.put("created_at", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).format(new Date()));
+        return db.insertWithOnConflict(TABLE_SYNC_QUEUE, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+    }
+
+    public List<SyncQueueItem> getPendingSyncItems() {
+        List<SyncQueueItem> list = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_SYNC_QUEUE + " WHERE status = 'PENDING' ORDER BY id ASC", null);
+        if (c.moveToFirst()) {
+            do {
+                SyncQueueItem item = new SyncQueueItem();
+                item.id = c.getLong(c.getColumnIndexOrThrow("id"));
+                item.payloadType = c.getString(c.getColumnIndexOrThrow("payload_type"));
+                item.payloadJson = c.getString(c.getColumnIndexOrThrow("payload_json"));
+                item.status = c.getString(c.getColumnIndexOrThrow("status"));
+                item.createdAt = c.getString(c.getColumnIndexOrThrow("created_at"));
+                list.add(item);
+            } while (c.moveToNext());
+        }
+        c.close();
+        return list;
+    }
+
+    public void deleteSyncItem(long id) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(TABLE_SYNC_QUEUE, "id = ?", new String[]{String.valueOf(id)});
+    }
+
+    public int getPendingSyncCount() {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_SYNC_QUEUE + " WHERE status = 'PENDING'", null);
+        int count = 0;
+        if (c.moveToFirst()) {
+            count = c.getInt(0);
+        }
+        c.close();
+        return count;
     }
 }

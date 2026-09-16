@@ -6,7 +6,8 @@ from typing import Any
 
 
 class AttemptCreate(BaseModel):
-    module_id: str  # Module's module_id field (e.g. FIRE-001)
+    attempt_id: str | None = None
+    module_id: str  # Module's module_id field (e.g. FIRE-001 or module_fire)
     score: int
     passed: bool
     duration_seconds: int | None = None

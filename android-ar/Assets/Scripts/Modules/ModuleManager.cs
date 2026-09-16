@@ -4,6 +4,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using JHSafetyAR.Core;
 using JHSafetyAR.Data;
+using JHSafetyAR.Networking;
 
 namespace JHSafetyAR.Modules
 {
@@ -50,6 +51,15 @@ namespace JHSafetyAR.Modules
                 }
                 Debug.Log($"[ModuleManager] Loaded module: {_currentModuleConfig.title} ({_currentModuleConfig.steps.Count} tasks, Max {_maxPossiblePoints} pts)");
                 BroadcastCurrentStep();
+
+                // Send real-time WebSocket event
+                WebSocketClient.Instance?.SendEvent(
+                    "MODULE_STARTED",
+                    moduleId,
+                    $"Worker started {_currentModuleConfig.title}",
+                    1,
+                    _currentModuleConfig.steps.Count
+                );
             }
             else
             {
@@ -71,6 +81,18 @@ namespace JHSafetyAR.Modules
             {
                 AudioManager.Instance?.PlayError();
             }
+
+            int completedStepIndex = _currentStepIndex + 1;
+            int totalSteps = _currentModuleConfig.steps.Count;
+
+            // Send real-time WebSocket step event
+            WebSocketClient.Instance?.SendEvent(
+                "MODULE_STEP_COMPLETED",
+                _currentModuleConfig.id,
+                $"Completed Step {completedStepIndex}/{totalSteps}: {step.instruction}",
+                completedStepIndex,
+                totalSteps
+            );
 
             _currentStepIndex++;
             if (_currentStepIndex < _currentModuleConfig.steps.Count)
@@ -99,6 +121,16 @@ namespace JHSafetyAR.Modules
 
             AppManager.Instance.LastPracticalScore = practicalScorePercent;
             Debug.Log($"[ModuleManager] Module finished! Practical Score: {practicalScorePercent:F1}% (Passed: {passed})");
+
+            // Send real-time WebSocket module completion event
+            WebSocketClient.Instance?.SendEvent(
+                "MODULE_COMPLETED",
+                _currentModuleConfig?.id,
+                $"Finished {_currentModuleConfig?.title} with Practical Score: {practicalScorePercent:F1}%",
+                _currentModuleConfig?.steps?.Count ?? 1,
+                _currentModuleConfig?.steps?.Count ?? 1,
+                practicalScorePercent
+            );
 
             OnModuleFinished?.Invoke(practicalScorePercent, passed);
         }

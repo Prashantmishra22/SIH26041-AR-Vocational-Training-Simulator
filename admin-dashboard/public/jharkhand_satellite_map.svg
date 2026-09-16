@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <!-- Base dark satellite terrain gradient -->
+    <radialGradient id="satelliteBase" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stopColor="#1E2F26" />
+      <stop offset="30%" stopColor="#17271E" />
+      <stop offset="60%" stopColor="#121D17" />
+      <stop offset="100%" stopColor="#0B130E" />
+    </radialGradient>
+
+    <!-- Forest & vegetative patches -->
+    <radialGradient id="forestGlow1" cx="30%" cy="40%" r="40%">
+      <stop offset="0%" stopColor="#254731" stopOpacity="0.8" />
+      <stop offset="70%" stopColor="#16291C" stopOpacity="0.3" />
+      <stop offset="100%" stopColor="#0B130E" stopOpacity="0" />
+    </radialGradient>
+
+    <radialGradient id="forestGlow2" cx="70%" cy="60%" r="45%">
+      <stop offset="0%" stopColor="#2F543B" stopOpacity="0.75" />
+      <stop offset="70%" stopColor="#17291D" stopOpacity="0.3" />
+      <stop offset="100%" stopColor="#0B130E" stopOpacity="0" />
+    </radialGradient>
+
+    <!-- Chota Nagpur Plateau ridge contour pattern -->
+    <pattern id="topoGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.5" fill="rgba(255,255,255,0.08)" />
+    </pattern>
+
+    <!-- Radar Pulse Effect -->
+    <radialGradient id="radarPulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stopColor="#22C55E" stopOpacity="0.6" />
+      <stop offset="70%" stopColor="#22C55E" stopOpacity="0.15" />
+      <stop offset="100%" stopColor="#22C55E" stopOpacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="360" fill="url(#satelliteBase)" />
+  <rect width="600" height="360" fill="url(#forestGlow1)" />
+  <rect width="600" height="360" fill="url(#forestGlow2)" />
+  <rect width="600" height="360" fill="url(#topoGrid)" />
+
+  <!-- Topographic Mountain Ranges & Escarpments (Chota Nagpur / Parasnath Hills) -->
+  <path d="M 40,80 Q 120,40 240,70 T 420,50 T 560,90 L 560,320 Q 420,350 260,330 T 40,300 Z" fill="#142118" opacity="0.6" />
+  
+  <path d="M 80,120 Q 180,90 290,130 T 480,100 T 580,150" fill="none" stroke="#22C55E" strokeWidth="1" strokeDasharray="3 3" opacity="0.15" />
+  <path d="M 60,170 Q 190,140 310,180 T 520,160" fill="none" stroke="#EAB308" strokeWidth="1" strokeDasharray="4 4" opacity="0.12" />
+  <path d="M 100,230 Q 220,190 350,240 T 560,220" fill="none" stroke="#38BDF8" strokeWidth="1" strokeDasharray="2 4" opacity="0.15" />
+
+  <!-- Damodar & Subarnarekha River Systems (Cyan Glowing Arteries) -->
+  <path d="M 30,220 Q 140,190 260,210 T 450,240 T 580,280" fill="none" stroke="#38BDF8" strokeWidth="2" opacity="0.35" />
+  <path d="M 80,290 Q 200,270 320,285 T 520,330" fill="none" stroke="#38BDF8" strokeWidth="1.5" opacity="0.25" />
+
+  <!-- Industrial Transportation Corridor (GT Road NH19 / Rail lines) -->
+  <path d="M 40,100 L 180,140 L 320,150 L 440,170 L 580,210" fill="none" stroke="#F59E0B" strokeWidth="1.8" strokeDasharray="5 3" opacity="0.3" />
+  <path d="M 320,150 L 300,230 L 420,290" fill="none" stroke="#60A5FA" strokeWidth="1.5" strokeDasharray="4 2" opacity="0.25" />
+
+  <!-- Mining Clusters Shading (Jharia, Dhanbad, Bokaro, Ramgarh coal belts) -->
+  <ellipse cx="440" cy="180" rx="45" ry="25" fill="#38281E" opacity="0.45" />
+  <ellipse cx="330" cy="160" rx="35" ry="20" fill="#38281E" opacity="0.4" />
+  <ellipse cx="430" cy="290" rx="40" ry="22" fill="#2E241D" opacity="0.4" />
+</svg>

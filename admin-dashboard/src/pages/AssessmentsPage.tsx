@@ -4,11 +4,12 @@ import { FileCheck2, CheckCircle2, XCircle, Clock, AlertTriangle, Radio, ShieldC
 
 interface AssessmentsPageProps {
   workers: Worker[];
+  attempts?: any[];
 }
 
-export const AssessmentsPage: React.FC<AssessmentsPageProps> = ({ workers }) => {
-  // Extract all attempts across all workers
-  const attempts = [
+export const AssessmentsPage: React.FC<AssessmentsPageProps> = ({ workers, attempts: propAttempts }) => {
+  // Extract all attempts across all workers or use live attempts from backend
+  const attempts = propAttempts && propAttempts.length > 0 ? propAttempts : [
     {
       id: 'att-01',
       workerName: 'Birsa Munda Soren',

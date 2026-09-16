@@ -25,6 +25,10 @@ class TokenResponse(BaseModel):
     user_id: int
     name: str
     role: str
+    worker_id: str | None = None
+    sector: str | None = None
+    district: str | None = None
+    language: str | None = "hi"
 
 
 class DemoLoginRequest(BaseModel):
@@ -33,3 +37,15 @@ class DemoLoginRequest(BaseModel):
     worker_id: str = "DEMO-001"
     sector: str = "Mining"
     district: str = "Dhanbad"
+
+
+class GoogleLoginRequest(BaseModel):
+    """For Google OAuth / SSO registration & login."""
+    google_id: str | None = None
+    email: str | None = None
+    name: str = "Google Miner User"
+    worker_id: str | None = None
+    sector: str = "Mining"
+    organization: str | None = "BCCL Dhanbad"
+    district: str = "Dhanbad"
+    language: str = "hi"

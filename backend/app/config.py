@@ -26,7 +26,10 @@ APP_VERSION = "1.0.0"
 DEBUG = os.getenv("DEBUG", "true").lower() == "true"
 
 # CORS
-CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:3000").split(",")
+CORS_ORIGINS = os.getenv(
+    "CORS_ORIGINS",
+    "http://localhost:3001,http://localhost:3000,http://localhost:5173,http://127.0.0.1:3001,http://127.0.0.1:3000,http://127.0.0.1:5173"
+).split(",")
 
 # Certificate
 CERTIFICATE_BASE_URL = os.getenv("CERTIFICATE_BASE_URL", "http://localhost:8000")

@@ -18,9 +18,19 @@ class UserResponse(UserBase):
     organization: str | None = None
     role: str
     created_at: datetime
+    last_active: datetime | None = None
 
     class Config:
         from_attributes = True
+
+
+class UserProfileUpdate(BaseModel):
+    name: str | None = None
+    phone: str | None = None
+    organization: str | None = None
+    sector: str | None = None
+    district: str | None = None
+    language: str | None = None
 
 
 class UserProgressResponse(BaseModel):

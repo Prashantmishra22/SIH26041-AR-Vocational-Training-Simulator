@@ -4,6 +4,7 @@ using UnityEngine;
 using Newtonsoft.Json;
 using JHSafetyAR.Core;
 using JHSafetyAR.Data;
+using JHSafetyAR.Networking;
 
 namespace JHSafetyAR.Assessment
 {
@@ -45,6 +46,13 @@ namespace JHSafetyAR.Assessment
                 _questions = JsonConvert.DeserializeObject<List<QuestionItem>>(textAsset.text);
                 Debug.Log($"[AssessmentEngine] Loaded {_questions.Count} questions for module {moduleId}");
                 PresentCurrentQuestion();
+
+                // Send real-time WebSocket event
+                WebSocketClient.Instance?.SendEvent(
+                    "ASSESSMENT_STARTED",
+                    moduleId,
+                    $"Worker started assessment for {moduleId} ({_questions.Count} questions)"
+                );
             }
             else
             {
@@ -101,6 +109,26 @@ namespace JHSafetyAR.Assessment
             AppManager.Instance.LastPassed = passed;
 
             Debug.Log($"[AssessmentEngine] Assessment Finished. Theory: {theoryScore:F1}%, Practical: {practicalScore:F1}%, Total: {totalScore:F1}%, Passed: {passed}");
+
+            // Send real-time WebSocket events for completion and score
+            WebSocketClient.Instance?.SendEvent(
+                "ASSESSMENT_COMPLETED",
+                null,
+                $"Completed assessment with aggregate score {totalScore:F1}% (Theory {theoryScore:F1}%, Practical {practicalScore:F1}%)",
+                null,
+                null,
+                totalScore
+            );
+
+            WebSocketClient.Instance?.SendEvent(
+                "SCORE_GENERATED",
+                null,
+                $"Safety score computed: {totalScore:F1}% - {(passed ? "PASSED" : "FAILED")}",
+                null,
+                null,
+                totalScore
+            );
+
             OnAssessmentCompleted?.Invoke(practicalScore, theoryScore, totalScore, passed);
         }
     }

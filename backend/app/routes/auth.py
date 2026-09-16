@@ -5,8 +5,8 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.schemas.auth import RegisterRequest, LoginRequest, DemoLoginRequest, TokenResponse
-from app.schemas.user import UserResponse
-from app.services.auth_service import register_user, login_user, demo_login
+from app.schemas.user import UserResponse, UserProfileUpdate
+from app.services.auth_service import register_user, login_user, demo_login, update_user_profile
 from app.utils.security import get_current_user
 from app.models.user import User
 
@@ -37,3 +37,15 @@ def demo(req: DemoLoginRequest = DemoLoginRequest(), db: Session = Depends(get_d
 def get_me(current_user: User = Depends(get_current_user)):
     """Get current authenticated user profile."""
     return current_user
+
+
+@router.put("/profile", response_model=UserResponse)
+@router.post("/profile", response_model=UserResponse)
+def update_profile(
+    req: UserProfileUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Update profile information for the current user."""
+    updated = update_user_profile(db, current_user, req.model_dump(exclude_unset=True))
+    return updated

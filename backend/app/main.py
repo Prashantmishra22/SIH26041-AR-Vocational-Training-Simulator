@@ -11,6 +11,7 @@ import os
 from app.config import APP_NAME, APP_VERSION, CORS_ORIGINS, CERTIFICATES_DIR
 from app.database import init_db, SessionLocal
 from app.routes import auth, modules, attempts, certificates, sync, admin
+from app.routes import websocket_routes
 from app.seed.seed_data import seed_database
 
 app = FastAPI(
@@ -19,10 +20,11 @@ app = FastAPI(
     description="AR-Based Industrial Safety Training & Certification Platform for Jharkhand",
 )
 
-# CORS — allow admin dashboard and mobile app
+# CORS — allow admin dashboard (port 3001/3000/5173) and mobile app
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Open for hackathon demo; restrict in production
+    allow_origins=CORS_ORIGINS,
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1|192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+)(:\d+)?",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -39,6 +41,7 @@ app.include_router(attempts.router)
 app.include_router(certificates.router)
 app.include_router(sync.router)
 app.include_router(admin.router)
+app.include_router(websocket_routes.router)
 
 
 @app.on_event("startup")
@@ -69,6 +72,23 @@ def root():
     }
 
 
+from fastapi.responses import FileResponse
+from pathlib import Path
+
 @app.get("/health")
 def health():
     return {"status": "healthy"}
+
+
+@app.get("/download/apk")
+@app.get("/api/download/apk")
+def download_apk():
+    """Download the latest signed Android APK."""
+    apk_path = Path(__file__).resolve().parent.parent.parent / "JH-Safety-AR.apk"
+    if not apk_path.exists():
+        apk_path = Path(__file__).resolve().parent.parent.parent / "JH-Safety-AR-Android" / "JH-Safety-AR.apk"
+    return FileResponse(
+        path=str(apk_path),
+        filename="JH-Safety-AR.apk",
+        media_type="application/vnd.android.package-archive"
+    )
